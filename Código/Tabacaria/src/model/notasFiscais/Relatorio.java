@@ -1,0 +1,18 @@
+package model.notasFiscais;
+
+public class Relatorio {
+
+	private int id;
+
+	private String titulo;
+
+	private String texto;
+
+	/**
+	 *  
+	 */
+	public void fill() {
+
+	}
+
+}
