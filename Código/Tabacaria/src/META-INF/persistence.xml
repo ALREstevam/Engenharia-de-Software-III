@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="TabacariaPesistenceUnity" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>model.fornecedores.Fornecedor</class>
+    <class>model.fornecedores.Produto</class>
+    <class>model.fornecedores.ProdutoPerecivel</class>
+    <class>model.loja.Pedido</class>
+    <class>model.loja.ProdutoLoja</class>
+    <class>model.loja.Venda</class>
+    <class>model.notasFiscais.NotaFiscal</class>
+    <class>model.notasFiscais.NotaFiscalCompra</class>
+    <class>model.notasFiscais.NotaFiscalVenda</class>
+    <class>model.notasFiscais.Relatorio</class>
+    <class>model.pessoa.Funcionario</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/engii?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+	  <property name="hibernate.format_sql" value="true"/>
+      <property name="hibernate.show_sql" value="true"/>
+    </properties>
+  </persistence-unit>
+</persistence>

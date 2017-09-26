@@ -6,10 +6,6 @@ import model.loja.ProdutoLoja;
 
 public class Gerente extends Funcionario {
 
-	/**
-	 *  
-	 *  
-	 */
 	public RelatorioCompras gerarRelatorioCompras() {
 		return null;
 	}

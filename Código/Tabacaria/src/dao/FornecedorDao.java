@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.List;
 import tabacariaControllers.Database;
 import model.fornecedores.Fornecedor;
 
@@ -17,7 +18,7 @@ public class FornecedorDao {
 	/**
 	 *  
 	 */
-	public Fornecedor[] read() {
+	public List<Fornecedor> read() {
 		return null;
 	}
 

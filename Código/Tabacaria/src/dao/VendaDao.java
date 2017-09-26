@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.List;
 import tabacariaControllers.Database;
 import model.loja.Venda;
 
@@ -17,7 +18,7 @@ public class VendaDao {
 	/**
 	 *  
 	 */
-	public Venda[] read() {
+	public List<Venda> read() {
 		return null;
 	}
 
