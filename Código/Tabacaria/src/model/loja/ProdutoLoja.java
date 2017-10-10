@@ -27,12 +27,12 @@ public class ProdutoLoja {
         this.id = id;
     }
 
-    public Produto getProdutoto() {
-        return produtoto;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setProdutoto(Produto produtoto) {
-        this.produtoto = produtoto;
+    public void setProduto(Produto produtoto) {
+        this.produto = produtoto;
     }
 
     public int getQuantidadeEstoque() {
@@ -52,12 +52,4 @@ public class ProdutoLoja {
     }
         
 }
-=======
-        this.produto = produtoto;
-        this.quantidadeEstoque = quantidadeEstoque;
-        this.precoVenda = precoVenda;
-    }
-        
 
-}
->>>>>>> origin/master
