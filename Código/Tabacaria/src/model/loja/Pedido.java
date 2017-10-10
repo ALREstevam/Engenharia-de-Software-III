@@ -1,30 +1,18 @@
 package model.loja;
 
-public class Pedido extends Venda  {
+public class Pedido extends Venda {
 
-	
+    private String receptorNome;
 
-	private String receptorNome;
+    private String endereco;
 
-	private String endereco;
-        
-        private boolean status;
+    private boolean status;
 
-    public Pedido(int id, String receptorNome, String endereco, int id, ProdutoLoja[] produtos, int valorTotal) {
+    public Pedido(String receptorNome, String endereco, int id, ProdutoLoja[] produtos, int valorTotal) {
         super(id, produtos, valorTotal);
         this.receptorNome = receptorNome;
         this.endereco = endereco;
-        
-    }
-    }
-
- 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.status = false;
     }
 
     public String getReceptorNome() {
@@ -50,11 +38,10 @@ public class Pedido extends Venda  {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
 
-	public void entregar() {
-            
-            
+    public void entregar() {
 
-	}
+        setStatus(true);
+
+    }
 }

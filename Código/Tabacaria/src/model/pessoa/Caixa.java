@@ -7,6 +7,13 @@ import model.loja.Pedido;
 
 public class Caixa extends Funcionario {
 
+    public Caixa(int id, String nome, int cpf) {
+        super(id, nome, cpf);
+    }
+    
+    
+    
+
 	/**
 	 *  
 	 */

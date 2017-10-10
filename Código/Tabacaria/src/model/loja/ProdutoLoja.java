@@ -6,15 +6,15 @@ public class ProdutoLoja {
 
 	private int id;
 
-	private Produto produtoto;
+	private Produto produto;
 
 	private int quantidadeEstoque;
 
 	private int precoVenda;
 
-    public ProdutoLoja(int id, Produto produtoto, int quantidadeEstoque, int precoVenda) {
+    public ProdutoLoja( Produto produtoto, int quantidadeEstoque, int precoVenda) {
         this.id = id;
-        this.produtoto = produtoto;
+        this.produto = produto;
         this.quantidadeEstoque = quantidadeEstoque;
         this.precoVenda = precoVenda;
     }
@@ -52,3 +52,12 @@ public class ProdutoLoja {
     }
         
 }
+=======
+        this.produto = produtoto;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.precoVenda = precoVenda;
+    }
+        
+
+}
+>>>>>>> origin/master
