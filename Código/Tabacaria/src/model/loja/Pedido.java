@@ -19,8 +19,6 @@ public class Pedido extends Venda  {
     }
 
  
-   
-
     public int getId() {
         return id;
     }
