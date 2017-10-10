@@ -10,15 +10,17 @@ public class Gerente extends Funcionario {
 	 *  
 	 *  
 	 */
-	public RelatorioCompras gerarRelatorioCompras() {
-		return null;
+	public RelatorioCompras gerarRelatorioCompras(String data) {
+            RelatorioCompras r =null;
+		return r;
 	}
 
 	/**
 	 *  
 	 */
-	public RelatorioVendas gerarRelatorioVendas() {
-		return null;
+	public RelatorioVendas gerarRelatorioVendas(String data) {
+            RelatorioVendas re =null;
+		return re;
 	}
 
 	/**

@@ -52,8 +52,9 @@ public class Caixa extends Funcionario {
 	/**
 	 *  
 	 */
-	public Pedido obterDadosEntrega() {
-		return null;
+	public Pedido obterDadosEntrega(int id) {
+            Pedido p= null;
+		return p;
 	}
 
 }
