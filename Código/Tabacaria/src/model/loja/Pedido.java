@@ -10,11 +10,11 @@ public class Pedido extends Venda  {
         
         private boolean status;
 
-    public Pedido(String receptorNome, String endereco, boolean status, int id, ProdutoLoja[] produtos, int valorTotal) {
+    public Pedido(String receptorNome, String endereco, int id, ProdutoLoja[] produtos, int valorTotal) {
         super(id, produtos, valorTotal);
         this.receptorNome = receptorNome;
         this.endereco = endereco;
-        this.status = status;
+        this.status = false;
     }
 
     public String getReceptorNome() {
@@ -44,7 +44,7 @@ public class Pedido extends Venda  {
 
 	public void entregar() {
             
-            
+            setStatus(true);
 
 	}
 }

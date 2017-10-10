@@ -6,6 +6,11 @@ import model.loja.ProdutoLoja;
 
 public class Gerente extends Funcionario {
 
+    public Gerente(int id, String nome, int cpf) {
+        super(id, nome, cpf);
+    }
+    
+
 	/**
 	 *  
 	 *  
