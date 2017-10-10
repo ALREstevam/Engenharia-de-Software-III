@@ -4,7 +4,9 @@ import model.fornecedores.Produto;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -14,11 +16,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Pedido implements Serializable{
+public class Pedido extends Venda implements Serializable{
         private static final long serialVersionUID = 1L;
-        @Id
+       
+        /*@Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long id;*/
 
         @Column
 	private String receptorNome;
@@ -26,10 +29,7 @@ public class Pedido implements Serializable{
         @Column
 	private String endereco;
         
-        @OneToOne
-        @JoinColumn(foreignKey = @ForeignKey)
-        private List<Produto> produtos;
-
+        
 	public void entregar() {
 
 	}

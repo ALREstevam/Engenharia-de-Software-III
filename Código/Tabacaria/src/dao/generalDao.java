@@ -18,7 +18,7 @@ import org.hibernate.Query;
  * @author andre
  */
 public class generalDao<E> {
-    public void insert(E elem){
+    public void insertUpdate(E elem){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
         Transaction trs = null;
@@ -27,16 +27,21 @@ public class generalDao<E> {
             trs = sess.beginTransaction();
             sess.saveOrUpdate(elem);
             trs.commit();
+            System.err.println("["+elem.getClass()+" INSERIDO COM SUCESSO]");
         }
         catch(HibernateException e){
             if (trs!=null) trs.rollback();
+            System.err.println("[ERRO AO INSERIR/ATUALIZAR "+elem.getClass()+"]");
             e.printStackTrace();
         }
         finally{
             sess.flush();
             sess.close();
-            System.err.println("["+elem.getClass()+" INSERIDO COM SUCESSO]");
         }
+    }
+    
+    public void insert(E elem){
+        insertUpdate(elem);
     }
     
     public void update(E elem){
@@ -81,14 +86,15 @@ public class generalDao<E> {
         }
     }
     
-    /*public List<E> getAll(){
+    /*TODO: updt to any name*/
+    public List<E> getAll(String from, String as){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
         
-        Query select = sess.createQuery("FROM elem AS elem");
+        Query select = sess.createQuery("FROM "+from+" AS "+as+"");
         List<E> rsp = select.list();
         return rsp;
-    }*/
+    }
     
     public List<E> executeQuery(String query){
         SessionFactory sf = HibernateUtil.getSessionFactory();

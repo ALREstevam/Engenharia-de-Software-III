@@ -30,9 +30,25 @@ public class TabacariaMain {
     }
 
     public static void tests() throws Exception{
-        Fornecedor forn = new Fornecedor(0, "Adecleiton", "Rua dos Ipês", "123456789");
-        generalDao<Fornecedor> daoFornecedor = new generalDao<Fornecedor>();
-        daoFornecedor.insert(forn);
+        Fornecedor forn0 = new Fornecedor("Adecl8ei9ton", "Rua dos Ipês", "123456789");
+        Fornecedor forn1 = new Fornecedor("Cleito Cleito", "Adamantina", "345");
+        generalDao<Fornecedor> daoFornecedor = new generalDao<>();
+        
+        daoFornecedor.insert(forn0);
+        daoFornecedor.insert(forn1);
+        System.exit(0);
+        
+        System.in.read();
+        
+        forn1.setNome("Cleito Cleito Cleito");
+        daoFornecedor.update(forn1);
+        
+        forn0.setNome("Adecleiton");
+        daoFornecedor.update(forn0);
+        
+        System.exit(0);
+
+  
     }
 
 }
