@@ -136,7 +136,10 @@ public class CaixaTest {
         Pedido  p= new Pedido();
         int expResult = p.getId();
         int result = instance.obterDadosEntrega().getId();
-        if()
+        if(result=0)
+            System.out.println("Dados obtidos com sucesso");
+        else
+            System.out.println("Erro na obtenção de dados");
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
