@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Marcus
+ * @author Pedro
  */
 public class GerenteTest {
     

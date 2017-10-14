@@ -44,7 +44,7 @@ public class ProdutoPerecivelTest {
     public void testNaValidade() {
         String nome="Derby";
         System.out.println(" Teste naValidade");
-        ProdutoPerecivel instance = new ProdutoPerecivel();
+        ProdutoPerecivel instance= new ProdutoPerecivel();
         boolean expResult = true;
         boolean result = instance.naValidade();
         if(result==true)
