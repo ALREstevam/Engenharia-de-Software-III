@@ -21,22 +21,22 @@ import static org.junit.Assert.*;
  * @author Marcus
  */
 public class CaixaTest {
-    
+
     public CaixaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -52,7 +52,7 @@ public class CaixaTest {
         NotaFiscalVenda result = instance.emitirNotaVenda();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-    //    fail("The test case is a prototype.");
+        //    fail("The test case is a prototype.");
     }
 
     /**
@@ -66,7 +66,7 @@ public class CaixaTest {
         NotaFiscalCompra result = instance.receberPagamento();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-     //   fail("The test case is a prototype.");
+        //   fail("The test case is a prototype.");
     }
 
     /**
@@ -90,8 +90,13 @@ public class CaixaTest {
     public void testAdicionarProduto() {
         System.out.println("adicionarProduto");
         Caixa instance = new Caixa();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.adicionarProduto();
+        if (result == true) {
+            System.out.println("Produto adicionado com sucesso!");
+        } else {
+            System.out.println("Erro na adicao do produto!");
+        }
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -104,8 +109,13 @@ public class CaixaTest {
     public void testRemoverProduto() {
         System.out.println("removerProduto");
         Caixa instance = new Caixa();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.removerProduto();
+        if (result == true) {
+            System.out.println("Produto removido com sucesso!");
+        } else {
+            System.out.println("Falha na remocao do produto!");
+        }
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -131,18 +141,19 @@ public class CaixaTest {
     @Test
     public void testObterDadosEntrega() {
         System.out.println("obterDadosEntrega");
-        int id=0;
+        int id = 0;
         Caixa instance = new Caixa();
-        Pedido  p= new Pedido();
+        Pedido p = new Pedido();
         int expResult = p.getId();
         int result = instance.obterDadosEntrega().getId();
-        if(result=0)
+        if (result = 0) {
             System.out.println("Dados obtidos com sucesso");
-        else
+        } else {
             System.out.println("Erro na obtenção de dados");
+        }
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-    
+
 }

@@ -6,5 +6,7 @@ public class RelatorioCompras extends Relatorio {
         super(id, titulo, texto, data);
     }
 
-    
+
+
+
 }

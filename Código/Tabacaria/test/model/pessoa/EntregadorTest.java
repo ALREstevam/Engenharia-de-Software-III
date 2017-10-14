@@ -48,9 +48,9 @@ public class EntregadorTest {
         boolean result = instance.entregarPedido();
         
         if (result == true) {
-            System.out.println("Entrega OK");
+            System.out.println("Entrega realizada com sucesso!");
         } else {
-            System.out.println("Ooops, ocorreu um erro :/");
+            System.out.println("Erro na realização da entrega!");
         }
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -66,7 +66,7 @@ public class EntregadorTest {
         Entregador instance = new Entregador();
         instance.retornarPedido();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
