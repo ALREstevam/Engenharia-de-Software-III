@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class ProdutoPerecivel extends Produto {
 
-	private Date dataProducao;
+	private String dataProducao;
 
-	private Date dataValidade;
+	private String dataValidade;
 
 	private String modoConservacao;
 
-    public ProdutoPerecivel(Date dataProducao, Date dataValidade, String modoConservacao, int id, String nome, String descricao, float preco) {
+    public ProdutoPerecivel(String dataProducao, String dataValidade, String modoConservacao, int id, String nome, String descricao, float preco) {
         super(id, nome, descricao, preco);
         this.dataProducao = dataProducao;
         this.dataValidade = dataValidade;

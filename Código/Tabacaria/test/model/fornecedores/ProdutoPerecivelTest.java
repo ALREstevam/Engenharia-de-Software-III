@@ -44,8 +44,15 @@ public class ProdutoPerecivelTest {
     @Test
     public void testNaValidade() {
         String nome="Derby";
+        String dataProducao="28/09/2017";
+        String dataValidade="16/10/2018";
+        String modoConservacao="Não deverá estar em local úmido";
+        int id=0;
+        String descricao="...";
+        float preco=10;
+        
         System.out.println(" Teste naValidade");
-        ProdutoPerecivel instance= new ProdutoPerecivel(Date dataProducao, Date dataValidade, String modoConservacao, int id, String nome, String descricao, float preco);
+        ProdutoPerecivel instance= new ProdutoPerecivel(dataProducao, dataValidade,  modoConservacao,  id,  nome,  descricao,  preco);
         boolean expResult = true;
         boolean result = instance.naValidade();
         if(result==true)
