@@ -158,7 +158,8 @@ public class CaixaTest {
         int id=0;
         produtos = new ProdutoLoja[12];
         float valorTotal=100;
-        Pedido p = new Pedido(receptorNome, endereco, id, produtos, valorTotal);  
+        Pedido p = new Pedido(receptorNome, endereco, id, produtos, valorTotal);
+        Caixa instance = new Caixa();
         int expResult = p.getId();
         int result = p.getId();
         if (result ==0) {

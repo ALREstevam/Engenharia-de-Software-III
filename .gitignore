@@ -48,4 +48,10 @@ Temporary Items
 /Código/Tabacaria/nbproject/private/
 /Código/JavaCriandoExcecoes/nbproject/private/
 /Código/Testes/nbproject/private/
+<<<<<<< HEAD
 /Código/Tabacaria/build/
+/Código/Tabacaria/dist/
+=======
+/Código/Tabacaria/build/
+>>>>>>> refs/remotes/origin/master
+Código/Tabacaria/src/model/pessoa/Caixa.java

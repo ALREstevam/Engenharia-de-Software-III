@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.List;
 import tabacariaControllers.Database;
 import model.notasFiscais.Relatorio;
 
@@ -17,7 +18,7 @@ public class RelatorioDao {
 	/**
 	 *  
 	 */
-	public Relatorio[] read() {
+	public List<Relatorio> read() {
 		return null;
 	}
 

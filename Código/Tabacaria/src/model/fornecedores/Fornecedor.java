@@ -1,26 +1,71 @@
 package model.fornecedores;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public class Fornecedor {
+@Entity
+public class Fornecedor implements Serializable {
 
-    private int id;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
+    @Column
     private String nome;
 
+    @Column
     private String contato;
 
+    @Column
     private int cnpj;
-    private ArrayList<Produto> produtos;
+
+    private List<Produto> produtos;
 
     public Fornecedor(int id, String nome, String contato, int cnpj) {
         this.id = id;
         this.nome = nome;
         this.contato = contato;
         this.cnpj = cnpj;
-        produtos = new ArrayList();
+        produtos = new ArrayList<>();
     }
 
+    /**
+     *
+     *
+     *
+     */
+    public Produto novoProduto() {
+        return null;
+    }
+
+    /**
+     *
+     *
+     *
+     */
+    public Produto alterarProduto() {
+        return null;
+    }
+
+    /**
+     *
+     *
+     *
+     */
+    public boolean pararVenderProduto() {
+        return false;
+    }
+
+<<<<<<< HEAD
+    public long getId() {
+=======
     Fornecedor() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -28,10 +73,11 @@ public class Fornecedor {
 
 
     public int getId() {
+>>>>>>> 7c59f5b0f7f8fcb0ee1da678561312f6d1c0c40c
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -59,7 +105,7 @@ public class Fornecedor {
         this.cnpj = cnpj;
     }
 
-    public ArrayList<Produto> getProdutos() {
+    public List<Produto> getProdutos() {
         return produtos;
     }
 
@@ -79,47 +125,48 @@ public class Fornecedor {
      *
      */
     public boolean alterarProduto(String nome, float preco) {
-        
-        for (Produto e : produtos){
-            if (e.getNome().equals(nome)){
-                produtos.get(e.getId()).setPreco(preco);
+
+        for (Produto e : produtos) {
+            if (e.getNome().equals(nome)) {
+                e.setPreco(preco);
                 return true;
             }
         }
-        
+
         return false;
     }
-    
-     /**
+
+    /**
      *
      *
      *
      */
-    public boolean alterarProduto(String nome,String descricao) {
-        
-         for (Produto e : produtos){
-            if (e.getNome().equals(nome)){
-                produtos.get(e.getId()).setNome(descricao);
+    public boolean alterarProduto(String nome, String descricao) {
+        for (Produto e : produtos) {
+            if (e.getNome().equals(nome)) {
+                /*produtos.get(e.getId()).setNome(descricao);
+                produtos.get(cnpj)*/
+                
+                e.setNome(nome);
+                e.setDescricao(descricao);
                 return true;
             }
         }
-        
         return false;
     }
+
     /**
      *
      *
      *
      */
     public boolean pararVenderProduto(String nome) {
-        for (Produto e : produtos){
-            if (e.getNome().equals(nome)){
+        for (Produto e : produtos) {
+            if (e.getNome().equals(nome)) {
                 produtos.remove(e.getId());
                 return true;
             }
         }
-        
         return false;
     }
-
 }

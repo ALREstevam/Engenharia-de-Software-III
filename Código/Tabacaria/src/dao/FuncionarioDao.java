@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.List;
 import tabacariaControllers.Database;
 import model.pessoa.Funcionario;
 
@@ -18,7 +19,7 @@ public class FuncionarioDao {
 	/**
 	 *  
 	 */
-	public Funcionario[] read() {
+	public List<Funcionario> read() {
 		return null;
 	}
 
