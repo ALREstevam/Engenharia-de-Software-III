@@ -12,24 +12,25 @@ import javax.persistence.OneToOne;
 import model.fornecedores.Produto;
 
 @Entity
-public class ProdutoLoja implements Serializable{
+public class ProdutoLoja implements Serializable {
 
-        private static final long serialVersionUID = 1L;
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-        @OneToOne
-        @JoinColumn(foreignKey = @ForeignKey)
-	private Produto produto;
+    @OneToOne
+    @JoinColumn(foreignKey = @ForeignKey)
+    private Produto produto;
 
-        @Column
-	private int quantidadeEstoque;
+    @Column
+    private int quantidadeEstoque;
 
-        @Column
-	private double precoVenda;
+    @Column
+    private double precoVenda;
 
-    public ProdutoLoja( Produto produtoto, int quantidadeEstoque, double precoVenda) {
+    public ProdutoLoja(Produto produto, int quantidadeEstoque, double precoVenda) {
+
         this.produto = produto;
         this.quantidadeEstoque = quantidadeEstoque;
         this.precoVenda = precoVenda;
@@ -43,12 +44,9 @@ public class ProdutoLoja implements Serializable{
         this.id = id;
     }
 
-
     public Produto getProduto() {
         return produto;
     }
-
-    
 
     public void setProduto(Produto produtoto) {
         this.produto = produtoto;
@@ -66,12 +64,8 @@ public class ProdutoLoja implements Serializable{
         return precoVenda;
     }
 
-
     public void setPrecoVenda(double precoVenda) {
         this.precoVenda = precoVenda;
     }
-        
+
 }
-
-        
-

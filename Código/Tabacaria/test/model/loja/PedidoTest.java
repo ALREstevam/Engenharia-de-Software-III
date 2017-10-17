@@ -122,12 +122,17 @@ public class PedidoTest {
      * Test of entregar method, of class Pedido.
      */
     @Test
-    public void testEntregar(string status) {
-        status=true;
+    public void testEntregar(String status) {
+        
+        String receptorNome="Joao da Silva"; 
+        String endereco="Rua Paschoal Marmo, 12345, Jd.São Paulo"; 
+        int id=0;
+        ProdutoLoja[] produtos=new ProdutoLoja[10];
+        float valorTotal=100;
         System.out.println("entregar");
-        Pedido p= new Pedido();
+        Pedido p= new Pedido(receptorNome, endereco, id, produtos, valorTotal);
        p.entregar(); 
-        if(status==true)
+        if(Boolean.parseBoolean(status))
             System.out.println("Entrega feita com sucesso!");
         else
             System.out.println("Entrega não realizada!");

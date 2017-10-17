@@ -46,12 +46,13 @@ public class Venda implements Serializable{
         @Column(name="a_id")
         private List<ProdutoLoja> produtos;
 
-        @Column
-	private float valorTotal;
-        
-        
 
-    public Venda(int id, List<ProdutoLoja> produtos, float valorTotal) {
+        @Column
+	private double valorTotal;
+        
+        
+    public Venda(int id, List<ProdutoLoja> produtos, double valorTotal) {
+
         this.id = id;
         this.produtos = produtos;
         this.valorTotal = valorTotal;
@@ -73,11 +74,11 @@ public class Venda implements Serializable{
         this.produtos = produtos;
     }
 
-    public float getValorTotal() {
+    public double getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(int valorTotal) {
+    public void setValorTotal(float valorTotal) {
         this.valorTotal = valorTotal;
     }
      /**

@@ -33,7 +33,7 @@ public class Pedido extends Venda implements Serializable {
     @Column
     private Status status;
 
-    public Pedido(String receptorNome, String endereco, int id, List<ProdutoLoja> produtos, float valorTotal) {
+    public Pedido(String receptorNome, String endereco, int id, List<ProdutoLoja> produtos, double valorTotal) {
         super(id, produtos, valorTotal);
         this.receptorNome = receptorNome;
         this.endereco = endereco;
@@ -43,9 +43,6 @@ public class Pedido extends Venda implements Serializable {
     public Pedido(int id, List<ProdutoLoja> produtos, int valorTotal) {
         super(id, produtos, valorTotal);
     }
-    
-    
-    
 
     public String getReceptorNome() {
         return receptorNome;

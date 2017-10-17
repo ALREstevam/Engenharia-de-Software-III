@@ -43,7 +43,10 @@ public class EntregadorTest {
     @Test
     public void testEntregarPedido() {
         System.out.println("entregarPedido");
-        Entregador instance = new Entregador();
+        int id=0;
+        String nome="José Rezende";
+        String cpf="654848390-41";
+        Entregador instance = new Entregador(id, nome, cpf);
         boolean expResult = true;
         boolean result = instance.entregarPedido();
         

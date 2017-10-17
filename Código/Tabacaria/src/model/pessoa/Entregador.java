@@ -5,7 +5,7 @@ import model.loja.Pedido;
 
 public class Entregador extends Funcionario implements Serializable {
 
-    public Entregador(int id, String nome, int cpf) {
+    public Entregador(int id, String nome, String cpf) {
         super(id, nome, cpf);
     }
 

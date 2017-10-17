@@ -10,7 +10,7 @@ import model.notasFiscais.RelatorioVendas;
 
 public class Gerente extends Funcionario implements Serializable {
 
-    public Gerente(int id, String nome, int cpf) {
+    public Gerente(int id, String nome, String cpf) {
         super(id, nome, cpf);
     }
 
