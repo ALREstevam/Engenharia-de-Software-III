@@ -6,7 +6,7 @@ import model.loja.ProdutoLoja;
 
 public class Gerente extends Funcionario {
 
-    public Gerente(int id, String nome, int cpf) {
+    public Gerente(int id, String nome, String cpf) {
         super(id, nome, cpf);
     }
     

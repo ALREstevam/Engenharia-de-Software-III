@@ -10,9 +10,9 @@ public class ProdutoLoja {
 
 	private int quantidadeEstoque;
 
-	private int precoVenda;
+	private float precoVenda;
 
-    public ProdutoLoja( Produto produtoto, int quantidadeEstoque, int precoVenda) {
+    public ProdutoLoja( Produto produtoto, int quantidadeEstoque, float precoVenda) {
         this.id = id;
         this.produto = produto;
         this.quantidadeEstoque = quantidadeEstoque;
@@ -43,11 +43,11 @@ public class ProdutoLoja {
         this.quantidadeEstoque = quantidadeEstoque;
     }
 
-    public int getPrecoVenda() {
+    public float getPrecoVenda() {
         return precoVenda;
     }
 
-    public void setPrecoVenda(int precoVenda) {
+    public void setPrecoVenda(float precoVenda) {
         this.precoVenda = precoVenda;
     }
         

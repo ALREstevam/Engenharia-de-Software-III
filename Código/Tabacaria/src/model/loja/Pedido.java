@@ -8,7 +8,7 @@ public class Pedido extends Venda {
 
     private boolean status;
 
-    public Pedido(String receptorNome, String endereco, int id, ProdutoLoja[] produtos, int valorTotal) {
+    public Pedido(String receptorNome, String endereco, int id, ProdutoLoja[] produtos, float valorTotal) {
         super(id, produtos, valorTotal);
         this.receptorNome = receptorNome;
         this.endereco = endereco;

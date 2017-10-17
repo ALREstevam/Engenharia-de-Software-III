@@ -8,9 +8,9 @@ public class Venda  {
 
 	private ProdutoLoja[] produtos;
 
-	private int valorTotal;
+	private float valorTotal;
 
-    public Venda(int id, ProdutoLoja[] produtos, int valorTotal) {
+    public Venda(int id, ProdutoLoja[] produtos, float valorTotal) {
         this.id = id;
         this.produtos = produtos;
         this.valorTotal = valorTotal;
@@ -32,11 +32,11 @@ public class Venda  {
         this.produtos = produtos;
     }
 
-    public int getValorTotal() {
+    public float getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(int valorTotal) {
+    public void setValorTotal(float valorTotal) {
         this.valorTotal = valorTotal;
     }
     

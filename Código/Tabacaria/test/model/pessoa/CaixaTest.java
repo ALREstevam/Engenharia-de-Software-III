@@ -6,6 +6,7 @@
 package model.pessoa;
 
 import model.loja.Pedido;
+import model.loja.ProdutoLoja;
 import model.loja.Venda;
 import model.notasFiscais.NotaFiscalCompra;
 import model.notasFiscais.NotaFiscalVenda;
@@ -75,7 +76,11 @@ public class CaixaTest {
     @Test
     public void testRealizarVenda() {
         System.out.println("realizarVenda");
-        Caixa instance = new Caixa();
+        int id=0;
+        String nome="Andre de Souza";
+        String cpf="678954325-87";
+        Caixa instance;
+        instance = new Caixa(id, nome, cpf);
         Venda expResult = null;
         Venda result = instance.realizarVenda();
         assertEquals(expResult, result);
@@ -89,7 +94,10 @@ public class CaixaTest {
     @Test
     public void testAdicionarProduto() {
         System.out.println("adicionarProduto");
-        Caixa instance = new Caixa();
+        int id=0;
+        String nome="Joana Pereira";
+        String cpf="098765432-12";
+        Caixa instance = new Caixa(id, nome, cpf);
         boolean expResult = true;
         boolean result = instance.adicionarProduto();
         if (result == true) {
@@ -108,7 +116,10 @@ public class CaixaTest {
     @Test
     public void testRemoverProduto() {
         System.out.println("removerProduto");
-        Caixa instance = new Caixa();
+        int id=0;
+        String nome="Debora Rodrigues";
+        String cpf="456321908-23";
+        Caixa instance = new Caixa(id, nome, cpf);
         boolean expResult = true;
         boolean result = instance.removerProduto();
         if (result == true) {
@@ -141,12 +152,16 @@ public class CaixaTest {
     @Test
     public void testObterDadosEntrega() {
         System.out.println("obterDadosEntrega");
-        int id = 0;
-        Caixa instance = new Caixa();
-        Pedido p = new Pedido();
+        String receptorNome="Lucas da Silva";
+        String endereco="Rua das Flores 43, Jd. Paulista";
+        ProdutoLoja[] produtos;
+        int id=0;
+        produtos = new ProdutoLoja[12];
+        float valorTotal=100;
+        Pedido p = new Pedido(receptorNome, endereco, id, produtos, valorTotal);  
         int expResult = p.getId();
-        int result = instance.obterDadosEntrega().getId();
-        if (result = 0) {
+        int result = p.getId();
+        if (result ==0) {
             System.out.println("Dados obtidos com sucesso");
         } else {
             System.out.println("Erro na obtenção de dados");

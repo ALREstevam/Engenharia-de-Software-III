@@ -7,7 +7,7 @@ import model.loja.Pedido;
 
 public class Caixa extends Funcionario {
 
-    public Caixa(int id, String nome, int cpf) {
+    public Caixa(int id, String nome, String cpf) {
         super(id, nome, cpf);
     }
     
@@ -63,5 +63,9 @@ public class Caixa extends Funcionario {
             Pedido p= null;
 		return p;
 	}
+
+    Object obterDadosEntrega() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

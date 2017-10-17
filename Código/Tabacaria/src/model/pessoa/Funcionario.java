@@ -6,9 +6,9 @@ public abstract class Funcionario {
 
 	private String nome;
 
-	private int cpf;
+	private String cpf;
 
-    public Funcionario(int id, String nome, int cpf) {
+    public Funcionario(int id, String nome, String cpf) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -30,11 +30,11 @@ public abstract class Funcionario {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
    
