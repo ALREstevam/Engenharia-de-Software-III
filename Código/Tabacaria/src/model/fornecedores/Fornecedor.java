@@ -3,11 +3,14 @@ package model.fornecedores;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Fornecedor implements Serializable {
@@ -26,7 +29,15 @@ public class Fornecedor implements Serializable {
     @Column
     private int cnpj;
 
+    @ElementCollection
+        @CollectionTable(
+              name="produtos",
+              joinColumns=@JoinColumn(name="p_id")
+        )
+        @Column(name="f_id")
     private List<Produto> produtos;
+    
+    
 
     public Fornecedor(int id, String nome, String contato, int cnpj) {
         this.id = id;

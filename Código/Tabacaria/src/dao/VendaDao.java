@@ -4,36 +4,42 @@ import java.util.List;
 import tabacariaControllers.Database;
 import model.loja.Venda;
 
-public class VendaDao {
+public class VendaDao implements DataAccessObject<Venda>{
 
-	private Database db;
+    private final GeneralDao<Venda> myDao;
 
-	/**
-	 *  
-	 */
-	public boolean create() {
-		return false;
-	}
+    public VendaDao() {
+        this.myDao = new GeneralDao<>();
+    }
+    
+    @Override
+    public List<Venda> executeQuery(String query) {
+        return myDao.executeQuery(query);
+    }
 
-	/**
-	 *  
-	 */
-	public List<Venda> read() {
-		return null;
-	}
+    @Override
+    public List<Venda> getAll(String from, String as) {
+        return myDao.getAll(from, as);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean update() {
-		return false;
-	}
+    @Override
+    public void delete(Venda elem) {
+        myDao.delete(elem);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean delete() {
-		return false;
-	}
+    @Override
+    public void update(Venda elem) {
+        myDao.update(elem);
+    }
 
+    @Override
+    public void insert(Venda elem) {
+        myDao.insert(elem);
+    }
+    
+
+    @Override
+    public void insertUpdate(Venda elem) {
+        myDao.insertUpdate(elem);
+    }
 }

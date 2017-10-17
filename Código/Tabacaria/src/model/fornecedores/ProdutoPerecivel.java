@@ -9,51 +9,47 @@ import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
+import utils.DateUtils;
 
 @Entity
-public class ProdutoPerecivel extends Produto implements Serializable{
-        @Column
-        @Temporal(javax.persistence.TemporalType.DATE)
-        private LocalDate dataProducao;
+public class ProdutoPerecivel extends Produto implements Serializable {
 
-        @Column
-        @Temporal(javax.persistence.TemporalType.DATE)
-	private LocalDate dataValidade;
+    @Column
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataProducao;
 
-        @Column
-	private String modoConservacao;
-        
-        @OneToOne
-        @JoinColumn(foreignKey = @ForeignKey)
-        private Produto produtoBase;
-        
+    @Column
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataValidade;
+
+    @Column
+    private String modoConservacao;
+
+    @OneToOne
+    @JoinColumn(foreignKey = @ForeignKey)
+    private Produto produtoBase;
 
     public ProdutoPerecivel(LocalDate dataProducao, LocalDate dataValidade, String modoConservacao, int id, String nome, String descricao, float preco) {
         super(id, nome, descricao, preco);
-        this.dataProducao = dataProducao;
-        this.dataValidade = dataValidade;
+        this.dataProducao = utils.DateUtils.asDate(dataProducao);
+        this.dataValidade = utils.DateUtils.asDate(dataValidade);
         this.modoConservacao = modoConservacao;
     }
 
-    public ProdutoPerecivel() {
-    }
-    
-    
-
     public LocalDate getDataProducao() {
-        return dataProducao;
+        return utils.DateUtils.asLocalDate(dataProducao);
     }
 
     public void setDataProducao(LocalDate dataProducao) {
-        this.dataProducao = dataProducao;
+        this.dataProducao = utils.DateUtils.asDate(dataProducao);
     }
 
     public LocalDate getDataValidade() {
-        return dataValidade;
+        return utils.DateUtils.asLocalDate(dataValidade);
     }
 
     public void setDataValidade(LocalDate dataValidade) {
-        this.dataValidade = dataValidade;
+        this.dataValidade = utils.DateUtils.asDate(dataValidade);
     }
 
     public String getModoConservacao() {
@@ -64,10 +60,11 @@ public class ProdutoPerecivel extends Produto implements Serializable{
         this.modoConservacao = modoConservacao;
     }
 
-    
-
-	public boolean naValidade() {
-		return false;
-	}
+    public boolean naValidade() {
+        if(utils.DateUtils.asLocalDate(this.dataValidade).isAfter(LocalDate.now())){
+            return false;
+        }
+        return true;
+    }
 
 }

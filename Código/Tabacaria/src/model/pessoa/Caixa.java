@@ -11,13 +11,9 @@ public class Caixa extends Funcionario implements Serializable {
         super(id, nome, cpf);
     }
 
-    public Caixa() {
-    }
-    
-    
-    
-    
 
+    
+  
     /**
      *
      */
