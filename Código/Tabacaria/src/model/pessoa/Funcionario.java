@@ -8,18 +8,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public abstract class Funcionario implements Serializable{
+public abstract class Funcionario implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        private long id;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-        @Column
-	private String nome;
+    @Column
+    private String nome;
 
-        @Column
-	private String cpf;
+    @Column
+    private int cpf;
 
     public Funcionario(int id, String nome, int cpf) {
         this.id = id;
@@ -27,7 +27,7 @@ public abstract class Funcionario implements Serializable{
         this.cpf = cpf;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -50,7 +50,5 @@ public abstract class Funcionario implements Serializable{
     public void setCpf(int cpf) {
         this.cpf = cpf;
     }
-   
-    
 
 }

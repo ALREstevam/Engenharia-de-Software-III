@@ -2,32 +2,22 @@ package model.notasFiscais;
 
 public class Relatorio {
 
+    private String titulo;
 
-	private String titulo;
+    private String texto;
+    private String data;
 
-	private String texto;
-        private String data;
-	/**
-	 *  
-	 */
-	public void fill() {
-           
-  
-	}
+    /**
+     *
+     */
+    public void fill() {
 
-    public Relatorio(int id, String titulo, String texto, String data) {
-        this.id = id;
+    }
+
+    public Relatorio(String titulo, String texto, String data) {
         this.titulo = titulo;
         this.texto = texto;
-        this.data=data;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.data = data;
     }
 
     public String getTitulo() {
@@ -45,10 +35,12 @@ public class Relatorio {
     public void setTexto(String texto) {
         this.texto = texto;
     }
-    public void setData(String data){
-        this.data=data;
+
+    public void setData(String data) {
+        this.data = data;
     }
-    public String getData(){
+
+    public String getData() {
         return data;
     }
 }

@@ -19,27 +19,23 @@ public class ProdutoLoja implements Serializable{
         @GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-<<<<<<< HEAD
         @OneToOne
         @JoinColumn(foreignKey = @ForeignKey)
-=======
->>>>>>> refs/remotes/origin/master
 	private Produto produto;
 
         @Column
 	private int quantidadeEstoque;
 
         @Column
-	private int precoVenda;
+	private double precoVenda;
 
-    public ProdutoLoja( Produto produtoto, int quantidadeEstoque, int precoVenda) {
-        this.id = id;
+    public ProdutoLoja( Produto produtoto, int quantidadeEstoque, double precoVenda) {
         this.produto = produto;
         this.quantidadeEstoque = quantidadeEstoque;
         this.precoVenda = precoVenda;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -48,11 +44,11 @@ public class ProdutoLoja implements Serializable{
     }
 
     public Produto getProdutoto() {
-        return produtoto;
+        return produto;
     }
 
     public void setProdutoto(Produto produtoto) {
-        this.produtoto = produtoto;
+        this.produto = produtoto;
     }
 
     public int getQuantidadeEstoque() {
@@ -63,21 +59,12 @@ public class ProdutoLoja implements Serializable{
         this.quantidadeEstoque = quantidadeEstoque;
     }
 
-    public int getPrecoVenda() {
+    public double getPrecoVenda() {
         return precoVenda;
     }
 
-    public void setPrecoVenda(int precoVenda) {
+    public void setPrecoVenda(double precoVenda) {
         this.precoVenda = precoVenda;
     }
         
 }
-=======
-        this.produto = produtoto;
-        this.quantidadeEstoque = quantidadeEstoque;
-        this.precoVenda = precoVenda;
-    }
-        
-
-}
->>>>>>> origin/master

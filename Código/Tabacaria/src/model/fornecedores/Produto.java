@@ -26,15 +26,12 @@ public class Produto implements Serializable{
         @Column
 	private String descricao;
 
-<<<<<<< HEAD
         @Column
-	private int preco;
+	private double preco;
         
         @ManyToOne
         @JoinColumn(foreignKey = @ForeignKey)
         private Fornecedor fornecedor;
-=======
-	private float preco;
 
     public Produto(int id, String nome, String descricao, float preco) {
         this.id = id;
@@ -43,7 +40,7 @@ public class Produto implements Serializable{
         this.preco = preco;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -67,15 +64,12 @@ public class Produto implements Serializable{
         this.descricao = descricao;
     }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
     public void setPreco(float preco) {
         this.preco = preco;
     }
-
-    
->>>>>>> refs/remotes/origin/master
 
 }

@@ -1,6 +1,5 @@
 package model.loja;
 
-<<<<<<< HEAD
 import model.fornecedores.Produto;
 
 import java.io.Serializable;
@@ -17,37 +16,36 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Pedido extends Venda implements Serializable{
-        private static final long serialVersionUID = 1L;
-       
-        /*@Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;*/
+public class Pedido extends Venda implements Serializable {
 
-        @Column
-	private String receptorNome;
+    private static final long serialVersionUID = 1L;
 
-        @Column
-	private String endereco;
-        
-        
-	public void entregar() {
-=======
-public class Pedido extends Venda {
+    public enum Status {
+        entregue, naoEntregue
+    };
 
+    @Column
     private String receptorNome;
 
+    @Column
     private String endereco;
 
-    private boolean status;
+    @Column
+    private Status status;
 
-    public Pedido(String receptorNome, String endereco, int id, ProdutoLoja[] produtos, int valorTotal) {
+    public Pedido(String receptorNome, String endereco, int id, List<ProdutoLoja> produtos, int valorTotal) {
         super(id, produtos, valorTotal);
         this.receptorNome = receptorNome;
         this.endereco = endereco;
-        this.status = false;
+        this.status = Status.naoEntregue;
     }
->>>>>>> refs/remotes/origin/master
+
+    public Pedido(int id, List<ProdutoLoja> produtos, int valorTotal) {
+        super(id, produtos, valorTotal);
+    }
+    
+    
+    
 
     public String getReceptorNome() {
         return receptorNome;
@@ -65,17 +63,15 @@ public class Pedido extends Venda {
         this.endereco = endereco;
     }
 
-    public boolean isStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
     public void entregar() {
-
-        setStatus(true);
-
+        setStatus(Status.entregue);
     }
 }

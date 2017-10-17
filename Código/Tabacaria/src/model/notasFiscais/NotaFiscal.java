@@ -94,7 +94,7 @@ public abstract class NotaFiscal implements Serializable{
         this.outros = outros;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
