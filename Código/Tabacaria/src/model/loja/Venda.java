@@ -1,22 +1,63 @@
 package model.loja;
 
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import model.fornecedores.Produto;
 import model.notasFiscais.NotaFiscalVenda;
 
-public class Venda  {
+@Entity
+public class Venda implements Serializable{
 
-	private int id;
+        private static final long serialVersionUID = 1L;
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 
-	private ProdutoLoja[] produtos;
+        /*@OneToOne
+        @JoinColumn(foreignKey = @ForeignKey)
+	private List<ProdutoLoja> produtos;*/
+        
+        /*
+        @OneToOne
+        @JoinColumn(foreignKey = @ForeignKey)
+        */
+        
+        /*
+        @OneToOne(mappedBy = "Produto")
+        @ElementCollection
+        @JoinColumn(name="PART_ID")
+        */
+        
+        @ElementCollection
+        @CollectionTable(
+              name="produtos",
+              joinColumns=@JoinColumn(name="p_id")
+        )
+        @Column(name="a_id")
+        private List<ProdutoLoja> produtos;
 
+        @Column
 	private int valorTotal;
+        
+        
 
-    public Venda(int id, ProdutoLoja[] produtos, int valorTotal) {
+    public Venda(int id, List<ProdutoLoja> produtos, int valorTotal) {
         this.id = id;
         this.produtos = produtos;
         this.valorTotal = valorTotal;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -24,11 +65,11 @@ public class Venda  {
         this.id = id;
     }
 
-    public ProdutoLoja[] getProdutos() {
+    public List<ProdutoLoja> getProdutos() {
         return produtos;
     }
 
-    public void setProdutos(ProdutoLoja[] produtos) {
+    public void setProdutos(List<ProdutoLoja> produtos) {
         this.produtos = produtos;
     }
 

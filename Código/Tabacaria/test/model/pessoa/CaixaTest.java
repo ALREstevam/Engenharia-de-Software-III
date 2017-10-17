@@ -143,7 +143,11 @@ public class CaixaTest {
         System.out.println("obterDadosEntrega");
         int id = 0;
         Caixa instance = new Caixa();
+<<<<<<< HEAD
+        Pedido  p = new Pedido();
+=======
         Pedido p = new Pedido();
+>>>>>>> 7c59f5b0f7f8fcb0ee1da678561312f6d1c0c40c
         int expResult = p.getId();
         int result = instance.obterDadosEntrega().getId();
         if (result = 0) {

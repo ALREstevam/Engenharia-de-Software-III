@@ -1,26 +1,27 @@
 package model.pessoa;
 
-public class Entregador extends Funcionario {
+import java.io.Serializable;
+
+public class Entregador extends Funcionario implements Serializable {
 
     public Entregador(int id, String nome, int cpf) {
         super(id, nome, cpf);
     }
-    
 
-	/**
-	 *  
-	 *  
-	 */
-	public boolean entregarPedido() {
-		return false;
-	}
+    /**
+     *
+     *
+     */
+    public boolean entregarPedido() {
+        return false;
+    }
 
-	/**
-	 *  
-	 *  
-	 */
-	public void retornarPedido() {
+    /**
+     *
+     *
+     */
+    public void retornarPedido() {
 
-	}
+    }
 
 }

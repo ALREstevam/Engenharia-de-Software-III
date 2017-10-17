@@ -1,12 +1,25 @@
 package model.pessoa;
 
-public abstract class Funcionario {
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-	private int id;
+@Entity
+public abstract class Funcionario implements Serializable {
 
-	private String nome;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-	private int cpf;
+    @Column
+    private String nome;
+
+    @Column
+    private int cpf;
 
     public Funcionario(int id, String nome, int cpf) {
         this.id = id;
@@ -14,7 +27,7 @@ public abstract class Funcionario {
         this.cpf = cpf;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -37,7 +50,5 @@ public abstract class Funcionario {
     public void setCpf(int cpf) {
         this.cpf = cpf;
     }
-   
-    
 
 }

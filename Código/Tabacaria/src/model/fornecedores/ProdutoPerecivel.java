@@ -1,27 +1,41 @@
 package model.fornecedores;
 
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 
 public class ProdutoPerecivel extends Produto {
+       
+        private LocalDate dataProducao;
 
-	private LocalDate dataProducao;
+
 
 	private LocalDate dataValidade;
 
+
+
+	
 	private String modoConservacao;
+       
 
     public ProdutoPerecivel(LocalDate dataProducao, LocalDate dataValidade, String modoConservacao, int id, String nome, String descricao, float preco) {
+
         super(id, nome, descricao, preco);
         this.dataProducao = dataProducao;
         this.dataValidade = dataValidade;
         this.modoConservacao = modoConservacao;
     }
 
-   
+
+    
+    
+
+
+
     public LocalDate getDataProducao() {
+
         return dataProducao;
     }
 
