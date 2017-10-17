@@ -4,36 +4,42 @@ import java.util.List;
 import tabacariaControllers.Database;
 import model.loja.ProdutoLoja;
 
-public class ProdutoLojaDao {
+public class ProdutoLojaDao implements DataAccessObject<ProdutoLoja>{
 
-	private Database db;
+    private final GeneralDao<ProdutoLoja> myDao;
 
-	/**
-	 *  
-	 */
-	public boolean create() {
-		return false;
-	}
+    public ProdutoLojaDao() {
+        this.myDao = new GeneralDao<>();
+    }
+    
+    @Override
+    public List<ProdutoLoja> executeQuery(String query) {
+        return myDao.executeQuery(query);
+    }
 
-	/**
-	 *  
-	 */
-	public List<ProdutoLoja> read() {
-		return null;
-	}
+    @Override
+    public List<ProdutoLoja> getAll(String from, String as) {
+        return myDao.getAll(from, as);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean update() {
-		return false;
-	}
+    @Override
+    public void delete(ProdutoLoja elem) {
+        myDao.delete(elem);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean delete() {
-		return false;
-	}
+    @Override
+    public void update(ProdutoLoja elem) {
+        myDao.update(elem);
+    }
 
+    @Override
+    public void insert(ProdutoLoja elem) {
+        myDao.insert(elem);
+    }
+    
+
+    @Override
+    public void insertUpdate(ProdutoLoja elem) {
+        myDao.insertUpdate(elem);
+    }
 }

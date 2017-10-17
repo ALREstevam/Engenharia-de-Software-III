@@ -1,38 +1,45 @@
 package dao;
 
+import java.util.List;
 import tabacariaControllers.Database;
 import model.notasFiscais.NotaFiscal;
 
-public class NotaFiscalDao {
+public class NotaFiscalDao implements DataAccessObject<NotaFiscal>{
 
-	private Database db;
+    private final GeneralDao<NotaFiscal> myDao;
 
-	/**
-	 *  
-	 */
-	public boolean create() {
-		return false;
-	}
+    public NotaFiscalDao() {
+        this.myDao = new GeneralDao<>();
+    }
+    
+    @Override
+    public List<NotaFiscal> executeQuery(String query) {
+        return myDao.executeQuery(query);
+    }
 
-	/**
-	 *  
-	 */
-	public NotaFiscal[] read() {
-		return null;
-	}
+    @Override
+    public List<NotaFiscal> getAll(String from, String as) {
+        return myDao.getAll(from, as);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean update() {
-		return false;
-	}
+    @Override
+    public void delete(NotaFiscal elem) {
+        myDao.delete(elem);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean delete() {
-		return false;
-	}
+    @Override
+    public void update(NotaFiscal elem) {
+        myDao.update(elem);
+    }
 
+    @Override
+    public void insert(NotaFiscal elem) {
+        myDao.insert(elem);
+    }
+    
+
+    @Override
+    public void insertUpdate(NotaFiscal elem) {
+        myDao.insertUpdate(elem);
+    }
 }

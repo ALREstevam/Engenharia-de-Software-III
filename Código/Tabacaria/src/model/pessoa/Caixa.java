@@ -11,9 +11,20 @@ import model.loja.ProdutoLoja;
 
 public class Caixa extends Funcionario implements Serializable {
 
+<<<<<<< HEAD
     public Caixa(int id, String nome, String cpf) {
 
         super(id, nome, cpf);
+=======
+
+    
+  
+    /**
+     *
+     */
+    public NotaFiscalVenda emitirNotaVenda() {
+        return null;
+>>>>>>> refs/remotes/origin/hibernate
     }
 
     /**

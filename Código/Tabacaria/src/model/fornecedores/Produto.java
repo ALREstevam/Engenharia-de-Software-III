@@ -28,10 +28,7 @@ public class Produto implements Serializable{
 
         @Column
 	private double preco;
-        
-        @ManyToOne
-        @JoinColumn(foreignKey = @ForeignKey)
-        private Fornecedor fornecedor;
+       
 
     public Produto(int id, String nome, String descricao, float preco) {
         this.id = id;
