@@ -22,6 +22,7 @@ public class Caixa extends Funcionario implements Serializable {
 
     /**
      *
+     * @return 
      */
     public NotaFiscalVenda emitirNotaVenda() {
         return null;
@@ -29,6 +30,7 @@ public class Caixa extends Funcionario implements Serializable {
 
     /**
      *
+     * @return 
      */
     public NotaFiscalCompra receberPagamento() {
         return null;
@@ -36,6 +38,7 @@ public class Caixa extends Funcionario implements Serializable {
 
     /**
      *
+     * @return 
      */
     public Venda realizarVenda() {
         return null;
@@ -50,6 +53,7 @@ public class Caixa extends Funcionario implements Serializable {
 
     /**
      *
+     * @return 
      */
     public boolean removerProduto() {
         return false;
@@ -57,6 +61,7 @@ public class Caixa extends Funcionario implements Serializable {
 
     /**
      *
+     * @return 
      */
     public Venda finalizarVenda() {
         return null;
@@ -64,6 +69,7 @@ public class Caixa extends Funcionario implements Serializable {
 
     /**
      *
+     * @return 
      */
     public Pedido obterDadosEntrega(int id) {
         Pedido p = null;
