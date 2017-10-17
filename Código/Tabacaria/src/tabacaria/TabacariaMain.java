@@ -5,8 +5,14 @@
  */
 package tabacaria;
 
-import dao.GeneralDao;
-import model.fornecedores.Fornecedor;
+
+import dao.*;
+import model.fornecedores.*;
+import model.loja.*;
+import model.notasFiscais.*;
+import model.pessoa.*;
+
+
 
 /**
  *
@@ -33,7 +39,19 @@ public class TabacariaMain {
         Fornecedor forn1 = new Fornecedor(0, "Cleito Cleito", "Adamantina", 345);
         
         
-        GeneralDao<Fornecedor> daoFornecedor = new GeneralDao<>();
+        dao.FornecedorDao daoForn = new FornecedorDao();
+        
+        daoForn.insert(forn0);
+        daoForn.insert(forn1);
+        
+        /**/
+        
+        Produto p0 = new Produto(0, "Cigarretes", "sl", 25.00f);
+        
+        ProdutoDao prodDao = new ProdutoDao();
+        
+        
+        
 
 
 
