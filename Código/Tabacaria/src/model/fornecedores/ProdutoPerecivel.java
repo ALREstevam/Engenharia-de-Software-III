@@ -1,6 +1,7 @@
 package model.fornecedores;
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -8,7 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-public class ProdutoPerecivel extends Produto {
+public class ProdutoPerecivel extends Produto implements Serializable {
        @Column
         private LocalDate dataProducao;
 

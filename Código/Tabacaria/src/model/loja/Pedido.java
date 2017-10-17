@@ -33,7 +33,7 @@ public class Pedido extends Venda implements Serializable {
     @Column
     private Status status;
 
-    public Pedido(String receptorNome, String endereco, int id, List<ProdutoLoja> produtos, int valorTotal) {
+    public Pedido(String receptorNome, String endereco, int id, List<ProdutoLoja> produtos, float valorTotal) {
         super(id, produtos, valorTotal);
         this.receptorNome = receptorNome;
         this.endereco = endereco;
