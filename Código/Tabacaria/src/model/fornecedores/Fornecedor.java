@@ -63,19 +63,9 @@ public class Fornecedor implements Serializable {
         return false;
     }
 
-<<<<<<< HEAD
-    public long getId() {
-=======
-    Fornecedor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 
 
-    public int getId() {
->>>>>>> 7c59f5b0f7f8fcb0ee1da678561312f6d1c0c40c
-        return id;
-    }
 
     public void setId(long id) {
         this.id = id;
