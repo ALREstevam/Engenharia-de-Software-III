@@ -6,7 +6,19 @@ import model.notasFiscais.NotaFiscalCompra;
 import model.loja.Venda;
 import model.loja.Pedido;
 
+<<<<<<< HEAD
 public class Caixa extends Funcionario implements Serializable{
+=======
+public class Caixa extends Funcionario {
+
+    public Caixa(int id, String nome, int cpf) {
+        super(id, nome, cpf);
+    }
+    
+    
+    
+
+>>>>>>> refs/remotes/origin/master
 	/**
 	 *  
 	 */
@@ -52,8 +64,9 @@ public class Caixa extends Funcionario implements Serializable{
 	/**
 	 *  
 	 */
-	public Pedido obterDadosEntrega() {
-		return null;
+	public Pedido obterDadosEntrega(int id) {
+            Pedido p= null;
+		return p;
 	}
 
 }

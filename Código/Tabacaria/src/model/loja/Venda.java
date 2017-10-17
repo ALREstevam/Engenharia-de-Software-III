@@ -15,8 +15,12 @@ import javax.persistence.OneToOne;
 import model.fornecedores.Produto;
 import model.notasFiscais.NotaFiscalVenda;
 
+<<<<<<< HEAD
 @Entity
 public class Venda implements Serializable{
+=======
+public class Venda  {
+>>>>>>> refs/remotes/origin/master
 
         private static final long serialVersionUID = 1L;
         @Id
@@ -51,4 +55,35 @@ public class Venda implements Serializable{
         
         
 
+    public Venda(int id, ProdutoLoja[] produtos, int valorTotal) {
+        this.id = id;
+        this.produtos = produtos;
+        this.valorTotal = valorTotal;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ProdutoLoja[] getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(ProdutoLoja[] produtos) {
+        this.produtos = produtos;
+    }
+
+    public int getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(int valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+    
+        
 }
