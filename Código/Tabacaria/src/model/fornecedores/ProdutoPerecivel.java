@@ -4,19 +4,21 @@ package model.fornecedores;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
-
+@Entity
 public class ProdutoPerecivel extends Produto {
-       
+       @Column
         private LocalDate dataProducao;
 
 
-
+        @Column
 	private LocalDate dataValidade;
 
 
 
-	
+	@Column
 	private String modoConservacao;
        
 
