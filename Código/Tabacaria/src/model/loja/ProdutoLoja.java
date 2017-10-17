@@ -43,11 +43,19 @@ public class ProdutoLoja implements Serializable{
         this.id = id;
     }
 
+<<<<<<< HEAD
     public Produto getProdutoto() {
         return produto;
     }
 
     public void setProdutoto(Produto produtoto) {
+=======
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produtoto) {
+>>>>>>> 7c59f5b0f7f8fcb0ee1da678561312f6d1c0c40c
         this.produto = produtoto;
     }
 
@@ -63,8 +71,17 @@ public class ProdutoLoja implements Serializable{
         return precoVenda;
     }
 
+<<<<<<< HEAD
     public void setPrecoVenda(double precoVenda) {
         this.precoVenda = precoVenda;
     }
         
 }
+=======
+    public void setPrecoVenda(int precoVenda) {
+        this.precoVenda = precoVenda;
+    }
+        
+}
+
+>>>>>>> 7c59f5b0f7f8fcb0ee1da678561312f6d1c0c40c
