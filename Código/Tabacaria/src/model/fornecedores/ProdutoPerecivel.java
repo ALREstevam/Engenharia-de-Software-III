@@ -17,14 +17,7 @@ public class ProdutoPerecivel extends Produto {
         this.modoConservacao = modoConservacao;
     }
 
-    ProdutoPerecivel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    ProdutoPerecivel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     public Date getDataProducao() {
         return dataProducao;
     }
