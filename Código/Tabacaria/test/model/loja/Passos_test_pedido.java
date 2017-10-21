@@ -9,6 +9,6 @@ package model.loja;
  *
  * @author Karen
  */
-public class Passos_test_pedido {
+public class Passos_test_pedido extends Steps{
     
 }
