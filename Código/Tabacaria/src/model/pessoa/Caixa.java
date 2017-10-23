@@ -80,4 +80,12 @@ public class Caixa extends Funcionario implements Serializable {
         return pedido;
     }
 
+    boolean adicionarProduto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    boolean removerProduto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
