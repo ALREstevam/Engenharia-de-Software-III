@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.pessoa;
+package model.loja;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,11 +14,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Karen
+ * @author Pedro
  */
-public class EntregadorTest {
+public class PedidoTest {
     
-    public EntregadorTest() {
+    public PedidoTest() {
     }
     
     @BeforeClass
@@ -37,30 +37,28 @@ public class EntregadorTest {
     public void tearDown() {
     }
 
+
     /**
-     * Test of entregarPedido method, of class Entregador.
+     * Test of setStatus method, of class Pedido.
+     * @param status
      */
     @Test
-    public void testEntregarPedido() {
-        System.out.println("entregarPedido");
-        int id=0;
-        String nome="José Rezende";
-        String cpf="654848390-41";
-        Entregador p = new Entregador(id, nome, cpf);
-        boolean expResult = true;
-        boolean result = p.entregarPedido();
+    public void testEntregar(String status) {
         
-        if (result == true) {
-            System.out.println("Entrega realizada com sucesso!");
-        } else {
-            System.out.println("Erro na realização da entrega!");
-        }
-        assertEquals(expResult, result);
+        String receptorNome="Joao da Silva"; 
+        String endereco="Rua Paschoal Marmo, 12345, Jd.São Paulo"; 
+        int id=0;
+        ProdutoLoja[] produtos=new ProdutoLoja[10];
+        float valorTotal=100;
+        System.out.println("entregar");
+        Pedido p= new Pedido(receptorNome, endereco, id, produtos, valorTotal);
+       p.entregar(); 
+        if(Boolean.parseBoolean(status))
+            System.out.println("Entrega feita com sucesso!");
+        else
+            System.out.println("Entrega não realizada!");
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of retornarPedido method, of class Entregador.
-     */
- 
+    
+}

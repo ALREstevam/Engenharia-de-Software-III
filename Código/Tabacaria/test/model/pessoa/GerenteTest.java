@@ -5,6 +5,9 @@
  */
 package model.pessoa;
 
+import java.util.ArrayList;
+import java.util.List;
+import model.fornecedores.ProdutoPerecivel;
 import model.loja.ProdutoLoja;
 import model.notasFiscais.RelatorioCompras;
 import model.notasFiscais.RelatorioVendas;
@@ -17,7 +20,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Marcus
+ * @author Pedro
  */
 public class GerenteTest {
     
@@ -46,13 +49,21 @@ public class GerenteTest {
     @Test
     public void testGerarRelatorioCompras() {
         System.out.println("gerarRelatorioCompras");
-        String data = "";
-        Gerente instance = new Gerente();
+        String titulo = "Relatorio de Compras";
+        String texto = "........................";
+        String data = "28/09/2017";
+        int id=0;
+        String nome= "João da Silva";
+        String cpf="978143856-0";
+        Gerente instance = new Gerente(id, nome, cpf);
         RelatorioCompras expResult = null;
-        RelatorioCompras result = instance.gerarRelatorioCompras(data);
+        RelatorioCompras result = instance.gerarRelatorioCompras(titulo, texto, data);
+        if(result==null)
+            System.out.println("Relatório de Compras gerado com sucesso!");
+        else
+            System.out.println("Falha ao gerar relatório de Compras!");
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
@@ -61,51 +72,21 @@ public class GerenteTest {
     @Test
     public void testGerarRelatorioVendas() {
         System.out.println("gerarRelatorioVendas");
-        String data = "";
-        Gerente instance = new Gerente();
+        String titulo = "Relatorio de Vendas";
+        String texto = "..................................";
+        String data = "12/07/2017"; 
+        int id=0;
+        String nome="João da Silva";
+        String cpf="978143856-0";
+        Gerente instance = new Gerente(id, nome,cpf);
         RelatorioVendas expResult = null;
-        RelatorioVendas result = instance.gerarRelatorioVendas(data);
+        RelatorioVendas result = instance.gerarRelatorioVendas(titulo, texto, data);
+        if(result==null)
+            System.out.println("Relatório de Vendas gerado com sucesso!");
+        else
+            System.out.println("Falha ao gerar Relatório de Vendas!");
         assertEquals(expResult, result);
-// TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of comprarProduto method, of class Gerente.
-     */
-    @Test
-    public void testComprarProduto() {
-        System.out.println("comprarProduto");
-        Gerente instance = new Gerente();
-        instance.comprarProduto();
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of listarProdutosVencidos method, of class Gerente.
-     */
-    @Test
-    public void testListarProdutosVencidos() {
-        System.out.println("listarProdutosVencidos");
-        Gerente instance = new Gerente();
-        ProdutoLoja expResult = null;
-        ProdutoLoja result = instance.listarProdutosVencidos();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
     /**
      * Test of descartarProduto method, of class Gerente.
      */
-    @Test
-    public void testDescartarProduto() {
-        System.out.println("descartarProduto");
-        Gerente instance = new Gerente();
-        instance.descartarProduto();
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-    
-}

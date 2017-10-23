@@ -6,6 +6,7 @@
 package model.pessoa;
 
 import model.loja.Pedido;
+import model.loja.ProdutoLoja;
 import model.loja.Venda;
 import model.notasFiscais.NotaFiscalCompra;
 import model.notasFiscais.NotaFiscalVenda;
@@ -18,55 +19,27 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Marcus
+ * @author Pedro
  */
 public class CaixaTest {
-    
+
     public CaixaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
-    }
-
-    /**
-     * Test of emitirNotaVenda method, of class Caixa.
-     */
-    @Test
-    public void testEmitirNotaVenda() {
-        System.out.println("emitirNotaVenda");
-        Caixa instance = new Caixa();
-        NotaFiscalVenda expResult = null;
-        NotaFiscalVenda result = instance.emitirNotaVenda();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-    //    fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of receberPagamento method, of class Caixa.
-     */
-    @Test
-    public void testReceberPagamento() {
-        System.out.println("receberPagamento");
-        Caixa instance = new Caixa();
-        NotaFiscalCompra expResult = null;
-        NotaFiscalCompra result = instance.receberPagamento();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-     //   fail("The test case is a prototype.");
     }
 
     /**
@@ -75,9 +48,18 @@ public class CaixaTest {
     @Test
     public void testRealizarVenda() {
         System.out.println("realizarVenda");
-        Caixa instance = new Caixa();
+        int id=0;
+        String nome="Andre de Souza";
+        String cpf="678954325-87";
+        float valorTotal=124;
+        Caixa instance;
+        instance = new Caixa(id, nome, cpf);
         Venda expResult = null;
-        Venda result = instance.realizarVenda();
+        Venda result = instance.realizarVenda(id, valorTotal);
+        if(result==null)
+            System.out.println("Venda realizada com sucesso!");
+        else
+            System.out.println("Venda não realizada!");
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -89,9 +71,17 @@ public class CaixaTest {
     @Test
     public void testAdicionarProduto() {
         System.out.println("adicionarProduto");
-        Caixa instance = new Caixa();
-        boolean expResult = false;
+        int id=0;
+        String nome="Joana Pereira";
+        String cpf="098765432-12";
+        Caixa instance = new Caixa(id, nome, cpf);
+        boolean expResult = true;
         boolean result = instance.adicionarProduto();
+        if (result == true) {
+            System.out.println("Produto adicionado com sucesso!");
+        } else {
+            System.out.println("Erro na adicao do produto!");
+        }
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -103,46 +93,18 @@ public class CaixaTest {
     @Test
     public void testRemoverProduto() {
         System.out.println("removerProduto");
-        Caixa instance = new Caixa();
-        boolean expResult = false;
-        boolean result = instance.removerProduto();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of finalizarVenda method, of class Caixa.
-     */
-    @Test
-    public void testFinalizarVenda() {
-        System.out.println("finalizarVenda");
-        Caixa instance = new Caixa();
-        Venda expResult = null;
-        Venda result = instance.finalizarVenda();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of obterDadosEntrega method, of class Caixa.
-     */
-    @Test
-    public void testObterDadosEntrega() {
-        System.out.println("obterDadosEntrega");
         int id=0;
-        Caixa instance = new Caixa();
-        Pedido  p = new Pedido();
-        int expResult = p.getId();
-        int result = instance.obterDadosEntrega().getId();
-        if(result=0)
-            System.out.println("Dados obtidos com sucesso");
-        else
-            System.out.println("Erro na obtenção de dados");
+        String nome="Debora Rodrigues";
+        String cpf="456321908-23";
+        Caixa instance = new Caixa(id, nome, cpf);
+        boolean expResult = true;
+        boolean result = instance.removerProduto();
+        if (result == true) {
+            System.out.println("Produto removido com sucesso!");
+        } else {
+            System.out.println("Falha na remocao do produto!");
+        }
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
-    }
-    
-}
+    }}

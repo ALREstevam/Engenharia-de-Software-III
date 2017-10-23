@@ -69,4 +69,8 @@ public class Produto implements Serializable{
         this.preco = preco;
     }
 
+    boolean novoProduto(int id, String nome, String descricao, float preco) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

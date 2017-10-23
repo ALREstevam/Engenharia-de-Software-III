@@ -74,9 +74,9 @@ public class Fornecedor implements Serializable {
         return false;
     }
 
-    public long getId() {
-        return id;
-    }
+
+
+
 
     public void setId(long id) {
         this.id = id;
@@ -162,10 +162,11 @@ public class Fornecedor implements Serializable {
      *
      */
     public boolean pararVenderProduto(String nome) {
+        Produto p;
         for (Produto e : produtos) {
             if (e.getNome().equals(nome)) {
-                produtos.remove(e.getId());
-                return true;
+                p = e;
+               return produtos.remove(e);
             }
         }
         return false;

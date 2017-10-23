@@ -1,13 +1,16 @@
 package model.pessoa;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import model.fornecedores.ProdutoPerecivel;
 import model.notasFiscais.RelatorioCompras;
 import model.notasFiscais.RelatorioVendas;
-import model.loja.ProdutoLoja;
+
 
 public class Gerente extends Funcionario implements Serializable {
 
-    public Gerente(int id, String nome, int cpf) {
+    public Gerente(int id, String nome, String cpf) {
         super(id, nome, cpf);
     }
 
@@ -15,16 +18,16 @@ public class Gerente extends Funcionario implements Serializable {
      *
      *
      */
-    public RelatorioCompras gerarRelatorioCompras(String data) {
-        RelatorioCompras r = null;
-        return r;
+    public RelatorioCompras gerarRelatorioCompras(String titulo, String texto, String data) {
+        RelatorioCompras relatorio = new RelatorioCompras(titulo,texto,data);
+        return relatorio;
     }
 
     /**
      *
      */
-    public RelatorioVendas gerarRelatorioVendas(String data) {
-        RelatorioVendas re = null;
+    public RelatorioVendas gerarRelatorioVendas(String titulo, String texto, String data) {
+        RelatorioVendas re = new RelatorioVendas(titulo,texto,data);
         return re;
     }
 
@@ -32,21 +35,36 @@ public class Gerente extends Funcionario implements Serializable {
      *
      */
     public void comprarProduto() {
+        
 
     }
 
     /**
      *
      */
-    public ProdutoLoja listarProdutosVencidos() {
-        return null;
+    public List <String> listarProdutosVencidos(ArrayList <ProdutoPerecivel> produtos ) {
+           List<String> listaP = new ArrayList () ;
+          for (ProdutoPerecivel el : produtos){
+              if (!el.naValidade()){
+                  listaP.add(el.getNome());
+                  listaP.add(el.getDataValidade().toString());
+              }
+              
+          }
+          return listaP;
     }
 
     /**
      *
      */
-    public void descartarProduto() {
-
+    public void descartarProduto(ArrayList <ProdutoPerecivel> produtos, String nomeP) {
+              for (ProdutoPerecivel el : produtos){
+              if (el.getNome().equals(nomeP)){
+                  produtos.remove(el);
+                  return;
+              }
+              
+          }
     }
 
 }
