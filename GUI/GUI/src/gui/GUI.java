@@ -16,6 +16,8 @@ public class GUI {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MenuPrincipal aGui = new MenuPrincipal();
+        aGui.setVisible(true);
     }
     
 }

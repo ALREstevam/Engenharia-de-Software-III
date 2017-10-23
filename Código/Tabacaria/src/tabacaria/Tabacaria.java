@@ -19,7 +19,9 @@ public class Tabacaria {
     public static void main(String[] args) {
         // TODO code application logic here
     
-        
+        System.out.println("main");
+        view.MainJFrame mainjfrm = new view.MainJFrame();
+        mainjfrm.setVisible(true);
     
     
     }

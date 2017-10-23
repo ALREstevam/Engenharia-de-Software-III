@@ -26,11 +26,13 @@ public class TabacariaMain {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        try {
+        
+        
+        /*try {
             tests();
         } catch (Exception e) {
             System.exit(0);
-        }
+        }*/
 
     }
 
