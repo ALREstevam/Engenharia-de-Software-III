@@ -1,38 +1,45 @@
 package dao;
 
+import java.util.List;
 import tabacariaControllers.Database;
 import model.fornecedores.Produto;
 
-public class ProdutoDao {
+public class ProdutoDao implements DataAccessObject<Produto>{
 
-	private Database db;
+    private final GeneralDao<Produto> myDao;
 
-	/**
-	 *  
-	 */
-	public boolean create() {
-		return false;
-	}
+    public ProdutoDao() {
+        this.myDao = new GeneralDao<>();
+    }
+    
+    @Override
+    public List<Produto> executeQuery(String query) {
+        return myDao.executeQuery(query);
+    }
 
-	/**
-	 *  
-	 */
-	public Produto[] read() {
-		return null;
-	}
+    @Override
+    public List<Produto> getAll(String from, String as) {
+        return myDao.getAll(from, as);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean update() {
-		return false;
-	}
+    @Override
+    public void delete(Produto elem) {
+        myDao.delete(elem);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean delete() {
-		return false;
-	}
+    @Override
+    public void update(Produto elem) {
+        myDao.update(elem);
+    }
 
+    @Override
+    public void insert(Produto elem) {
+        myDao.insert(elem);
+    }
+    
+
+    @Override
+    public void insertUpdate(Produto elem) {
+        myDao.insertUpdate(elem);
+    }
 }

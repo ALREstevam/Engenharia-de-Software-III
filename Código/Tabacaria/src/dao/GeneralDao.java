@@ -17,7 +17,7 @@ import org.hibernate.Query;
  *
  * @author andre
  */
-public class generalDao<E> {
+public class GeneralDao<E> implements DataAccessObject<E>{
     public void insertUpdate(E elem){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();

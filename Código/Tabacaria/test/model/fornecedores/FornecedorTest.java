@@ -5,6 +5,7 @@
  */
 package model.fornecedores;
 
+
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,7 +16,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Marcus
+ * @author Pedro
  */
 public class FornecedorTest {
 
@@ -48,15 +49,14 @@ public class FornecedorTest {
         String nome = "Derby";
         String descricao = "Cigarro";
         float preco = 10;
-        Fornecedor forn = new Fornecedor();
+        Produto prod = new Produto(id, nome, descricao, preco);
         boolean expResult = true;
-        boolean result = forn.novoProduto(id, nome, descricao, preco);
-        assertEquals(expResult, result);
-        //if (expResult==result) 
+        boolean result = prod.novoProduto(id, nome, descricao, preco);
+        if (expResult==result) 
             System.out.println("Produto cadastrado com sucesso!");
-         //else 
+         else 
             System.out.println("Falha no cadastro do produto");
-        
+        assertEquals(expResult, result);
         
 
         // TODO review the generated test code and remove the default call to fail.
@@ -69,11 +69,13 @@ public class FornecedorTest {
     @Test
     public void testAlterarProduto_String_float() {
         System.out.println("alterarProduto");
+        int id=0;
         String nome = "Minister";
-        float preco = 9.0F;
-        Fornecedor instance = new Fornecedor();
+        String descricao="cigarro";
+        float preco = 9;
+        Produto instance = new Produto(id, nome, descricao, preco);
         boolean expResult = true;
-        boolean result = instance.alterarProduto(nome, preco);
+        boolean result = instance.alterarProduto(nome, descricao, preco);
         if(result==true)
         System.out.println("Produto alterado com sucesso!");    
             else
@@ -90,13 +92,18 @@ public class FornecedorTest {
     @Test
     public void testAlterarProduto_String_String() {
         System.out.println("alterarProduto");
-        String nome = "";
-        String descricao = "";
-        Fornecedor instance = new Fornecedor();
-        boolean expResult = false;
-        boolean result = instance.alterarProduto(nome, descricao);
+        int id=0;
+        String nome = "L&M";
+        String descricao = "Cigarro";
+        float preco=11;
+        Produto instance = new Produto(id, nome, descricao, preco);
+        boolean expResult = true;
+        boolean result = instance.alterarProduto(nome, descricao, preco);
+        if(result==true)
+        System.out.println("Produto alterado com sucesso!");    
+            else
+            System.out.println("Falha na alteracao do produto!");
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
         // fail("The test case is a prototype.");
     }
 
@@ -106,8 +113,11 @@ public class FornecedorTest {
     @Test
     public void testPararVenderProduto() {
         System.out.println("pararVenderProduto");
+        int id=0;
         String nome = "Fulano";
-        Fornecedor instance = new Fornecedor();
+        String contato="19- 34121298";
+        String cnpj="123.456.789/0001-7";
+        Fornecedor instance = new Fornecedor(id, nome, contato, cnpj);
         boolean expResult = true;
         boolean result = instance.pararVenderProduto(nome);
         if(result==true)

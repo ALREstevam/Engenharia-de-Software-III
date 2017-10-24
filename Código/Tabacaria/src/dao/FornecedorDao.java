@@ -4,36 +4,42 @@ import java.util.List;
 import tabacariaControllers.Database;
 import model.fornecedores.Fornecedor;
 
-public class FornecedorDao {
+public class FornecedorDao implements DataAccessObject<Fornecedor>{
 
-	private Database db;
+    private final GeneralDao<Fornecedor> myDao;
 
-	/**
-	 *  
-	 */
-	public boolean create() {
-		return false;
-	}
+    public FornecedorDao() {
+        this.myDao = new GeneralDao<>();
+    }
+    
+    @Override
+    public List<Fornecedor> executeQuery(String query) {
+        return myDao.executeQuery(query);
+    }
 
-	/**
-	 *  
-	 */
-	public List<Fornecedor> read() {
-		return null;
-	}
+    @Override
+    public List<Fornecedor> getAll(String from, String as) {
+        return myDao.getAll(from, as);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean update() {
-		return false;
-	}
+    @Override
+    public void delete(Fornecedor elem) {
+        myDao.delete(elem);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean delete() {
-		return false;
-	}
+    @Override
+    public void update(Fornecedor elem) {
+        myDao.update(elem);
+    }
 
+    @Override
+    public void insert(Fornecedor elem) {
+        myDao.insert(elem);
+    }
+    
+
+    @Override
+    public void insertUpdate(Fornecedor elem) {
+        myDao.insertUpdate(elem);
+    }
 }

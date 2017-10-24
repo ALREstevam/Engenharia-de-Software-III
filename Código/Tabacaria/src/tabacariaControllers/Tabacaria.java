@@ -5,7 +5,6 @@ import dao.VendaDao;
 import dao.FornecedorDao;
 import dao.ProdutoDao;
 import dao.ProdutoLojaDao;
-import dao.RelatorioDao;
 import dao.NotaFiscalDao;
 import model.loja.Venda;
 import model.notasFiscais.Relatorio;
@@ -27,8 +26,6 @@ public class Tabacaria {
 	private ProdutoDao daoProd;
 
 	private ProdutoLojaDao daoProdLoja;
-
-	private RelatorioDao daoRelat;
 
 	private NotaFiscalDao daoNf;
 

@@ -7,6 +7,10 @@ public class Relatorio {
     private String texto;
     private String data;
 
+    public Relatorio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      *
      */

@@ -46,9 +46,9 @@ public class EntregadorTest {
         int id=0;
         String nome="José Rezende";
         String cpf="654848390-41";
-        Entregador instance = new Entregador(id, nome, cpf);
+        Entregador p = new Entregador(id, nome, cpf);
         boolean expResult = true;
-        boolean result = instance.entregarPedido();
+        boolean result = p.entregarPedido();
         
         if (result == true) {
             System.out.println("Entrega realizada com sucesso!");
@@ -63,13 +63,4 @@ public class EntregadorTest {
     /**
      * Test of retornarPedido method, of class Entregador.
      */
-    @Test
-    public void testRetornarPedido() {
-        System.out.println("retornarPedido");
-        Entregador instance = new Entregador();
-        instance.retornarPedido();
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-    
-}
+ 

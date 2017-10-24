@@ -28,10 +28,7 @@ public class Produto implements Serializable{
 
         @Column
 	private double preco;
-        
-        @ManyToOne
-        @JoinColumn(foreignKey = @ForeignKey)
-        private Fornecedor fornecedor;
+       
 
     public Produto(int id, String nome, String descricao, float preco) {
         this.id = id;
@@ -70,6 +67,10 @@ public class Produto implements Serializable{
 
     public void setPreco(float preco) {
         this.preco = preco;
+    }
+
+    boolean novoProduto(int id, String nome, String descricao, float preco) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

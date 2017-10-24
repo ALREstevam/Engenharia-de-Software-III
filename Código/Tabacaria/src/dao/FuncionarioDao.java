@@ -4,37 +4,42 @@ import java.util.List;
 import tabacariaControllers.Database;
 import model.pessoa.Funcionario;
 
-public class FuncionarioDao {
+public class FuncionarioDao implements DataAccessObject<Funcionario>{
 
-	private Database db;
+    private final GeneralDao<Funcionario> myDao;
 
-	/**
-	 *  
-	 *  
-	 */
-	public boolean create() {
-		return false;
-	}
+    public FuncionarioDao() {
+        this.myDao = new GeneralDao<>();
+    }
+    
+    @Override
+    public List<Funcionario> executeQuery(String query) {
+        return myDao.executeQuery(query);
+    }
 
-	/**
-	 *  
-	 */
-	public List<Funcionario> read() {
-		return null;
-	}
+    @Override
+    public List<Funcionario> getAll(String from, String as) {
+        return myDao.getAll(from, as);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean update() {
-		return false;
-	}
+    @Override
+    public void delete(Funcionario elem) {
+        myDao.delete(elem);
+    }
 
-	/**
-	 *  
-	 */
-	public boolean delete() {
-		return false;
-	}
+    @Override
+    public void update(Funcionario elem) {
+        myDao.update(elem);
+    }
 
+    @Override
+    public void insert(Funcionario elem) {
+        myDao.insert(elem);
+    }
+    
+
+    @Override
+    public void insertUpdate(Funcionario elem) {
+        myDao.insertUpdate(elem);
+    }
 }
