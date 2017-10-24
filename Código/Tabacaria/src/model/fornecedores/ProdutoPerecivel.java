@@ -65,11 +65,7 @@ public class ProdutoPerecivel extends Produto implements Serializable {
     
 
 	public boolean naValidade() {
-            if (Integer.parseInt(dataValidade.format(DateTimeFormatter.BASIC_ISO_DATE)) > Integer.parseInt(LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE))){
-                return true;
-            } else {
-                return false;
-            }
+           return dataValidade.isBefore(LocalDate.now());
 		
 	}
 
