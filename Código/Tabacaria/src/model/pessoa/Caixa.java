@@ -11,41 +11,14 @@ import model.loja.ProdutoLoja;
 
 public class Caixa extends Funcionario implements Serializable {
 
-<<<<<<< HEAD
     public Caixa(int id, String nome, String cpf) {
 
         super(id, nome, cpf);
-=======
 
-    
-  
-    /**
-     *
-     */
-    public NotaFiscalVenda emitirNotaVenda() {
-        return null;
->>>>>>> refs/remotes/origin/hibernate
     }
 
-    /**
-     *
-     * <<<<<<< HEAD
-     *
-     * @param comentarioVenda
-     * @param id
-     * @param prestadorNome
-     * @param prestadorEndereco
-     * @param prestadorCnpj
-     * @param tomadorNome
-     * @param tomadorEndereco
-     * @param tomadorCnpj
-     * @param prestadorOutrosDados
-     * @return
-     */
-    public NotaFiscalVenda emitirNotaVenda(String comentarioVenda, int id, String prestadorNome, String prestadorEndereco, String prestadorCnpj, String tomadorNome, String tomadorEndereco, int tomadorCnpj, String prestadorOutrosDados, String tomadorOutrosDados, String servicosLista, float valorNota, float deducoes, float desconto, float base, float aliquota, float iss, float credito, String outros) {
-        NotaFiscalVenda notaFiscal = new NotaFiscalVenda(comentarioVenda, id, prestadorNome, prestadorEndereco, prestadorCnpj, tomadorNome, tomadorEndereco, tomadorCnpj, prestadorOutrosDados, tomadorOutrosDados, servicosLista, valorNota, deducoes, desconto, base, aliquota, iss, credito, outros);
-
-        return notaFiscal;
+    public NotaFiscalVenda emitirNotaVenda() {
+        return null;
 
     }
 
