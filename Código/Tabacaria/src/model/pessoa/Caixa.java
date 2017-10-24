@@ -31,8 +31,7 @@ public class Caixa extends Funcionario implements Serializable {
      *
      */
     public Venda realizarVenda(int id, double valorTotal) {
-        List produtos = new ArrayList<ProdutoLoja>();
-        Venda venda = new Venda(id, produtos, valorTotal);
+        Venda venda = new Venda(id);
         return venda;
     }
 
@@ -40,25 +39,25 @@ public class Caixa extends Funcionario implements Serializable {
      *
      * @return
      */
-    public boolean finalizarVenda() {
-        return true;
+    public double finalizarVenda( Venda v) {
+        return v.getValorTotal();
     }
 
     /**
      *
      * @return
      */
-    public Pedido obterDadosEntrega(int id, String receptorNome, List<ProdutoLoja> produtos, String endereco, float valorTotal) {
-        Pedido pedido = new Pedido(receptorNome, endereco, id, produtos, valorTotal);
+    public Pedido obterDadosEntrega(int id, String receptorNome, String endereco, float valorTotal) {
+        Pedido pedido = new Pedido(receptorNome, endereco, id);
         return pedido;
     }
 
-    boolean adicionarProduto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    boolean adicionarProduto(Venda v, ProdutoLoja p, int qtd ) {
+       return v.adicionarProduto(p, qtd);
     }
 
-    boolean removerProduto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    boolean removerProduto(Venda v,ProdutoLoja p,int qtd) {
+        return v.removerProduto(p, qtd);
     }
 
 }

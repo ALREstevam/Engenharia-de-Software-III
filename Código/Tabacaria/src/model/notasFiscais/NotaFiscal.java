@@ -237,5 +237,5 @@ public abstract class NotaFiscal implements Serializable{
     public void setOutros(String outros) {
         this.outros = outros;
     }
-
+    
 }
