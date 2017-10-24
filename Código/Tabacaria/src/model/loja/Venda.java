@@ -1,6 +1,7 @@
 package model.loja;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -51,11 +52,11 @@ public class Venda implements Serializable{
 	private double valorTotal;
         
         
-    public Venda(int id, List<ProdutoLoja> produtos, double valorTotal) {
+    public Venda(int id) {
 
         this.id = id;
-        this.produtos = produtos;
-        this.valorTotal = valorTotal;
+        this.produtos =  new ArrayList();
+        this.valorTotal = 0;
     }
 
     public long getId() {
@@ -70,30 +71,36 @@ public class Venda implements Serializable{
         return produtos;
     }
 
-    public void setProdutos(List<ProdutoLoja> produtos) {
-        this.produtos = produtos;
-    }
-
     public double getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(float valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setValorTotal(double valorAdc) {
+        this.valorTotal += valorTotal;
     }
      /**
      *
      */
-    public boolean adicionarProduto() {
+    public boolean adicionarProduto(ProdutoLoja p, int qtd) {
         
-        return false;
+        setValorTotal(p.getPrecoVenda()*qtd);
+        return this.produtos.add(p);
     }
 
     /**
      *
      */
-    public boolean removerProduto() {
-        return false;
-    }
+    public boolean removerProduto(ProdutoLoja p,int qtd ) {
+        setValorTotal(-1*(p.getPrecoVenda()*qtd));
         
+        return this.produtos.remove(p);
+    }
+    /**
+     * 
+     * @return 
+     */
+    public boolean vendaVazia (){
+        
+        return this.produtos.isEmpty();
+    }
 }
