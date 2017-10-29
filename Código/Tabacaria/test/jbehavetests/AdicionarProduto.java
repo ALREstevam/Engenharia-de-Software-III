@@ -11,6 +11,5 @@ package jbehavetests;
  */
 public class AdicionarProduto extends Scenario{
     public AdicionarProduto () {
-        
     }
 }

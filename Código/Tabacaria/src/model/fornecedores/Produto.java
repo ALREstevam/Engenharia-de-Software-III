@@ -37,6 +37,10 @@ public class Produto implements Serializable{
         this.preco = preco;
     }
 
+    public Produto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public long getId() {
         return id;
     }
