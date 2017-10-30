@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import hibernate.HibernateUtil;
+import java.io.Serializable;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -17,7 +18,13 @@ import org.hibernate.Query;
  *
  * @author andre
  */
-public class GeneralDao<E> implements DataAccessObject<E>{
+/**
+ * Classe GeneralDao uma classe que usa o hibernate para implementar a interface de
+ * CRUD para um tipo de objeto qualquer
+ * @author andre
+ * @param <E> tipo do objeto a ser persistido pelo DAO
+ */
+public class GeneralDao<E extends Serializable> implements DataAccessObject<E>{
     public void insertUpdate(E elem){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
@@ -40,10 +47,18 @@ public class GeneralDao<E> implements DataAccessObject<E>{
         }
     }
     
+    /**
+     * Inserir elemento
+     * @param elem 
+     */
     public void insert(E elem){
         insertUpdate(elem);
     }
     
+    /**
+     * Atualizar elemento
+     * @param elem 
+     */
     public void update(E elem){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
@@ -65,6 +80,10 @@ public class GeneralDao<E> implements DataAccessObject<E>{
         }
     }
     
+    /**
+     * Deletar elemento
+     * @param elem 
+     */
     public void delete(E elem){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
@@ -87,6 +106,12 @@ public class GeneralDao<E> implements DataAccessObject<E>{
     }
     
     /*TODO: updt to any name*/
+    /**
+     * Select geral que retorne linhas da tabela mapeáveis para o tipo E
+     * @param from
+     * @param as
+     * @return 
+     */
     public List<E> getAll(String from, String as){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
@@ -96,6 +121,12 @@ public class GeneralDao<E> implements DataAccessObject<E>{
         return rsp;
     }
     
+    
+    /**
+     * Executar uma query
+     * @param query
+     * @return 
+     */
     public List<E> executeQuery(String query){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();

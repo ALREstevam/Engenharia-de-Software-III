@@ -62,7 +62,7 @@ public class ProdutoPerecivel extends Produto implements Serializable {
     }
 
     public boolean naValidade() {
-        if(utils.DateUtils.asLocalDate(this.dataValidade).isAfter(LocalDate.now())){
+        if (utils.DateUtils.asLocalDate(this.dataValidade).isAfter(LocalDate.now())) {
             return false;
         }
         return true;

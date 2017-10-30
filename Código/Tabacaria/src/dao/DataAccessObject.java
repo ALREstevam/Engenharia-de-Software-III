@@ -5,13 +5,20 @@
  */
 package dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author andre
  */
-public interface DataAccessObject<E> {
+
+/**
+ * Define uma interface para um CRUD geral
+ * @author andre
+ * @param <E> 
+ */
+public interface DataAccessObject<E extends Serializable> {
     public List<E> executeQuery(String query);
     public List<E> getAll(String from, String as);
     public void delete(E elem);

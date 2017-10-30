@@ -15,7 +15,7 @@ import javax.persistence.JoinColumn;
 @Entity
 public class Fornecedor implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;//ID do fornecedor
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -38,7 +38,13 @@ public class Fornecedor implements Serializable {
     private List<Produto> produtos;
     
     
-
+    /**
+     * Construtor para o fornecedor
+     * @param id
+     * @param nome
+     * @param contato
+     * @param cnpj 
+     */
     public Fornecedor(int id, String nome, String contato, int cnpj) {
         this.id = id;
         this.nome = nome;
@@ -48,72 +54,71 @@ public class Fornecedor implements Serializable {
     }
 
     /**
-     *
-     *
-     *
+     * Setar o id do fornecedor
+     * @param id 
      */
-    public Produto novoProduto() {
-        return null;
-    }
-
-    /**
-     *
-     *
-     *
-     */
-    public Produto alterarProduto() {
-        return null;
-    }
-
-    /**
-     *
-     *
-     *
-     */
-    public boolean pararVenderProduto() {
-        return false;
-    }
-
-
-
-
-
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * Obter o nome do fornecedor
+     * @return 
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Setar o nome do fonecedor
+     * @param nome 
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     * Obter os dados de contato do fornecedor
+     * @return 
+     */
     public String getContato() {
         return contato;
     }
 
+    /**
+     * Setar os dados de contato do fornecedor
+     * @param contato 
+     */
     public void setContato(String contato) {
         this.contato = contato;
     }
 
+    /**
+     * Obter o cnpj do fornecedor
+     * @return 
+     */
     public int getCnpj() {
         return cnpj;
     }
 
+    /**
+     * Setar o cnj do fornecedor
+     * @param cnpj 
+     */
     public void setCnpj(int cnpj) {
         this.cnpj = cnpj;
     }
 
+    /**
+     * Obter a lista de produtos fornecidos
+     * @return 
+     */
     public List<Produto> getProdutos() {
         return produtos;
     }
 
     /**
-     *
-     *
-     *
+     * Fornecedor começou a vender um novo tipo de produto
      */
     public boolean novoProduto(int id, String nome, String descricao, float preco) {
         Produto e = new Produto(id, nome, descricao, preco);
@@ -121,9 +126,7 @@ public class Fornecedor implements Serializable {
     }
 
     /**
-     *
-     *
-     *
+     *  Fornecedor alterando um produto já cadastrado
      */
     public boolean alterarProduto(String nome, float preco) {
 
@@ -138,9 +141,7 @@ public class Fornecedor implements Serializable {
     }
 
     /**
-     *
-     *
-     *
+     *Fornecedor alterando um produto já cadastrado
      */
     public boolean alterarProduto(String nome, String descricao) {
         for (Produto e : produtos) {
@@ -157,9 +158,8 @@ public class Fornecedor implements Serializable {
     }
 
     /**
-     *
-     *
-     *
+     * Fornecedor parou de vender o produto
+     * @param nome 
      */
     public boolean pararVenderProduto(String nome) {
         Produto p;
