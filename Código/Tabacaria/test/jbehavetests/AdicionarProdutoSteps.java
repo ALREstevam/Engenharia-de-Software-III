@@ -17,15 +17,26 @@ import org.jbehave.scenario.annotations.Given;
 import org.jbehave.scenario.annotations.Then;
 import org.jbehave.scenario.annotations.When;
 import org.jbehave.scenario.steps.Steps;
+import tests.easymock.Caixa;
 
 public class AdicionarProdutoSteps extends Steps {
-    Produto prod = new Produto();
+    Caixa caixa = new Caixa;
     Boolean result = false;
     
     @Given (&quot;Há um caixa cadastrado com id $x, nome $y e cpf$z &quot;)
-    Caixa caixa = new Caixa(x, y, z);
+    public void preencherCaixa (Integer x, String y, Integer z) {
+        caixa.id = x;
+        caixa.nome = y;
+        caixa.cpf = z;
+    }
     
     @When (&quot;Executar o método adicionarProduto&quot)
-    result = caixa.adicionarProduto();
+    public void executarFuncao () {
+        result = caixa.adicionarProduto();
+    }
+    
+    @Then (&quot;Deve retornar \&quot;$retorno\&quot;&quot;)
+    public void checarResultado(String retorno) {
+        ensureThat(result.toString().equals(retorno));
+    }
 }
-
