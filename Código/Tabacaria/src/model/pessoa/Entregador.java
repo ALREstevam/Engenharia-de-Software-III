@@ -22,8 +22,9 @@ public class Entregador extends Funcionario implements Serializable {
     /**
      * Entregador marcando pedido como entregue
      */
-    public void entregarPedido(Pedido p) {
+    public boolean entregarPedido(Pedido p) {
          p.entregar();
+         return true;
     }
 
     
