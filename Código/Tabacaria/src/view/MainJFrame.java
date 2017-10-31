@@ -111,6 +111,7 @@ public class MainJFrame extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel12 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelInicio = new javax.swing.JPanel();
@@ -172,6 +173,11 @@ public class MainJFrame extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jPanelRelatorios = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        textArea1 = new java.awt.TextArea();
+        label1 = new java.awt.Label();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jButton14 = new javax.swing.JButton();
         jPanelFunc = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -261,22 +267,22 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(jPanelVendasLayout.createSequentialGroup()
                 .addComponent(jLabel4)
                 .addGap(0, 921, Short.MAX_VALUE))
-            .addGroup(jPanelVendasLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVendasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(242, 242, 242)
+                .addComponent(jToggleButton1)
+                .addGap(266, 266, 266))
         );
         jPanelVendasLayout.setVerticalGroup(
             jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelVendasLayout.createSequentialGroup()
                 .addComponent(jLabel4)
-                .addGap(36, 36, 36)
-                .addComponent(jToggleButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addGap(0, 359, Short.MAX_VALUE))
+                .addGap(163, 163, 163)
+                .addGroup(jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jToggleButton1)
+                    .addComponent(jButton1))
+                .addGap(0, 268, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Vendas", jPanelVendas);
@@ -405,7 +411,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Realizar venda", jPanelRealizVenda);
@@ -442,7 +448,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 39, Short.MAX_VALUE))
+                .addGap(0, 40, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Listar vendas", jPanelListVendas);
@@ -533,7 +539,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton9))
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jButton8)
                 .addContainerGap())
         );
@@ -629,7 +635,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 33, Short.MAX_VALUE))
+                .addGap(0, 34, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Estoque", jPanelEstoque);
@@ -655,7 +661,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jTextArea6.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações"));
         jScrollPane14.setViewportView(jTextArea6);
 
-        jButton13.setLabel("Excluir cadastro");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
@@ -689,7 +694,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton13)))
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         jButton13.getAccessibleContext().setAccessibleName("Excluir cadastro");
@@ -699,6 +704,20 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel11.setText("Menu Relatórios");
 
+        label1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        label1.setText("Selecione o relatório:");
+
+        jRadioButton4.setText("Relatorio Vendas");
+
+        jRadioButton5.setText("Relatorio de Compras");
+
+        jButton14.setLabel("Gerar Relatorio");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelRelatoriosLayout = new javax.swing.GroupLayout(jPanelRelatorios);
         jPanelRelatorios.setLayout(jPanelRelatoriosLayout);
         jPanelRelatoriosLayout.setHorizontalGroup(
@@ -706,12 +725,35 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(jPanelRelatoriosLayout.createSequentialGroup()
                 .addComponent(jLabel11)
                 .addGap(0, 893, Short.MAX_VALUE))
+            .addGroup(jPanelRelatoriosLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButton4)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74))
         );
         jPanelRelatoriosLayout.setVerticalGroup(
             jPanelRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRelatoriosLayout.createSequentialGroup()
                 .addComponent(jLabel11)
-                .addGap(0, 459, Short.MAX_VALUE))
+                .addGroup(jPanelRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelRelatoriosLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelRelatoriosLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jRadioButton4)
+                        .addGap(12, 12, 12)
+                        .addComponent(jRadioButton5)
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton14)))
+                .addGap(0, 21, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Relatórios", jPanelRelatorios);
@@ -832,7 +874,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jButton10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton11)))
-                .addGap(0, 62, Short.MAX_VALUE))
+                .addGap(0, 63, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Funcionários", jPanelFunc);
@@ -981,6 +1023,10 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1020,11 +1066,13 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1084,6 +1132,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -1117,5 +1167,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JToggleButton jToggleButton1;
+    private java.awt.Label label1;
+    private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
 }
