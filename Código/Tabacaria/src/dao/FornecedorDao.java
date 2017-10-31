@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 import tabacariaControllers.Database;
 import model.fornecedores.Fornecedor;
+import model.fornecedores.Produto;
 
 /**
  * DAO para a classe fornecedor
@@ -74,5 +75,11 @@ public class FornecedorDao implements DataAccessObject<Fornecedor>{
     @Override
     public void insertUpdate(Fornecedor elem) {
         myDao.insertUpdate(elem);
+    }
+    
+    public List<Produto> getProductsProvidedBy(Fornecedor elem){
+        ProdutoDao prodDao = new ProdutoDao();
+        List<Produto> rsp = prodDao.executeQuery("SELECT * FROM produto WHERE forn_id = '" + elem.getId() + "'");
+        return rsp;
     }
 }

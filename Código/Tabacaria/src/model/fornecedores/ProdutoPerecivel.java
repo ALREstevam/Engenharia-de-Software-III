@@ -31,6 +31,7 @@ public class ProdutoPerecivel extends Produto implements Serializable {
     @JoinColumn(foreignKey = @ForeignKey)
     private Produto produtoBase;
 
+
     /**
      * Construtor da classe
      * @param dataProducao

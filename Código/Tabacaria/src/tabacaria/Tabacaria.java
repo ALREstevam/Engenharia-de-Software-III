@@ -5,7 +5,9 @@
  */
 package tabacaria;
 
+import dao.FornecedorDao;
 import java.sql.Driver;
+import model.fornecedores.Fornecedor;
 
 /**
  *
@@ -23,7 +25,14 @@ public class Tabacaria {
         view.MainJFrame mainjfrm = new view.MainJFrame();
         mainjfrm.setVisible(true);
     
-    
+        Fornecedor forn0 = new Fornecedor(0, "Adecl8ei9ton", "Rua dos Ipês", 123456789);
+        Fornecedor forn1 = new Fornecedor(0, "Cleito Cleito", "Adamantina", 345);
+        
+        
+        dao.FornecedorDao daoForn = new FornecedorDao();
+        
+        daoForn.insert(forn0);
+        daoForn.insert(forn1);
     }
     
 }
