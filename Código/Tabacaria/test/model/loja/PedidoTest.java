@@ -57,7 +57,10 @@ public class PedidoTest {
             System.out.println("Entrega feita com sucesso!");
         else
             System.out.println("Entrega não realizada!");
-        // TODO review the generated test code and remove the default call to fail.
+        // TODO review the generated test code and lean.parseBoolean(status))
+            System.out.println("Entrega feita com sucesso!");
+        else
+            System.out.println("Entrega não realizada!");remove the default call to fail.
         //fail("The test case is a prototype.");
     }
     

@@ -14,119 +14,113 @@ import model.fornecedores.Produto;
 import model.fornecedores.Fornecedor;
 
 public class Tabacaria {
+    private Database db;
+    private FuncionarioDao daoFunc;
+    private VendaDao daoVend;
+    private FornecedorDao daoForn;
+    private ProdutoDao daoProd;
+    private ProdutoLojaDao daoProdLoja;
 
-	private Database db;
+    private NotaFiscalDao daoNf;
 
-	private FuncionarioDao daoFunc;
+    public boolean addVenda() {
+        return false;
+    }
 
-	private VendaDao daoVend;
+    public boolean addProdutoLoja() {
+        return false;
+    }
 
-	private FornecedorDao daoForn;
+    public boolean addRelatorio() {
+        return false;
+    }
 
-	private ProdutoDao daoProd;
+    public boolean addNotaFiscal() {
+        return false;
+    }
 
-	private ProdutoLojaDao daoProdLoja;
+    public boolean addFuncionario() {
+        return false;
+    }
 
-	private NotaFiscalDao daoNf;
+    public boolean addProduto() {
+        return false;
+    }
 
-	public boolean addVenda() {
-		return false;
-	}
+    public boolean addFornecedor() {
+        return false;
+    }
 
-	public boolean addProdutoLoja() {
-		return false;
-	}
+    public boolean removeVenda() {
+        return false;
+    }
 
-	public boolean addRelatorio() {
-		return false;
-	}
+    public boolean removeProdutoLoja() {
+        return false;
+    }
 
-	public boolean addNotaFiscal() {
-		return false;
-	}
+    public boolean removeFuncionario() {
+        return false;
+    }
 
-	public boolean addFuncionario() {
-		return false;
-	}
+    public boolean removeProduto() {
+        return false;
+    }
 
-	public boolean addProduto() {
-		return false;
-	}
+    public boolean removeFornecedor() {
+        return false;
+    }
 
-	public boolean addFornecedor() {
-		return false;
-	}
+    public boolean updateVenda() {
+        return false;
+    }
 
-	public boolean removeVenda() {
-		return false;
-	}
+    public boolean updateProdutoLoja() {
+        return false;
+    }
 
-	public boolean removeProdutoLoja() {
-		return false;
-	}
+    public boolean updateRelatorio() {
+        return false;
+    }
 
-	public boolean removeFuncionario() {
-		return false;
-	}
+    public boolean updateFuncionario() {
+        return false;
+    }
 
-	public boolean removeProduto() {
-		return false;
-	}
+    public boolean updateProduto() {
+        return false;
+    }
 
-	public boolean removeFornecedor() {
-		return false;
-	}
+    public boolean updateFornecedor() {
+        return false;
+    }
 
-	public boolean updateVenda() {
-		return false;
-	}
+    public Venda[] getVendas() {
+        return null;
+    }
 
-	public boolean updateProdutoLoja() {
-		return false;
-	}
+    public ProdutoLojaDao[] getProdutosLoja() {
+        return null;
+    }
 
-	public boolean updateRelatorio() {
-		return false;
-	}
+    public Relatorio[] getRelatorios() {
+        return null;
+    }
 
-	public boolean updateFuncionario() {
-		return false;
-	}
+    public NotaFiscal[] getNotaFiscal() {
+        return null;
+    }
 
-	public boolean updateProduto() {
-		return false;
-	}
+    public Funcionario[] getFuncionarios() {
+        return null;
+    }
 
-	public boolean updateFornecedor() {
-		return false;
-	}
+    public Produto getProdutos() {
+        return null;
+    }
 
-	public Venda[] getVendas() {
-		return null;
-	}
-
-	public ProdutoLojaDao[] getProdutosLoja() {
-		return null;
-	}
-
-	public Relatorio[] getRelatorios() {
-		return null;
-	}
-
-	public NotaFiscal[] getNotaFiscal() {
-		return null;
-	}
-
-	public Funcionario[] getFuncionarios() {
-		return null;
-	}
-
-	public Produto getProdutos() {
-		return null;
-	}
-
-	public Fornecedor[] getFornecedores() {
-		return null;
-	}
+    public Fornecedor[] getFornecedores() {
+        return null;
+    }
 
 }
