@@ -98,7 +98,7 @@ public class FornecedorTest {
         float preco=11;
         Produto instance = new Produto(id, nome, descricao, preco);
         boolean expResult = true;
-        boolean result = instance.alterarProduto(nome, descricao, preco);
+        boolean result = instance.alterarProduto(id, descricao);
         if(result==true)
         System.out.println("Produto alterado com sucesso!");    
             else
