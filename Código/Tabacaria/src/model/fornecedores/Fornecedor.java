@@ -30,20 +30,20 @@ public class Fornecedor implements Serializable {
     private int cnpj;
 
     @ElementCollection
-        @CollectionTable(
-              name="produtos",
-              joinColumns=@JoinColumn(name="p_id")
-        )
-        @Column(name="f_id")
+    @CollectionTable(
+            name = "produtos",
+            joinColumns = @JoinColumn(name = "p_id")
+    )
+    @Column(name = "f_id")
     private List<Produto> produtos;
-    
-    
+
     /**
      * Construtor para o fornecedor
+     *
      * @param id
      * @param nome
      * @param contato
-     * @param cnpj 
+     * @param cnpj
      */
     public Fornecedor(int id, String nome, String contato, int cnpj) {
         this.id = id;
@@ -55,7 +55,8 @@ public class Fornecedor implements Serializable {
 
     /**
      * Setar o id do fornecedor
-     * @param id 
+     *
+     * @param id
      */
     public void setId(long id) {
         this.id = id;
@@ -63,7 +64,8 @@ public class Fornecedor implements Serializable {
 
     /**
      * Obter o nome do fornecedor
-     * @return 
+     *
+     * @return
      */
     public String getNome() {
         return nome;
@@ -71,7 +73,8 @@ public class Fornecedor implements Serializable {
 
     /**
      * Setar o nome do fonecedor
-     * @param nome 
+     *
+     * @param nome
      */
     public void setNome(String nome) {
         this.nome = nome;
@@ -79,7 +82,8 @@ public class Fornecedor implements Serializable {
 
     /**
      * Obter os dados de contato do fornecedor
-     * @return 
+     *
+     * @return
      */
     public String getContato() {
         return contato;
@@ -87,7 +91,8 @@ public class Fornecedor implements Serializable {
 
     /**
      * Setar os dados de contato do fornecedor
-     * @param contato 
+     *
+     * @param contato
      */
     public void setContato(String contato) {
         this.contato = contato;
@@ -95,7 +100,8 @@ public class Fornecedor implements Serializable {
 
     /**
      * Obter o cnpj do fornecedor
-     * @return 
+     *
+     * @return
      */
     public int getCnpj() {
         return cnpj;
@@ -103,7 +109,8 @@ public class Fornecedor implements Serializable {
 
     /**
      * Setar o cnj do fornecedor
-     * @param cnpj 
+     *
+     * @param cnpj
      */
     public void setCnpj(int cnpj) {
         this.cnpj = cnpj;
@@ -111,7 +118,8 @@ public class Fornecedor implements Serializable {
 
     /**
      * Obter a lista de produtos fornecidos
-     * @return 
+     *
+     * @return
      */
     public List<Produto> getProdutos() {
         return produtos;
@@ -126,13 +134,15 @@ public class Fornecedor implements Serializable {
     }
 
     /**
-     *  Fornecedor alterando um produto já cadastrado
+     * Fornecedor alterando um produto já cadastrado
      */
-    public boolean alterarProduto(String nome, float preco) {
+    public boolean alterarProduto(long id, float preco) {
 
         for (Produto e : produtos) {
-            if (e.getNome().equals(nome)) {
+            if (e.getId() == id) {
+                produtos.remove(e);
                 e.setPreco(preco);
+                produtos.add(e);
                 return true;
             }
         }
@@ -141,16 +151,16 @@ public class Fornecedor implements Serializable {
     }
 
     /**
-     *Fornecedor alterando um produto já cadastrado
+     * Fornecedor alterando um produto já cadastrado
      */
-    public boolean alterarProduto(String nome, String descricao) {
+    public boolean alterarProduto(long id, String descricao) {
         for (Produto e : produtos) {
-            if (e.getNome().equals(nome)) {
+            if (e.getId() == id) {
                 /*produtos.get(e.getId()).setNome(descricao);
                 produtos.get(cnpj)*/
-                
-                e.setNome(nome);
+                produtos.remove(e);
                 e.setDescricao(descricao);
+                produtos.add(e);
                 return true;
             }
         }
@@ -159,14 +169,15 @@ public class Fornecedor implements Serializable {
 
     /**
      * Fornecedor parou de vender o produto
-     * @param nome 
+     *
+     * @param nome
      */
     public boolean pararVenderProduto(String nome) {
         Produto p;
         for (Produto e : produtos) {
             if (e.getNome().equals(nome)) {
                 p = e;
-               return produtos.remove(e);
+                return produtos.remove(e);
             }
         }
         return false;
