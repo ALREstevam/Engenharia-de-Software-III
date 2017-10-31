@@ -79,10 +79,7 @@ public class FornecedorDao implements DataAccessObject<Fornecedor>{
     
     public List<Produto> getProductsProvidedBy(Fornecedor elem){
         ProdutoDao prodDao = new ProdutoDao();
-        
-        List<Produto> rsp = prodDao.executeQuery("SELECT * FROM produto WHERE ");
-        
-        
+        List<Produto> rsp = prodDao.executeQuery("SELECT * FROM produto WHERE forn_id = '" + elem.getId() + "'");
         return rsp;
     }
 }

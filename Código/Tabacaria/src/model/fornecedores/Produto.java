@@ -10,12 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import view.comboboxModel.Descriptible;
 
 @Entity
 /**
  * Classe produto
  */
-public class Produto implements Serializable{
+public class Produto implements Serializable, Descriptible{
         
         private static final long serialVersionUID = 1L;
         
@@ -32,7 +33,6 @@ public class Produto implements Serializable{
         @Column
 	private double preco;
         
-        @Column
         @OneToOne
         @JoinColumn(foreignKey = @ForeignKey)
         private Fornecedor forn;
@@ -118,5 +118,25 @@ public class Produto implements Serializable{
      */
     public void setPreco(float preco) {
         this.preco = preco;
+    }
+
+    @Override
+    public String getDefaultDescription(String separator) {
+        return this.getLargeDescription(separator);
+    }
+
+    @Override
+    public String getShortDescription(String separator) {
+        return this.nome;
+    }
+
+    @Override
+    public String getMediumdesCription(String separator) {
+        return this.id + separator + this.nome;
+    }
+
+    @Override
+    public String getLargeDescription(String separator) {
+        return this.id + separator + this.nome + separator + this.forn.getNome();
     }
 }

@@ -16,6 +16,10 @@ import javax.persistence.JoinColumn;
 public class Fornecedor implements Serializable {
 
     private static final long serialVersionUID = 1L;//ID do fornecedor
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -182,4 +186,10 @@ public class Fornecedor implements Serializable {
         }
         return false;
     }
+
+    public long getId() {
+        return id;
+    }
+    
+    
 }
