@@ -176,10 +176,10 @@ public class Fornecedor implements Serializable {
      *
      * @param nome
      */
-    public boolean pararVenderProduto(String nome) {
+    public boolean pararVenderProduto(long id) {
         Produto p;
         for (Produto e : produtos) {
-            if (e.getNome().equals(nome)) {
+            if (e.getId() == id) {
                 p = e;
                 return produtos.remove(e);
             }

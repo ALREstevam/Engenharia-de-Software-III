@@ -1,16 +1,17 @@
-,/*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package model.loja;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -43,25 +44,18 @@ public class PedidoTest {
      * @param status
      */
     @Test
-    public void testEntregar(String status) {
+    public void testEntregar() {
         
         String receptorNome="Joao da Silva"; 
         String endereco="Rua Paschoal Marmo, 12345, Jd.São Paulo"; 
         int id=0;
-        ProdutoLoja[] produtos=new ProdutoLoja[10];
+        List<ProdutoLoja> produtos=new ArrayList();
         float valorTotal=100;
         System.out.println("entregar");
         Pedido p= new Pedido(receptorNome, endereco, id, produtos, valorTotal);
-       p.entregar(); 
-        if(Boolean.parseBoolean(status))
-            System.out.println("Entrega feita com sucesso!");
-        else
-            System.out.println("Entrega não realizada!");
-        // TODO review the generated test code and lean.parseBoolean(status))
-            System.out.println("Entrega feita com sucesso!");
-        else
-            System.out.println("Entrega não realizada!");remove the default call to fail.
-        //fail("The test case is a prototype.");
+        p.entregar(); 
+       System.out.println(p.getStatus());
+        
     }
     
 }
