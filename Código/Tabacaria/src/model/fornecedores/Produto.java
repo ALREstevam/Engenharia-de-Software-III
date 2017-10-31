@@ -31,7 +31,15 @@ public class Produto implements Serializable{
 
         @Column
 	private double preco;
-       
+        
+        @Column
+        @OneToOne
+        @JoinColumn(foreignKey = @ForeignKey)
+        private Fornecedor forn;
+        /*
+        Como o preço de compra é diferente de acordo com cada fornecedor
+        cada produto precisa estar ligado com apenas um fornecedor
+        */
 
     /**
      * Construtor da classe
