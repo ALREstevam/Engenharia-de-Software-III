@@ -64,8 +64,4 @@ public class GeneralComboBoxModel<E extends Descriptible> {
         }
         return new DefaultComboBoxModel(elemInfo.toArray());
     }
-    
-    
-    
-    
 }
