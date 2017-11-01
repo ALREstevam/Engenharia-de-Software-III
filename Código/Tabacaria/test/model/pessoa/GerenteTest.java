@@ -64,11 +64,11 @@ public class GerenteTest {
             System.out.println("Falha ao gerar relatório de Compras!");
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-    }
+    }}
 
     /**
      * Test of gerarRelatorioVendas method, of class Gerente.
-     */
+     *//*
     @Test
     public void testGerarRelatorioVendas() {
         System.out.println("gerarRelatorioVendas");
@@ -87,6 +87,9 @@ public class GerenteTest {
             System.out.println("Falha ao gerar Relatório de Vendas!");
         assertEquals(expResult, result);
     }
+    
+    */
     /**
      * Test of descartarProduto method, of class Gerente.
      */
+   
