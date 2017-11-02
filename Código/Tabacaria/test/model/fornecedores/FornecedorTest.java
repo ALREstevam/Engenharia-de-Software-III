@@ -7,6 +7,7 @@ package model.fornecedores;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -106,16 +107,10 @@ public class FornecedorTest {
         String descricao="cigarro";
         float preco = 9;
         Fornecedor instance = new Fornecedor(id, nome, contato, cnpj);
-        instance.novoProduto(id, nome1, descricao, preco);
-        boolean expResult = true;
-        
+        instance.novoProduto(id, nome1, descricao, preco);     
         boolean result = instance.pararVenderProduto(id);
         if(result==true)
             System.out.println("Fornecedor não fornece mais produtos!");
         else
             System.out.println("Fornecedor ainda fornece produtos!");
-        // TODO review the generated test code and remove the default call to fail.
-        //   fail("The test case is a prototype.");
-    }
-
-}
+    }}

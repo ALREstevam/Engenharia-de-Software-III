@@ -57,5 +57,4 @@ public class PedidoTest {
        System.out.println(p.getStatus());
         
     }
-    
 }

@@ -5,6 +5,10 @@
  */
 package model.pessoa;
 
+import java.util.ArrayList;
+import java.util.List;
+import model.loja.Pedido;
+import model.loja.ProdutoLoja;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -47,20 +51,21 @@ public class EntregadorTest {
         String nome="José Rezende";
         String cpf="654848390-41";
         Entregador p = new Entregador(id, nome, cpf);
-        boolean expResult = true;
-        boolean result = p.entregarPedido();
-        
-        if (result == true) {
+        String receptorNome="Pedro"; 
+        String endereco="Rua das Flores, 123"; 
+        int id1=2; 
+        List<ProdutoLoja> produtos= new ArrayList(); 
+        double valorTotal=140;
+        Pedido ped=new Pedido(receptorNome, endereco, id1,produtos, valorTotal);    
+        boolean result = p.entregarPedido(ped);  
+        if(result) {
             System.out.println("Entrega realizada com sucesso!");
         } else {
             System.out.println("Erro na realização da entrega!");
         }
-        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
-    }
-
+    }}
     /**
      * Test of retornarPedido method, of class Entregador.
      */
- 

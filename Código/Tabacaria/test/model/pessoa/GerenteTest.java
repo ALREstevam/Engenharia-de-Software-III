@@ -7,6 +7,7 @@ package model.pessoa;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.fornecedores.Produto;
 import model.fornecedores.ProdutoPerecivel;
 import model.loja.ProdutoLoja;
 import model.notasFiscais.RelatorioCompras;
@@ -56,19 +57,16 @@ public class GerenteTest {
         String nome= "João da Silva";
         String cpf="978143856-0";
         Gerente instance = new Gerente(id, nome, cpf);
-        RelatorioCompras expResult = null;
-        RelatorioCompras result = instance.gerarRelatorioCompras(titulo, texto, data);
-        if(result==null)
+        if(instance.gerarRelatorioCompras(titulo, texto, data)!=null)
             System.out.println("Relatório de Compras gerado com sucesso!");
         else
             System.out.println("Falha ao gerar relatório de Compras!");
-        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-    }}
-
+    
+    }
     /**
      * Test of gerarRelatorioVendas method, of class Gerente.
-     *//*
+     */
     @Test
     public void testGerarRelatorioVendas() {
         System.out.println("gerarRelatorioVendas");
@@ -79,17 +77,33 @@ public class GerenteTest {
         String nome="João da Silva";
         String cpf="978143856-0";
         Gerente instance = new Gerente(id, nome,cpf);
-        RelatorioVendas expResult = null;
-        RelatorioVendas result = instance.gerarRelatorioVendas(titulo, texto, data);
-        if(result==null)
+        if(instance.gerarRelatorioVendas(titulo, texto, data)!=null)
             System.out.println("Relatório de Vendas gerado com sucesso!");
         else
             System.out.println("Falha ao gerar Relatório de Vendas!");
-        assertEquals(expResult, result);
     }
-    
-    */
+
     /**
-     * Test of descartarProduto method, of class Gerente.
+     * Test of comprarProduto method, of class Gerente.
      */
-   
+    @Test
+    public void testComprarProduto() {
+        System.out.println("comprarProduto");
+        int idproduto=0;
+        String nome="charuto"; 
+        String descricao=";;;;;"; 
+        float preco=13;
+        Produto prod = new Produto(idproduto, nome, descricao, preco);
+        int id=0;
+        String nomeG= "João da Silva";
+        String cpf="978143856-0";
+        Gerente instance = new Gerente(id, nomeG, cpf);
+        int quantidade=250;
+        double valorVenda=8;
+        ProdutoLoja result = instance.comprarProduto(prod, quantidade, valorVenda);
+        if(result!=null){
+            System.out.println("Compra de produto realizada com sucesso!");
+        }
+        else
+            System.out.println("Compra não realizada!");
+    }}
