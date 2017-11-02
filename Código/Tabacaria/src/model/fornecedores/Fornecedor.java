@@ -20,6 +20,7 @@ public class Fornecedor implements Serializable {
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -190,6 +191,5 @@ public class Fornecedor implements Serializable {
     public long getId() {
         return id;
     }
-    
-    
+
 }
