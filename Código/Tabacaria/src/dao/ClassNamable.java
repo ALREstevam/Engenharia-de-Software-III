@@ -10,5 +10,10 @@ package dao;
  * @author andre
  */
 public interface ClassNamable {
-    public static String getClassName();
+
+    /**
+     *
+     * @return
+     */
+    public   abstract String getClassName();
 }
