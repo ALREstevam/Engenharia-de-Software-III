@@ -1,5 +1,6 @@
 package model.loja;
 
+import dao.ClassNamable;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ import model.fornecedores.Produto;
  * Classe ProdutoLoja indica quais dos produtos fornecidos foram comprados e que
  * potencialmente estão sendo vendidos
  */
-public class ProdutoLoja implements Serializable {
+public class ProdutoLoja implements Serializable, ClassNamable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -108,6 +109,11 @@ public class ProdutoLoja implements Serializable {
      */
     public void setPrecoVenda(double precoVenda) {
         this.precoVenda = precoVenda;
+    }
+
+    @Override
+    public String getClassName() {
+        return "ProdutoLoja";
     }
 
 }

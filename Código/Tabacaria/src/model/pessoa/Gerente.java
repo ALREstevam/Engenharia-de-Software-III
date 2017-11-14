@@ -3,6 +3,7 @@ package model.pessoa;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
 import model.fornecedores.Produto;
 import model.fornecedores.ProdutoPerecivel;
 import model.loja.ProdutoLoja;
@@ -13,8 +14,14 @@ import model.notasFiscais.RelatorioVendas;
  * Gerente é um funcionário que tem responsabilidade sob os outros funcionários
  * @author andre
  */
+@Entity
 public class Gerente extends Funcionario implements Serializable {
 
+    @Override
+    public String getClassName() {
+        return "Gerente";
+    }
+    
     /**
      * Construtor da classe
      * @param id
@@ -22,7 +29,7 @@ public class Gerente extends Funcionario implements Serializable {
      * @param cpf 
      */
     public Gerente(int id, String nome, String cpf) {
-        super(id, nome, cpf);
+        super(funcType.GERENTE, id, nome, cpf);
     }
 
     /**

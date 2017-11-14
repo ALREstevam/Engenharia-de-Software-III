@@ -1,5 +1,6 @@
 package model.fornecedores;
 
+import dao.ClassNamable;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -14,7 +15,7 @@ import javax.persistence.Entity;
 /**
  * ProdutoPerecivel é um tipo de produto com data de validade e modo de conservação
  */
-public class ProdutoPerecivel extends Produto implements Serializable {
+public class ProdutoPerecivel extends Produto implements Serializable, ClassNamable {
 
     @Column
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -105,6 +106,11 @@ public class ProdutoPerecivel extends Produto implements Serializable {
      */
     public boolean naValidade() {
         return utils.DateUtils.asLocalDate(this.dataValidade).isAfter(LocalDate.now());
+    }
+
+    @Override
+    public String getClassName() {
+        return "ProdutoPerecivel";
     }
 
 }

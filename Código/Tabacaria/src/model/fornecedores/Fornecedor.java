@@ -1,5 +1,6 @@
 package model.fornecedores;
 
+import dao.ClassNamable;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 
 @Entity
-public class Fornecedor implements Serializable {
+public class Fornecedor implements Serializable, ClassNamable {
 
     private static final long serialVersionUID = 1L;//ID do fornecedor
 
@@ -190,6 +191,11 @@ public class Fornecedor implements Serializable {
 
     public long getId() {
         return id;
+    }
+
+    @Override
+    public String getClassName() {
+        return "Fornecedor";
     }
 
 }

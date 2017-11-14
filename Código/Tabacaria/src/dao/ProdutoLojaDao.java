@@ -4,7 +4,7 @@ import java.util.List;
 import tabacariaControllers.Database;
 import model.loja.ProdutoLoja;
 
-public class ProdutoLojaDao implements DataAccessObject<ProdutoLoja>{
+public class ProdutoLojaDao extends GeneralDao<ProdutoLoja> implements DataAccessObject<ProdutoLoja>{
 
     private final GeneralDao<ProdutoLoja> myDao;
 

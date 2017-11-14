@@ -1,5 +1,6 @@
 package model.pessoa;
 
+import dao.ClassNamable;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +12,15 @@ import javax.persistence.Id;
 /**
  * Funcionário define os dados e operações fundamentais que todo funcionário terá 
  */
-public abstract class Funcionario implements Serializable {
+public abstract class Funcionario implements Serializable, ClassNamable {
+
+    @Override
+    public String getClassName() {
+        return "Funcionario";
+    }
+    
+    public enum funcType{CAIXA, ENTREGADOR, GERENTE};
+    
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -24,6 +33,9 @@ public abstract class Funcionario implements Serializable {
 
     @Column
     private String cpf;
+    
+    @Column
+    private funcType func;
 
     /**
      * Construtor para a classe
@@ -31,7 +43,8 @@ public abstract class Funcionario implements Serializable {
      * @param nome
      * @param cpf 
      */
-    public Funcionario(int id, String nome, String cpf) {
+    public Funcionario(funcType func, int id, String nome, String cpf) {
+        this.func = func;
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;

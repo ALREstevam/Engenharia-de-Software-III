@@ -1,5 +1,6 @@
 package model.fornecedores;
 
+import dao.ClassNamable;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,37 +17,39 @@ import view.comboboxModel.Descriptible;
 /**
  * Classe produto
  */
-public class Produto implements Serializable, Descriptible{
-        
-        private static final long serialVersionUID = 1L;
-        
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+public class Produto implements Serializable, Descriptible, ClassNamable {
 
-        @Column
-	private String nome;
+    private static final long serialVersionUID = 1L;
 
-        @Column
-	private String descricao;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-        @Column
-	private double preco;
-        
-        @OneToOne
-        @JoinColumn(foreignKey = @ForeignKey)
-        private Fornecedor forn;
-        /*
+    @Column
+    private String nome;
+
+    @Column
+    private String descricao;
+
+    @Column
+    private double preco;
+
+    @OneToOne
+    @JoinColumn(foreignKey = @ForeignKey)
+    private Fornecedor forn;
+
+    /*
         Como o preço de compra é diferente de acordo com cada fornecedor
         cada produto precisa estar ligado com apenas um fornecedor
-        */
+     */
 
     /**
      * Construtor da classe
+     *
      * @param id
      * @param nome
      * @param descricao
-     * @param preco 
+     * @param preco
      */
     public Produto(int id, String nome, String descricao, float preco) {
         this.id = id;
@@ -57,24 +60,26 @@ public class Produto implements Serializable, Descriptible{
 
     /**
      * Obeter id
-     * @return 
+     *
+     * @return
      */
     public long getId() {
         return id;
     }
 
-    
-   /**
-    * Setar id
-    * @param id 
-    */
+    /**
+     * Setar id
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
      * Obter o nome
-     * @return 
+     *
+     * @return
      */
     public String getNome() {
         return nome;
@@ -82,7 +87,8 @@ public class Produto implements Serializable, Descriptible{
 
     /**
      * Setar o nome
-     * @param nome 
+     *
+     * @param nome
      */
     public void setNome(String nome) {
         this.nome = nome;
@@ -90,7 +96,8 @@ public class Produto implements Serializable, Descriptible{
 
     /**
      * Obter a descrição do produto
-     * @return 
+     *
+     * @return
      */
     public String getDescricao() {
         return descricao;
@@ -98,7 +105,8 @@ public class Produto implements Serializable, Descriptible{
 
     /**
      * Setar a descrição do produto
-     * @param descricao 
+     *
+     * @param descricao
      */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
@@ -106,7 +114,8 @@ public class Produto implements Serializable, Descriptible{
 
     /**
      * Obter o preço do produto
-     * @return 
+     *
+     * @return
      */
     public double getPreco() {
         return preco;
@@ -114,7 +123,8 @@ public class Produto implements Serializable, Descriptible{
 
     /**
      * Setar o preço do produto
-     * @param preco 
+     *
+     * @param preco
      */
     public void setPreco(float preco) {
         this.preco = preco;
@@ -138,5 +148,10 @@ public class Produto implements Serializable, Descriptible{
     @Override
     public String getLargeDescription(String separator) {
         return this.id + separator + this.nome + separator + this.forn.getNome();
+    }
+
+    @Override
+    public String getClassName() {
+        return "Produto";
     }
 }

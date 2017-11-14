@@ -1,5 +1,6 @@
 package model.loja;
 
+import dao.ClassNamable;
 import model.fornecedores.Produto;
 
 import java.io.Serializable;
@@ -19,9 +20,14 @@ import javax.persistence.OneToOne;
 /**
  * A classe Pedido indica uma venda que deve ser entregue à domicílio
  */
-public class Pedido extends Venda implements Serializable {
+public class Pedido extends Venda implements Serializable, ClassNamable {
 
     private static final long serialVersionUID = 1L;
+
+    @Override
+    public String getClassName() {
+        return "Pedido";
+    }
 
     public enum Status {
         entregue, naoEntregue

@@ -3,6 +3,7 @@ package model.pessoa;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
 import model.notasFiscais.NotaFiscalVenda;
 import model.notasFiscais.NotaFiscalCompra;
 import model.loja.Venda;
@@ -14,10 +15,16 @@ import model.loja.ProdutoLoja;
  * do produto comprado
  * @author andre
  */
+@Entity
 public class Caixa extends Funcionario implements Serializable {
 
+    @Override
+    public String getClassName() {
+        return "Caixa";
+    }
+    
     public Caixa(int id, String nome, String cpf) {
-        super(id, nome, cpf);
+        super(funcType.GERENTE, id, nome, cpf);
     }
     
     /**

@@ -1,5 +1,6 @@
 package model.notasFiscais;
 
+import dao.ClassNamable;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,70 +9,70 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public abstract class NotaFiscal implements Serializable{
+public abstract class NotaFiscal implements Serializable, ClassNamable {
 
-        private static final long serialVersionUID = 1L;
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-        @Column
-	private String prestadorNome;
-        
-        @Column
-	private String prestadorEndereco;
+    @Column
+    private String prestadorNome;
 
-        @Column
-	private String prestadorCnpj;
+    @Column
+    private String prestadorEndereco;
 
-        @Column
-	private String tomadorNome;
+    @Column
+    private String prestadorCnpj;
 
-        @Column
-	private String tomadorEndereco;
+    @Column
+    private String tomadorNome;
 
-        @Column
-	private int tomadorCnpj;
+    @Column
+    private String tomadorEndereco;
 
-        @Column
-	private String prestadorOutrosDados;
+    @Column
+    private int tomadorCnpj;
 
-        @Column
-	private String tomadorOutrosDados;
+    @Column
+    private String prestadorOutrosDados;
 
-        @Column
-	private String servicosLista;
+    @Column
+    private String tomadorOutrosDados;
 
-        @Column
-	private float valorNota;
+    @Column
+    private String servicosLista;
 
-        @Column
-	private float deducoes;
+    @Column
+    private float valorNota;
 
-        @Column
-	private float desconto;
+    @Column
+    private float deducoes;
 
-        @Column
-	private float base;
+    @Column
+    private float desconto;
 
-        @Column
-	private float aliquota;
+    @Column
+    private float base;
 
-        @Column
-	private float iss;
+    @Column
+    private float aliquota;
 
-        @Column
-	private float credito;
+    @Column
+    private float iss;
 
-        @Column
-	private String outros;
+    @Column
+    private float credito;
 
-	/**
-	 *  
-	 */
-	public void paraArquivo() {
+    @Column
+    private String outros;
 
-	}
+    /**
+     *
+     */
+    public void paraArquivo() {
+
+    }
 
     public NotaFiscal(int id, String prestadorNome, String prestadorEndereco, String prestadorCnpj, String tomadorNome, String tomadorEndereco, int tomadorCnpj, String prestadorOutrosDados, String tomadorOutrosDados, String servicosLista, float valorNota, float deducoes, float desconto, float base, float aliquota, float iss, float credito, String outros) {
         this.id = id;

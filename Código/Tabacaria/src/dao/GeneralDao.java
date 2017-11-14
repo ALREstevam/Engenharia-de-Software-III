@@ -10,9 +10,15 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import hibernate.HibernateUtil;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import model.pessoa.*;
+import model.notasFiscais.*;
+import model.fornecedores.*;
+import model.loja.*;
 
 /**
  *
@@ -23,8 +29,41 @@ import org.hibernate.Query;
  * CRUD para um tipo de objeto qualquer
  * @author andre
  * @param <E> tipo do objeto a ser persistido pelo DAO
+ * @param <ClassNamable>
  */
-public class GeneralDao<E extends Serializable> implements DataAccessObject<E>{
+public class GeneralDao<E extends Serializable & ClassNamable> implements DataAccessObject<E>{
+    
+   public final Map<Class, String> tableNames;
+
+    public GeneralDao() {
+        this.tableNames = new HashMap<>();
+        this.tableNames.put(FornecedorDao.class, "fornecedor");
+        this.tableNames.put(Funcionario.class, "funcionario");
+        this.tableNames.put(Gerente.class, "funcionario");
+        this.tableNames.put(Caixa.class, "funcionario");
+        this.tableNames.put(Entregador.class, "funcionario");
+        this.tableNames.put(NotaFiscal.class, "notafiscal");
+        this.tableNames.put(NotaFiscalCompra.class, "notafiscal");
+        this.tableNames.put(NotaFiscalVenda.class, "notafiscal");
+        this.tableNames.put(Produto.class, "produto");
+        this.tableNames.put(ProdutoPerecivel.class, "produto");
+        this.tableNames.put(ProdutoLoja.class, "produtoloja");
+        this.tableNames.put(Venda.class, "venda");
+    }
+    
+    /**
+     * Retorna o nome da tabela no banco com base na classe do objeto
+     * <code>
+     * Object o = ...;
+     * o.getClass();
+     * <code>
+     * @param classOfObject
+     * @return 
+     */
+    public String getTableName(Class classOfObject){
+        return this.tableNames.get(classOfObject);
+    }
+    
     public void insertUpdate(E elem){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
@@ -34,11 +73,11 @@ public class GeneralDao<E extends Serializable> implements DataAccessObject<E>{
             trs = sess.beginTransaction();
             sess.saveOrUpdate(elem);
             trs.commit();
-            System.err.println("["+elem.getClass()+" INSERIDO COM SUCESSO]");
+            System.err.println("\t**["+elem.getClass()+" INSERIDO COM SUCESSO]");
         }
         catch(HibernateException e){
             if (trs!=null) trs.rollback();
-            System.err.println("[ERRO AO INSERIR/ATUALIZAR "+elem.getClass()+"]");
+            System.err.println("\t**[ERRO AO INSERIR/ATUALIZAR "+elem.getClass()+"]");
             e.printStackTrace();
         }
         finally{
@@ -68,7 +107,7 @@ public class GeneralDao<E extends Serializable> implements DataAccessObject<E>{
             trs = sess.beginTransaction();
             sess.update(elem);
             trs.commit();
-            System.err.println("["+elem.getClass()+" ATUALIZADO COM SUCESSO]");
+            System.err.println("\t**["+elem.getClass()+" ATUALIZADO COM SUCESSO]");
         }
         catch(HibernateException e){
             if (trs!=null) trs.rollback();
@@ -93,7 +132,7 @@ public class GeneralDao<E extends Serializable> implements DataAccessObject<E>{
             trs = sess.beginTransaction();
             sess.delete(elem);
             trs.commit();
-            System.err.println("["+elem.getClass()+" DELETADO COM SUCESSO]");
+            System.err.println("\t**["+elem.getClass()+" DELETADO COM SUCESSO]");
         }
         catch(HibernateException e){
             if (trs!=null) trs.rollback();
@@ -112,15 +151,25 @@ public class GeneralDao<E extends Serializable> implements DataAccessObject<E>{
      * @param as
      * @return 
      */
-    public List<E> getAll(String from, String as){
+    public List<E> getAll(String from){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
-        
-        Query select = sess.createQuery("FROM "+from+" AS "+as+"");
+        String querytxt = (as.equals("")) ? "FROM " + from : "FROM " + from + " AS " + ;
+        System.err.println("[EXECUTANDO QUERY: `"+querytxt+"`]");
+        Query select = sess.createQuery(querytxt);
         List<E> rsp = select.list();
         return rsp;
     }
     
+    public List<E> getAll(String from, String as){
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session sess = sf.openSession();
+        String querytxt = (as.equals("")) ? "FROM " + from : "FROM " + from + " AS " + as;
+        System.err.println("[EXECUTANDO QUERY: `"+querytxt+"`]");
+        Query select = sess.createQuery(querytxt);
+        List<E> rsp = select.list();
+        return rsp;
+    }
     
     /**
      * Executar uma query
@@ -134,7 +183,7 @@ public class GeneralDao<E extends Serializable> implements DataAccessObject<E>{
         try{
             Query select = sess.createQuery(query);
             List<E> rsp = select.list();
-            System.err.println("[CONSULTA EFETUADA COM SUCESSO]");
+            System.err.println("\t**[CONSULTA EFETUADA COM SUCESSO]");
             return rsp;
         }catch(HibernateException e){
             e.printStackTrace();

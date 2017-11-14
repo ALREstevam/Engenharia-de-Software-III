@@ -75,4 +75,9 @@ public class NotaFiscalVenda extends NotaFiscal implements Serializable{
     public void setContent(String content) {
         this.content = content;
     }
+
+    @Override
+    public String getClassName() {
+        return "NotaFiscalVenda";
+    }
 }

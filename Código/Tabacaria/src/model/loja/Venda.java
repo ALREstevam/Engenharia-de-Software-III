@@ -1,5 +1,6 @@
 package model.loja;
 
+import dao.ClassNamable;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CollectionTable;
@@ -19,7 +20,7 @@ import model.notasFiscais.NotaFiscalVenda;
 /**
  * Classe Venda
  */
-public class Venda implements Serializable{
+public class Venda implements Serializable, ClassNamable{
 
         private static final long serialVersionUID = 1L;
         @Id
@@ -143,5 +144,10 @@ public class Venda implements Serializable{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public String getClassName() {
+        return "Venda";
     }
 }

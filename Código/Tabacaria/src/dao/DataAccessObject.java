@@ -17,8 +17,9 @@ import java.util.List;
  * Define uma interface para um CRUD geral
  * @author andre
  * @param <E> 
+ * @param <ClassNamable> 
  */
-public interface DataAccessObject<E extends Serializable> {
+public interface DataAccessObject<E extends Serializable & ClassNamable> {
     public List<E> executeQuery(String query);
     public List<E> getAll(String from, String as);
     public void delete(E elem);

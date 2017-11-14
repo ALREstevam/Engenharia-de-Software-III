@@ -9,7 +9,7 @@ import model.fornecedores.Produto;
  * DAO para a classe fornecedor
  * @author andre
  */
-public class FornecedorDao implements DataAccessObject<Fornecedor>{
+public class FornecedorDao extends GeneralDao<Fornecedor> implements DataAccessObject<Fornecedor>{
 
     private final GeneralDao<Fornecedor> myDao;
 

@@ -4,7 +4,7 @@ import java.util.List;
 import tabacariaControllers.Database;
 import model.pessoa.Funcionario;
 
-public class FuncionarioDao implements DataAccessObject<Funcionario>{
+public class FuncionarioDao extends GeneralDao<Funcionario> implements DataAccessObject<Funcionario>{
 
     private final GeneralDao<Funcionario> myDao;
 

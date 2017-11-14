@@ -1,6 +1,7 @@
 package model.pessoa;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
 import model.loja.Pedido;
 
 /**
@@ -8,7 +9,15 @@ import model.loja.Pedido;
  * que requisitaram entrega à domicílio
  * @author andre
  */
+@Entity
 public class Entregador extends Funcionario implements Serializable {
+    
+    
+    @Override
+    public String getClassName() {
+        return "Entregador";
+    }
+    
     /**
      * Construtor da classe
      * @param id
@@ -16,7 +25,7 @@ public class Entregador extends Funcionario implements Serializable {
      * @param cpf 
      */
     public Entregador(int id, String nome, String cpf) {
-        super(id, nome, cpf);
+        super(funcType.ENTREGADOR ,id, nome, cpf);
     }
 
     /**

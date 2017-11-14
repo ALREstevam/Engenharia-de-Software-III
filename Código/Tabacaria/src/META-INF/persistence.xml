@@ -13,6 +13,9 @@
     <class>model.notasFiscais.NotaFiscalVenda</class>
     <class>model.notasFiscais.Relatorio</class>
     <class>model.pessoa.Funcionario</class>
+    <class>model.pessoa.Gerente</class>
+    <class>model.pessoa.Entregador</class>
+    <class>model.pessoa.Caixa</class>
     <properties>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
       <property name="hibernate.format_sql" value="true"/>
