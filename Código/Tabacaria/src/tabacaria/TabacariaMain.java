@@ -27,6 +27,7 @@ public class TabacariaMain {
     /**
      * @param args the command line arguments
      */
+<<<<<<< HEAD
     public static void main(String[] args) {
         try {
             tests2();
@@ -34,6 +35,19 @@ public class TabacariaMain {
         } catch (Exception ex) {
             Logger.getLogger(TabacariaMain.class.getName()).log(Level.SEVERE, null, ex);
         }
+=======
+    public static void main(String[] args) throws Exception {
+        tests();
+        // TODO code application logic here
+
+        
+        
+        /*try {
+            tests();
+        } catch (Exception e) {
+            System.exit(0);
+        }*/
+>>>>>>> origin/hibernate
 
     }
 
