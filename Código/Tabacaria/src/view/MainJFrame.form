@@ -239,11 +239,8 @@
                                   <Component id="jLabel1" min="-2" pref="492" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-<<<<<<< HEAD
-                          <EmptySpace pref="676" max="32767" attributes="0"/>
-=======
+
                           <EmptySpace pref="1600" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -296,11 +293,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace min="0" pref="1162" max="32767" attributes="0"/>
-=======
+
                           <EmptySpace min="0" pref="2087" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="492" max="-2" attributes="0"/>
@@ -368,11 +362,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace min="0" pref="604" max="32767" attributes="0"/>
-=======
                           <EmptySpace min="0" pref="1500" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -627,21 +617,13 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-<<<<<<< HEAD
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="988" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane4" min="-2" pref="695" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-=======
+
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane4" min="-2" pref="695" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="1534" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
+
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -651,11 +633,9 @@
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane4" min="-2" pref="408" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace min="0" pref="55" max="32767" attributes="0"/>
-=======
+
                           <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
+
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -706,11 +686,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace min="0" pref="1146" max="32767" attributes="0"/>
-=======
+
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
+
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
