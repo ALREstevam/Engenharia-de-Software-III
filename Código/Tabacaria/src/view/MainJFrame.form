@@ -1053,11 +1053,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace min="0" pref="1146" max="32767" attributes="0"/>
-=======
+
                           <EmptySpace min="0" pref="2071" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
+
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -1160,11 +1158,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace min="0" pref="1155" max="32767" attributes="0"/>
-=======
+
                           <EmptySpace min="0" pref="2080" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
+
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -1230,11 +1226,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace min="0" pref="1095" max="32767" attributes="0"/>
-=======
+
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
+
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -1444,11 +1438,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace min="0" pref="1134" max="32767" attributes="0"/>
-=======
+
                           <EmptySpace min="0" pref="2059" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
+
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -1548,11 +1540,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                          <EmptySpace min="0" pref="1107" max="32767" attributes="0"/>
-=======
+
                           <EmptySpace min="0" pref="2032" max="32767" attributes="0"/>
->>>>>>> origin/hibernate
+
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
