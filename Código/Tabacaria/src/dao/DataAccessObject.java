@@ -7,6 +7,8 @@ package dao;
 
 import java.io.Serializable;
 import java.util.List;
+import view.comboboxModel.Descriptible;
+import view.tableModel.Arrayable;
 
 /**
  *
@@ -17,9 +19,8 @@ import java.util.List;
  * Define uma interface para um CRUD geral
  * @author andre
  * @param <E> 
- * @param <ClassNamable> 
  */
-public interface DataAccessObject<E extends Serializable & ClassNamable> {
+public interface DataAccessObject<E extends Serializable & Descriptible & Arrayable> {
     public List<E> executeQuery(String query);
     public List<E> getAll(String from, String as);
     public void delete(E elem);
