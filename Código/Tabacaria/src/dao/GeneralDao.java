@@ -155,14 +155,8 @@ public class GeneralDao<E extends Serializable & ClassNamable> implements DataAc
      * @param as
      * @return 
      */
-    public List<E> getAll(String from){
-        SessionFactory sf = HibernateUtil.getSessionFactory();
-        Session sess = sf.openSession();
-       // String querytxt = (as.equals("")) ? "FROM " + from : "FROM " + from + " AS " + ;
-        System.err.println("[EXECUTANDO QUERY: `"+querytxt+"`]");
-        Query select = sess.createQuery(querytxt);
-        List<E> rsp = select.list();
-        return rsp;
+    public List<E> getAll(String from, Class clss){
+        return this.getAll(from, this.getTableName(clss));
     }
     /**
      * 

@@ -12,12 +12,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import view.comboboxModel.Descriptible;
+import view.tableModel.Arrayable;
 
 @Entity
 /**
  * Classe produto
  */
-public class Produto implements Serializable, Descriptible, ClassNamable {
+public class Produto implements Serializable, Descriptible, Arrayable {
 
     private static final long serialVersionUID = 1L;
 
@@ -63,6 +64,7 @@ public class Produto implements Serializable, Descriptible, ClassNamable {
      *
      * @return
      */
+    @Override
     public long getId() {
         return id;
     }
@@ -72,7 +74,7 @@ public class Produto implements Serializable, Descriptible, ClassNamable {
      *
      * @param id
      */
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -126,32 +128,90 @@ public class Produto implements Serializable, Descriptible, ClassNamable {
      *
      * @param preco
      */
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
     @Override
-    public String getDefaultDescription(String separator) {
-        return this.getLargeDescription(separator);
+    public String describe() {
+        return this.id + sep + this.nome + sep + this.descricao + sep + this.preco;
     }
 
     @Override
-    public String getShortDescription(String separator) {
-        return this.nome;
+    public long getIdFromDescription() {
+        /*
+        String frase = "nome;teste;10";
+        String array[] = new String[3];
+        array = frase.split(";");
+        */
+        String description = this.describe();
+        String arr[] = description.split(sep);
+        
+        Long parsedId = null;
+        try{
+            parsedId = Long.parseLong(arr[0]);
+        }catch(Exception e){
+            System.err.println("ERRO DE CONVERSÃO EM: Produto > id");
+        }
+        return parsedId;
+    }
+        
+
+    @Override
+    public Object[] attributesToArray(String[] order) {
+        Object[] rsp = new Object[4];
+        int rspCount = 0;
+        for (String s : order) {
+            switch (s) {
+                case "id":
+                    rsp[rspCount] = this.getId();
+                    break;
+                case "nome":
+                    rsp[rspCount] = this.getNome();
+                    break;
+                case "descricao":
+                    rsp[rspCount] = this.getDescricao();
+                    break;
+                case "preco":
+                    rsp[rspCount] = this.getPreco();
+                    break;
+                default:
+                    rsp[rspCount] = "";
+                    break;
+            }
+            rspCount++;
+        }
+        return rsp;
     }
 
     @Override
-    public String getMediumdesCription(String separator) {
-        return this.id + separator + this.nome;
-    }
-
-    @Override
-    public String getLargeDescription(String separator) {
-        return this.id + separator + this.nome + separator + this.forn.getNome();
-    }
-
-    @Override
-    public String getClassName() {
-        return "Produto";
+    public Object setValue(String variable, Object value) {
+        switch (variable) {
+            case "id":
+                try{
+                    this.setId(Long.parseLong((String)value));
+                }
+                catch(Exception e){
+                
+                }
+                break;
+            case "nome":
+                this.setNome((String) value);
+                break;
+            case "descricao":
+                this.setDescricao((String) value);   
+                break;
+            case "preco":
+                try{
+                    this.setPreco(Double.parseDouble((String)value));
+                }
+                catch(Exception e){
+                    System.err.println("ERRO DE CONVERSÃO NO CAMPO \"Produto > preço\"");
+                }
+                break;
+            default:
+                break;
+        }
+        return this;
     }
 }

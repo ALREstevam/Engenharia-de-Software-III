@@ -27,36 +27,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
     public int menuTabToIndex(menuTabs tab) {
         int i = 0;
-
-        /*switch(tab){
-            case INICIO:
-                return 0;
-            case VENDAS:
-                return 1;
-            case REALIZAR_VENDA:
-                return 2;
-            case LISTAR_VENDA:
-                return 3;
-            case ENTREGAS:
-                return 4;
-            case PRODUTOS:
-                return 4;
-            case ESTOQUE:
-                return 5;
-            case FUNCIONARIOS:
-                return 6;
-            case FORNECEDORES:
-                return 7;
-            case RELATORIO:
-            case RELATORIO_VENDAS:
-            case RELATORIO_COMPRAS:
-            case RELATORIO_ENTREGAS:
-            case RELATORIO_ESTOQUE:
-                return 8;
-                
-            default:
-                return 0;
-        }*/
         if (tab == menuTabs.INICIO) {
             return i;
         }

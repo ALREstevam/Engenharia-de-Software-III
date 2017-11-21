@@ -6,12 +6,20 @@
 package view.comboboxModel;
 
 /**
- *
+ * Defines a object where the arguments can be descripted as a String
  * @author andre
  */
 public interface Descriptible {
-    public String getDefaultDescription(String separator);
-    public String getShortDescription(String separator);
-    public String getMediumdesCription(String separator);
-    public String getLargeDescription(String separator);
+    /**
+     * Requires a description of the object arguments as a String
+     */
+    public static final String sep = " | ";
+    /**
+     * Gets the data of the class and creates a string describing it
+     * @return String 
+     */
+    public String describe();
+    public long getId();
+    public long getIdFromDescription();
 }
+
