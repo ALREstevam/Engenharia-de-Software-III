@@ -1,7 +1,6 @@
 package dao;
 
 import java.util.List;
-import tabacariaControllers.Database;
 import model.notasFiscais.NotaFiscal;
 
 public class NotaFiscalDao extends GeneralDao<NotaFiscal> implements DataAccessObject<NotaFiscal>{

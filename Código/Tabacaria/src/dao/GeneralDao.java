@@ -19,7 +19,6 @@ import model.pessoa.*;
 import model.notasFiscais.*;
 import model.fornecedores.*;
 import model.loja.*;
-import org.junit.runner.Describable;
 import view.comboboxModel.Descriptible;
 import view.tableModel.Arrayable;
 

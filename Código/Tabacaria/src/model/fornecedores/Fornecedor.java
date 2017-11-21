@@ -191,6 +191,7 @@ public class Fornecedor implements Serializable, ClassNamable, Arrayable, Descri
         return false;
     }
 
+    @Override
     public long getId() {
         return id;
     }
