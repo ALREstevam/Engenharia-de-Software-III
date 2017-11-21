@@ -12,9 +12,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import view.comboboxModel.Descriptible;
+import view.tableModel.Arrayable;
 
 @Entity
-public class Fornecedor implements Serializable, ClassNamable {
+public class Fornecedor implements Serializable, ClassNamable, Arrayable, Descriptible {
 
     private static final long serialVersionUID = 1L;//ID do fornecedor
 
@@ -196,6 +198,26 @@ public class Fornecedor implements Serializable, ClassNamable {
     @Override
     public String getClassName() {
         return "Fornecedor";
+    }
+
+    @Override
+    public Object[] attributesToArray(String[] order) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object setValue(String variable, Object value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String describe() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public long getIdFromDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
