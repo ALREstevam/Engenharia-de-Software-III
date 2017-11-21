@@ -5,12 +5,17 @@
  */
 package view;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import model.fornecedores.Produto;
+import model.fornecedores.ProdutoPerecivel;
 import tabacariaControllers.Tabacaria;
+import utils.DateUtils;
+import view.tableModel.GeneralTableModel;
 
 /**
  *
@@ -72,15 +77,40 @@ public class MainJFrame extends javax.swing.JFrame {
         return 0;
     }
 
+    private GeneralTableModel<Produto> tmProduto;
+    
+    
+    
+    
     /**
      * Creates new form MainJFrame
      */
+    private Tabacaria ctr;
     public MainJFrame(Tabacaria ctrl) {
+        this.ctr = ctrl;
+        
         initComponents();
         this.produtosComprados = new ArrayList();
         this.produtosVenda = new ArrayList();
+        
+        
+        this.updateAllTables();
     }
-
+    
+    
+    private void updateAllTables(){
+        this.updateTableProdutos();
+    }
+    
+    private void updateTableProdutos(){
+        String [] columns = new String[4];
+        columns[0] = "id";
+        columns[1] = "nome";
+        columns[2] = "descricao";
+        columns[3] = "preco";
+        this.tmProduto = new GeneralTableModel<Produto>(columns, this.ctr.getProdutos());
+        this.jTable1.setModel(this.tmProduto);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -371,18 +401,20 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton2)
+                        .addGap(22, 22, 22))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton4)
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jCheckBox1)
@@ -601,19 +633,21 @@ public class MainJFrame extends javax.swing.JFrame {
                                         .addComponent(jLabel23))
                                     .addGap(31, 31, 31)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(vDateField, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                        .addComponent(vDateField)
                                         .addComponent(pDateField)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                    .addComponent(pRadioBtn)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addComponent(jLabel25)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(modeField)))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(modeField, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addComponent(registerBtn)))
                 .addGap(69, 69, 69))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pRadioBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -634,9 +668,9 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addComponent(pRadioBtn)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24))
@@ -654,6 +688,11 @@ public class MainJFrame extends javax.swing.JFrame {
         );
 
         jButtonPesquisaProdutos.setText("Pesquisa");
+        jButtonPesquisaProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisaProdutosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelProdutosLayout = new javax.swing.GroupLayout(jPanelProdutos);
         jPanelProdutos.setLayout(jPanelProdutosLayout);
@@ -1095,6 +1134,11 @@ public class MainJFrame extends javax.swing.JFrame {
         );
 
         jButton17.setText("Pesquisar");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelFuncLayout = new javax.swing.GroupLayout(jPanelFunc);
         jPanelFunc.setLayout(jPanelFuncLayout);
@@ -1115,27 +1159,29 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(jButton11)))
                     .addGroup(jPanelFuncLayout.createSequentialGroup()
                         .addGroup(jPanelFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelFuncLayout.createSequentialGroup()
                                 .addComponent(jTextField10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton17)))
+                                .addComponent(jButton17))
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(1453, Short.MAX_VALUE))
         );
         jPanelFuncLayout.setVerticalGroup(
             jPanelFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFuncLayout.createSequentialGroup()
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanelFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton17, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelFuncLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanelFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton17))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelFuncLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelFuncLayout.createSequentialGroup()
@@ -1326,14 +1372,30 @@ public class MainJFrame extends javax.swing.JFrame {
         if(nameField.getText().isEmpty() | descField.getText().isEmpty() | priceField.getText().isEmpty() | idField.getText().isEmpty()){
             JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos");
         }else if((pRadioBtn.isSelected()) & (modeField.getText().isEmpty() |vDateField.getText().isEmpty() | pDateField.getText().isEmpty())){
-            
-                
             JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos");
-            
         }else{
-            
+            Produto p;
+            try{
+                if(this.pRadioBtn.isSelected()){
+                    this.ctr.addProduto(0, this.nameField.getText(), this.descField.getText(), Float.parseFloat(this.priceField.getText()));
+                }else{
+                    this.ctr.addProduto(DateUtils.fromString(this.pDateField.getText()), 
+                            DateUtils.fromString(this.vDateField.getText()), this.modeField.getText(), 
+                            0, this.nameField.getText(), this.descField.getText(), Float.parseFloat(this.priceField.getText()));
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this,
+                        "Algum campo não foi corretamente preenchido.",
+                        "Dados inconsistentes", 
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            this.updateTableProdutos();
+            JOptionPane.showMessageDialog(this,
+                        "Produto cadastrado.",
+                        "Sucesso", 
+                        JOptionPane.INFORMATION_MESSAGE);
         }
-        
     }//GEN-LAST:event_registerBtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1373,9 +1435,6 @@ public class MainJFrame extends javax.swing.JFrame {
             this.dadosEntrega.add(this.jTextArea1.getText());
             this.dadosEntrega.add(this.nameField.getText());
             }
-        
-
-
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
@@ -1393,6 +1452,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
         // TODO add your handling code here:
         System.err.println("DEBUG MESSAGE: jTabbedPane1FocusGained");
+        this.updateTableProdutos();
         
         
         
@@ -1400,6 +1460,18 @@ public class MainJFrame extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jTabbedPane1FocusGained
+
+    private void jButtonPesquisaProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaProdutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPesquisaProdutosActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        String searchTerm = this.jTextFieldPesquisaProdutos.getText();
+        for(int i = 0; i < this.jTableProdutos.getRowCount() - 1; i++){
+            Produto p = this.tmProduto.getObjectAt(i);
+            
+        }
+    }//GEN-LAST:event_jButton17ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
