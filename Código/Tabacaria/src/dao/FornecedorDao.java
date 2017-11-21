@@ -1,7 +1,6 @@
 package dao;
 
 import java.util.List;
-import tabacariaControllers.Database;
 import model.fornecedores.Fornecedor;
 import model.fornecedores.Produto;
 

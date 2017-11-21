@@ -1,7 +1,6 @@
 package dao;
 
 import java.util.List;
-import tabacariaControllers.Database;
 import model.pessoa.Funcionario;
 
 public class FuncionarioDao extends GeneralDao<Funcionario> implements DataAccessObject<Funcionario>{
