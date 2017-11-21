@@ -53,17 +53,21 @@ public class GeneralDao<E extends Serializable & ClassNamable> implements DataAc
     
     /**
      * Retorna o nome da tabela no banco com base na classe do objeto
-     * <code>
+     * 
      * Object o = ...;
      * o.getClass();
-     * <code>
+     * 
      * @param classOfObject
      * @return 
      */
     public String getTableName(Class classOfObject){
         return this.tableNames.get(classOfObject);
     }
-    
+    /**
+     * 
+     * @param elem 
+     */
+   @Override
     public void insertUpdate(E elem){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
@@ -154,13 +158,19 @@ public class GeneralDao<E extends Serializable & ClassNamable> implements DataAc
     public List<E> getAll(String from){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
-        String querytxt = (as.equals("")) ? "FROM " + from : "FROM " + from + " AS " + ;
+       // String querytxt = (as.equals("")) ? "FROM " + from : "FROM " + from + " AS " + ;
         System.err.println("[EXECUTANDO QUERY: `"+querytxt+"`]");
         Query select = sess.createQuery(querytxt);
         List<E> rsp = select.list();
         return rsp;
     }
-    
+    /**
+     * 
+     * @param from
+     * @param as
+     * @return 
+     */
+   @Override
     public List<E> getAll(String from, String as){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
@@ -176,6 +186,7 @@ public class GeneralDao<E extends Serializable & ClassNamable> implements DataAc
      * @param query
      * @return 
      */
+   @Override
     public List<E> executeQuery(String query){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
@@ -186,7 +197,6 @@ public class GeneralDao<E extends Serializable & ClassNamable> implements DataAc
             System.err.println("\t**[CONSULTA EFETUADA COM SUCESSO]");
             return rsp;
         }catch(HibernateException e){
-            e.printStackTrace();
         }
         return null;
     }
