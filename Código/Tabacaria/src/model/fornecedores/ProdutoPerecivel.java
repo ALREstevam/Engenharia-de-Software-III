@@ -52,6 +52,11 @@ public class ProdutoPerecivel extends Produto implements Serializable, Arrayable
         this.modoConservacao = modoConservacao;
     }
 
+    public ProdutoPerecivel() {
+    }
+    
+    
+
     /**
      * Obter a data de produção
      * @return 

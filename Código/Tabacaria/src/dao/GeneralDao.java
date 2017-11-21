@@ -38,19 +38,19 @@ public class GeneralDao<E extends Serializable & Descriptible & Arrayable> imple
 
     public GeneralDao() {
         this.tableNames = new HashMap<>();
-        this.tableNames.put(FornecedorDao.class, "fornecedor");
-        this.tableNames.put(Funcionario.class, "funcionario");
-        this.tableNames.put(Gerente.class, "funcionario");
-        this.tableNames.put(Caixa.class, "funcionario");
-        this.tableNames.put(Entregador.class, "funcionario");
-        this.tableNames.put(NotaFiscal.class, "notafiscal");
-        this.tableNames.put(NotaFiscalCompra.class, "notafiscal");
-        this.tableNames.put(NotaFiscalVenda.class, "notafiscal");
-        this.tableNames.put(Produto.class, "produto");
-        this.tableNames.put(ProdutoPerecivel.class, "produto");
-        this.tableNames.put(ProdutoLoja.class, "produtoloja");
-        this.tableNames.put(Venda.class, "venda");
-    }
+        this.tableNames.put(FornecedorDao.class,        "fornecedor"        );
+        this.tableNames.put(Funcionario.class,          "funcionario"       );
+        this.tableNames.put(Gerente.class,              "funcionario"       );
+        this.tableNames.put(Caixa.class,                "funcionario"       );
+        this.tableNames.put(Entregador.class,           "funcionario"       );
+        this.tableNames.put(NotaFiscal.class,           "notafiscal"        );
+        this.tableNames.put(NotaFiscalCompra.class,     "notafiscal"        );
+        this.tableNames.put(NotaFiscalVenda.class,      "notafiscal"        );
+        this.tableNames.put(Produto.class,              "Produto"           );
+        this.tableNames.put(ProdutoPerecivel.class,     "Produto"           );
+        this.tableNames.put(ProdutoLoja.class,          "produtoloja"       );
+        this.tableNames.put(Venda.class,                "venda"             );
+    }   
     
     /**
      * Retorna o nome da tabela no banco com base na classe do objeto
