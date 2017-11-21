@@ -94,21 +94,21 @@ public class MainJFrame extends javax.swing.JFrame {
         this.produtosVenda = new ArrayList();
         
         
-        this.updateAllTables();
+        this.updateAllTables(this.ctr.getProdutos());
     }
     
     
-    private void updateAllTables(){
-        this.updateTableProdutos();
+    private void updateAllTables(List<Produto> prods){
+        this.updateTableProdutos(prods);
     }
     
-    private void updateTableProdutos(){
+    private void updateTableProdutos(List<Produto> prods){
         String [] columns = new String[4];
         columns[0] = "id";
         columns[1] = "nome";
         columns[2] = "descricao";
         columns[3] = "preco";
-        this.tmProduto = new GeneralTableModel<Produto>(columns, this.ctr.getProdutos());
+        this.tmProduto = new GeneralTableModel<Produto>(columns, prods);
         this.jTable1.setModel(this.tmProduto);
     }
     /**
@@ -1390,7 +1390,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            this.updateTableProdutos();
+            this.updateTableProdutos(this.ctr.getProdutos());
             JOptionPane.showMessageDialog(this,
                         "Produto cadastrado.",
                         "Sucesso", 
@@ -1452,25 +1452,26 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
         // TODO add your handling code here:
         System.err.println("DEBUG MESSAGE: jTabbedPane1FocusGained");
-        this.updateTableProdutos();
-        
-        
-        
-        
-        
-        
+        this.updateTableProdutos(this.ctr.getProdutos());
     }//GEN-LAST:event_jTabbedPane1FocusGained
 
     private void jButtonPesquisaProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaProdutosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPesquisaProdutosActionPerformed
-
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        List<Produto> searchResult = new ArrayList<>();
         String searchTerm = this.jTextFieldPesquisaProdutos.getText();
         for(int i = 0; i < this.jTableProdutos.getRowCount() - 1; i++){
             Produto p = this.tmProduto.getObjectAt(i);
+            String description = p.describe();
             
+            if (description.indexOf(searchTerm) != -1) {
+                searchResult.add(p);
+            }
         }
+        this.updateTableProdutos(searchResult);
+    }//GEN-LAST:event_jButtonPesquisaProdutosActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        
     }//GEN-LAST:event_jButton17ActionPerformed
 
 

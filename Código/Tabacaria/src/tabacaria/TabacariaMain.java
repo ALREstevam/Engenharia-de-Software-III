@@ -28,7 +28,7 @@ public class TabacariaMain {
      * @param args the command line arguments
      */
 
-    public static void main(String[] args) {
+    public static void nomain(String[] args) {
         tabacariaControllers.Tabacaria ctrl = new Tabacaria();
         view.MainJFrame mjft = new view.MainJFrame(ctrl);
         mjft.setVisible(true);
