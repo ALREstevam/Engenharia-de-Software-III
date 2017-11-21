@@ -9,9 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import view.comboboxModel.Descriptible;
 import view.tableModel.Arrayable;
 
+@Table(name = "Produto")
 @Entity
 /**
  * Classe produto
@@ -56,6 +58,11 @@ public class Produto implements Serializable, Descriptible, Arrayable {
         this.descricao = descricao;
         this.preco = preco;
     }
+
+    public Produto() {
+    }
+    
+    
 
     /**
      * Obeter id

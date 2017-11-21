@@ -21,18 +21,8 @@ public class Tabacaria {
     public static void main(String[] args) {
         // TODO code application logic here
     
-        System.out.println("main");
-        //view.MainJFrame mainjfrm = new view.MainJFrame();
-        //mainjfrm.setVisible(true);
-    
-        Fornecedor forn0 = new Fornecedor(0, "Adecl8ei9ton", "Rua dos Ipês", 123456789);
-        Fornecedor forn1 = new Fornecedor(0, "Cleito Cleito", "Adamantina", 345);
+        TabacariaMain.nomain(args);
         
-        
-        dao.FornecedorDao daoForn = new FornecedorDao();
-        
-        daoForn.insert(forn0);
-        daoForn.insert(forn1);
     }
     
 }
