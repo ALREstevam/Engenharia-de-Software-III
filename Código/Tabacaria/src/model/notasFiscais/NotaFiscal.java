@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import view.comboboxModel.Descriptible;
+import view.tableModel.Arrayable;
 
 @Entity
-public abstract class NotaFiscal implements Serializable, ClassNamable {
+public abstract class NotaFiscal implements Serializable, Arrayable,  Descriptible{
 
     private static final long serialVersionUID = 1L;
     @Id
