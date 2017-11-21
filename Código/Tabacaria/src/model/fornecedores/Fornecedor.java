@@ -12,14 +12,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import org.junit.runner.Describable;
-import org.junit.runner.Description;
 import view.comboboxModel.Descriptible;
-import static view.comboboxModel.Descriptible.sep;
 import view.tableModel.Arrayable;
 
 @Entity
-public class Fornecedor implements Serializable, Descriptible, Arrayable {
+public class Fornecedor implements Serializable, ClassNamable, Arrayable, Descriptible {
 
     private static final long serialVersionUID = 1L;//ID do fornecedor
 
@@ -38,7 +35,7 @@ public class Fornecedor implements Serializable, Descriptible, Arrayable {
     private String contato;
 
     @Column
-    private String cnpj;
+    private int cnpj;
 
     @ElementCollection
     @CollectionTable(
@@ -56,7 +53,7 @@ public class Fornecedor implements Serializable, Descriptible, Arrayable {
      * @param contato
      * @param cnpj
      */
-    public Fornecedor(int id, String nome, String contato, String cnpj) {
+    public Fornecedor(int id, String nome, String contato, int cnpj) {
         this.id = id;
         this.nome = nome;
         this.contato = contato;
@@ -114,7 +111,7 @@ public class Fornecedor implements Serializable, Descriptible, Arrayable {
      *
      * @return
      */
-    public String getCnpj() {
+    public int getCnpj() {
         return cnpj;
     }
 
@@ -123,7 +120,7 @@ public class Fornecedor implements Serializable, Descriptible, Arrayable {
      *
      * @param cnpj
      */
-    public void setCnpj(String cnpj) {
+    public void setCnpj(int cnpj) {
         this.cnpj = cnpj;
     }
 
@@ -200,84 +197,28 @@ public class Fornecedor implements Serializable, Descriptible, Arrayable {
     }
 
     @Override
-    public long getIdFromDescription() {
-        /*
-        String frase = "nome;teste;10";
-        String array[] = new String[3];
-        array = frase.split(";");
-         */
-        String description = this.describe();
-        String arr[] = description.split(sep);
-
-        Long parsedId = null;
-        try {
-            parsedId = Long.parseLong(arr[0]);
-        } catch (Exception e) {
-            System.err.println("ERRO DE CONVERSÃO EM: Produto > id");
-        }
-        return parsedId;
+    public String getClassName() {
+        return "Fornecedor";
     }
 
     @Override
     public Object[] attributesToArray(String[] order) {
-        Object[] rsp = new Object[5];
-        int rspCount = 0;
-        for (String s : order) {
-            switch (s) {
-                case "id":
-                    rsp[rspCount] = this.getId();
-                    break;
-                case "cnpj":
-                    rsp[rspCount] = this.getCnpj();
-                    break;
-                case "contato":
-                    rsp[rspCount] = this.getContato();
-                    break;
-                case "nome":
-                    rsp[rspCount] = this.getNome();
-                    break;
-                case "produtos":
-                    String prod = "";
-                    for (Produto e : this.produtos) {
-                        prod = e.getNome() + ",";
-                    }
-                    rsp[rspCount] = prod;
-                default:
-                    rsp[rspCount] = "";
-                    break;
-            }
-            rspCount++;
-        }
-        return rsp;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Object setValue(String variable, Object value) {
-        switch (variable) {
-            case "id":
-                try {
-                    this.setId(Long.parseLong((String) value));
-                } catch (Exception e) {
-                    System.err.println("ERRO DE CONVERSÃO EM: Produto > id");
-                }
-                break;
-            case "nome":
-                this.setNome((String) value);
-                break;
-            case "cnpj":
-                this.setCnpj((String) value);
-                break;
-            case "contato":
-                this.setContato((String) value);
-                break;
-            default:
-                break;
-        }
-        return this;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String describe() {
-        return this.id + sep + this.nome + sep + this.cnpj + this.contato;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public long getIdFromDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
