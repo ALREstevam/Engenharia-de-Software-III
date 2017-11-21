@@ -10,13 +10,17 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 
 /**
- *
+ * This class generates a ComboboxModel for any object that implements the
+ * interface Descriptible
  * @author andre
+ * @param <E> a type of object
  */
-public class GeneralComboBoxModel<E extends Descriptible> {
-    
-    private enum DESCRIPTION_TYPES {default_size, short_size, medium_size, large_size};
-    
+public class GeneralComboboxModel<E extends Descriptible> {
+    /**
+     * Generates a DefaultComboboxModel using the toString() operation to do so
+     * @param elemList a list of elements
+     * @return  a ComboBoxMode
+     */
     public DefaultComboBoxModel getComboBoxModelUsingToString(List<E> elemList){
         List<String> elemInfo = new ArrayList<>(elemList.size());
         
@@ -25,43 +29,34 @@ public class GeneralComboBoxModel<E extends Descriptible> {
         }
         return new DefaultComboBoxModel(elemInfo.toArray());
     }
-    
-    public DefaultComboBoxModel getComboBoxModelUsingShortDescripton(List<E> elemList, String separator){
-        return this.getComboBoxModel(elemList, separator, DESCRIPTION_TYPES.short_size);
-    }
-    
-    public DefaultComboBoxModel getComboBoxModelUsingMediumDescripton(List<E> elemList, String separator){
-        return this.getComboBoxModel(elemList, separator, DESCRIPTION_TYPES.medium_size);
-    }
-    
-    public DefaultComboBoxModel getComboBoxModelUsingLargeDescripton(List<E> elemList, String separator){
-        return this.getComboBoxModel(elemList, separator, DESCRIPTION_TYPES.large_size);
-    }
-    
-    public DefaultComboBoxModel getComboBoxModelUsingDefaultDescripton(List<E> elemList, String separator){
-        return this.getComboBoxModel(elemList, separator, DESCRIPTION_TYPES.default_size);
-    }
-    
-    private DefaultComboBoxModel getComboBoxModel(List<E> elemList, String separator, DESCRIPTION_TYPES desc){
+   
+    /**
+     * Generates a DefaultComboboxModel using the describe() operation to do so
+     * @param elemList a elem list
+     * @return a DefaultComboBoxModel
+     */
+    public DefaultComboBoxModel getComboBoxModelUsingDescription(List<E> elemList){
         List<String> elemInfo = new ArrayList<>(elemList.size());
         for(E element : elemList){
-            String strElemDescription = "";
-            switch(desc){
-                case default_size:
-                    strElemDescription = element.getDefaultDescription(separator);
-                    break;
-                case large_size:
-                    strElemDescription = element.getLargeDescription(separator);
-                    break;
-                case medium_size:
-                    strElemDescription = element.getMediumdesCription(separator);
-                    break;
-                case short_size:
-                    strElemDescription = element.getShortDescription(separator);
-                    break;
-            }
+            String strElemDescription = element.describe();
             elemInfo.add(strElemDescription);
         }
         return new DefaultComboBoxModel(elemInfo.toArray());
+    }
+    
+    /**
+     * Gets a name and return a object
+     * @param stack a list of object
+     * @param needle the searched object
+     * @param sep the separator
+     * @return an object
+     */
+    public E nameToObject(List<E> stack, String needle, String sep){
+        for(E elem : stack){
+            if(elem.describe() == needle){
+                return elem;
+            }
+        }
+        return null;
     }
 }
