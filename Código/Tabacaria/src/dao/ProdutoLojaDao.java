@@ -1,7 +1,6 @@
 package dao;
 
 import java.util.List;
-import tabacariaControllers.Database;
 import model.loja.ProdutoLoja;
 
 public class ProdutoLojaDao extends GeneralDao<ProdutoLoja> implements DataAccessObject<ProdutoLoja>{

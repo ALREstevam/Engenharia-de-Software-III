@@ -19,6 +19,9 @@ import model.pessoa.*;
 import model.notasFiscais.*;
 import model.fornecedores.*;
 import model.loja.*;
+import org.junit.runner.Describable;
+import view.comboboxModel.Descriptible;
+import view.tableModel.Arrayable;
 
 /**
  *
@@ -29,9 +32,8 @@ import model.loja.*;
  * CRUD para um tipo de objeto qualquer
  * @author andre
  * @param <E> tipo do objeto a ser persistido pelo DAO
- * @param <ClassNamable>
  */
-public class GeneralDao<E extends Serializable & ClassNamable> implements DataAccessObject<E>{
+public class GeneralDao<E extends Serializable & Descriptible & Arrayable> implements DataAccessObject<E>{
     
    public final Map<Class, String> tableNames;
 

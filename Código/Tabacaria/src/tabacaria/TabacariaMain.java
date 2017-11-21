@@ -29,12 +29,17 @@ public class TabacariaMain {
      */
 
     public static void main(String[] args) {
-        try {
+        tabacariaControllers.Tabacaria ctrl = new Tabacaria();
+        view.MainJFrame mjft = new view.MainJFrame(ctrl);
+        mjft.setVisible(true);
+        //view.MainJFrame mainjfrm = new view.MainJFrame();
+        //mainjfrm.setVisible(true);
+        /*try {
             tests2();
             tests3();
         } catch (Exception ex) {
             Logger.getLogger(TabacariaMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 
     public static void tests() throws Exception {
