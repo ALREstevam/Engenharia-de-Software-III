@@ -76,8 +76,28 @@ public class NotaFiscalVenda extends NotaFiscal implements Serializable{
         this.content = content;
     }
 
-    @Override
+    
     public String getClassName() {
         return "NotaFiscalVenda";
+    }
+
+    @Override
+    public Object[] attributesToArray(String[] order) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object setValue(String variable, Object value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String describe() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public long getIdFromDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

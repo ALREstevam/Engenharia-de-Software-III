@@ -7,14 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import view.comboboxModel.Descriptible;
+import static view.comboboxModel.Descriptible.sep;
+import view.tableModel.Arrayable;
 
 @Entity
 /**
  * Funcionário define os dados e operações fundamentais que todo funcionário terá 
  */
-public abstract class Funcionario implements Serializable, ClassNamable {
+public abstract class Funcionario implements Serializable, Arrayable,Descriptible {
 
-    @Override
+   
     public String getClassName() {
         return "Funcionario";
     }
@@ -96,6 +99,74 @@ public abstract class Funcionario implements Serializable, ClassNamable {
      */
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    @Override
+    public String describe() {
+        return this.id + sep + this.nome + sep + this.cpf ;
+    }
+
+    @Override
+    public long getIdFromDescription() {
+        /*
+        String frase = "nome;teste;10";
+        String array[] = new String[3];
+        array = frase.split(";");
+        */
+        String description = this.describe();
+        String arr[] = description.split(sep);
+        
+        Long parsedId = null;
+        try{
+            parsedId = Long.parseLong(arr[0]);
+        }catch(Exception e){
+            System.err.println("ERRO DE CONVERSÃO EM: Produto > id");
+        }
+        return parsedId;
+    }
+        
+
+    @Override
+    public Object[] attributesToArray(String[] order) {
+        Object[] rsp = new Object[4];
+        int rspCount = 0;
+        for (String s : order) {
+            switch (s) {
+                case "id":
+                   
+                    break;
+                case "nome":
+                    rsp[rspCount] = this.getNome();
+                    break;
+                case "cpf":
+                    rsp[rspCount] = this.getCpf();
+                    break;
+               
+                default:
+                    rsp[rspCount] = "";
+                    break;
+            }
+            rspCount++;
+        }
+        return rsp;
+    }
+
+    @Override
+    public Object setValue(String variable, Object value) {
+        switch (variable) {
+            case "id":
+              break;
+            case "nome":
+                this.setNome((String) value);
+                break;
+            case "cpf":
+                this.setCpf((String) value);   
+                break;
+            
+            default:
+                break;
+        }
+        return this;
     }
 
 }

@@ -46,8 +46,6 @@ public class Caixa extends Funcionario implements Serializable {
      * @param tomadorNome
      * @param tomadorEndereco
      * @param tomadorCnpj
-     * @param prestadorOutrosDados
-     * @return
      */
     public NotaFiscalVenda emitirNotaVenda(String comentarioVenda, int id, String prestadorNome, String prestadorEndereco, String prestadorCnpj, String tomadorNome, String tomadorEndereco, int tomadorCnpj, String prestadorOutrosDados, String tomadorOutrosDados, String servicosLista, float valorNota, float deducoes, float desconto, float base, float aliquota, float iss, float credito, String outros) {
         NotaFiscalVenda notaFiscal = new NotaFiscalVenda(comentarioVenda, id, prestadorNome, prestadorEndereco, prestadorCnpj, tomadorNome, tomadorEndereco, tomadorCnpj, prestadorOutrosDados, tomadorOutrosDados, servicosLista, valorNota, deducoes, desconto, base, aliquota, iss, credito, outros);
@@ -56,8 +54,7 @@ public class Caixa extends Funcionario implements Serializable {
 
     /**
      * Após uma venda ser feita um caixa deve emitir uma nota fiscal de venda
-     * @return 
-     * @param comentarioVenda
+     * @param comentarioCompra
      * @param id
      * @param prestadorNome
      * @param prestadorEndereco
@@ -66,7 +63,17 @@ public class Caixa extends Funcionario implements Serializable {
      * @param tomadorEndereco
      * @param tomadorCnpj
      * @param prestadorOutrosDados
-     * @return
+     * @param tomadorOutrosDados
+     * @param servicosLista
+     * @param valorNota
+     * @param deducoes
+     * @param desconto
+     * @param base
+     * @param aliquota
+     * @param iss
+     * @param credito
+     * @param outros
+     * @return 
      */
     public NotaFiscalCompra receberPagamento(String comentarioCompra, int id, String prestadorNome, String prestadorEndereco, String prestadorCnpj, String tomadorNome, String tomadorEndereco, int tomadorCnpj, String prestadorOutrosDados, String tomadorOutrosDados, String servicosLista, float valorNota, float deducoes, float desconto, float base, float aliquota, float iss, float credito, String outros) {
         NotaFiscalCompra notaFiscal = new NotaFiscalCompra(comentarioCompra, id, prestadorNome, prestadorEndereco, prestadorCnpj, tomadorNome, tomadorEndereco, tomadorCnpj, prestadorOutrosDados, tomadorOutrosDados, servicosLista, valorNota, deducoes, desconto, base, aliquota, iss, credito, outros);

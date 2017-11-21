@@ -1,6 +1,5 @@
 package model.fornecedores;
 
-import dao.ClassNamable;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import view.comboboxModel.Descriptible;
 import view.tableModel.Arrayable;
@@ -188,13 +186,7 @@ public class Produto implements Serializable, Descriptible, Arrayable {
     public Object setValue(String variable, Object value) {
         switch (variable) {
             case "id":
-                try{
-                    this.setId(Long.parseLong((String)value));
-                }
-                catch(Exception e){
-                
-                }
-                break;
+              break;
             case "nome":
                 this.setNome((String) value);
                 break;

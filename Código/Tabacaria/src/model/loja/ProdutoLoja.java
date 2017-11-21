@@ -1,6 +1,5 @@
 package model.loja;
 
-import dao.ClassNamable;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,13 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import model.fornecedores.Produto;
+import view.comboboxModel.Descriptible;
+import static view.comboboxModel.Descriptible.sep;
+import view.tableModel.Arrayable;
 
 @Entity
 /**
  * Classe ProdutoLoja indica quais dos produtos fornecidos foram comprados e que
  * potencialmente estão sendo vendidos
  */
-public class ProdutoLoja implements Serializable, ClassNamable {
+public class ProdutoLoja implements Serializable, Arrayable,Descriptible {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -58,7 +60,7 @@ public class ProdutoLoja implements Serializable, ClassNamable {
      * Setar o id do produto da loja
      * @param id 
      */
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -111,9 +113,78 @@ public class ProdutoLoja implements Serializable, ClassNamable {
         this.precoVenda = precoVenda;
     }
 
-    @Override
+    
     public String getClassName() {
         return "ProdutoLoja";
     }
+    @Override
+    public String describe() {
+        return this.id + sep + this.getProduto().getNome()+ sep + this.getPrecoVenda() + sep + this.getPrecoVenda() + sep + this.getQuantidadeEstoque();
+    }
 
+    @Override
+    public long getIdFromDescription() {
+        /*
+        String frase = "nome;teste;10";
+        String array[] = new String[3];
+        array = frase.split(";");
+        */
+        String description = this.describe();
+        String arr[] = description.split(sep);
+        
+        Long parsedId = null;
+        try{
+            parsedId = Long.parseLong(arr[0]);
+        }catch(Exception e){
+            System.err.println("ERRO DE CONVERSÃO EM: Produto > id");
+        }
+        return parsedId;
+    }
+        
+
+    @Override
+    public Object[] attributesToArray(String[] order) {
+        Object[] rsp = new Object[4];
+        int rspCount = 0;
+        for (String s : order) {
+            switch (s) {
+                case "id":
+                    rsp[rspCount] = this.getId();
+                    break;
+                case "nome":
+                    rsp[rspCount] = this.getProduto().getNome();
+                    break;
+                case "quantidadeEstoque":
+                    rsp[rspCount] = this.getQuantidadeEstoque();
+                    break;
+                case "precoVenda":
+                    rsp[rspCount] = this.getPrecoVenda();
+                    break;
+                default:
+                    rsp[rspCount] = "";
+                    break;
+            }
+            rspCount++;
+        }
+        return rsp;
+    }
+
+    @Override
+    public Object setValue(String variable, Object value) {
+        switch (variable) {
+            case "id":
+               
+                break;
+            case "precoVenda":
+                this.setPrecoVenda((double) value);
+                break;
+            case "quantidadeEstoque":
+                this.setQuantidadeEstoque((int) value);   
+                break;
+            
+            default:
+                break;
+        }
+        return this;
+    }
 }

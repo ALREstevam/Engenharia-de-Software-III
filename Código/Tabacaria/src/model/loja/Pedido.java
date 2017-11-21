@@ -1,26 +1,18 @@
 package model.loja;
 
-import dao.ClassNamable;
-import model.fornecedores.Produto;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import view.comboboxModel.Descriptible;
+import view.tableModel.Arrayable;
 
 @Entity
 /**
  * A classe Pedido indica uma venda que deve ser entregue à domicílio
  */
-public class Pedido extends Venda implements Serializable, ClassNamable {
+public class Pedido extends Venda implements Serializable, Arrayable, Descriptible {
 
     private static final long serialVersionUID = 1L;
 
@@ -121,5 +113,87 @@ public class Pedido extends Venda implements Serializable, ClassNamable {
      */
     public void entregar() {
         setStatus(Status.entregue);
+    }
+    @Override
+    public String describe() {
+        return this.getId() + sep + this.endereco + sep + this.receptorNome + sep + this.getStatus();
+    }
+
+    @Override
+    public long getIdFromDescription() {
+        /*
+        String frase = "nome;teste;10";
+        String array[] = new String[3];
+        array = frase.split(";");
+        */
+        String description = this.describe();
+        String arr[] = description.split(sep);
+        
+        Long parsedId = null;
+        try{
+            parsedId = Long.parseLong(arr[0]);
+        }catch(Exception e){
+            System.err.println("ERRO DE CONVERSÃO EM: Produto > id");
+        }
+        return parsedId;
+    }
+        
+
+    @Override
+    public Object[] attributesToArray(String[] order) {
+        Object[] rsp = new Object[4];
+        int rspCount = 0;
+        for (String s : order) {
+            switch (s) {
+                case "id":
+                   
+                    break;
+                case "endereco":
+                    rsp[rspCount] = this.getEndereco();
+                    break;
+                case "receptorNome":
+                    rsp[rspCount] = this.getReceptorNome();
+                    break;
+                case "status":
+                    rsp[rspCount] = this.getStatus();
+                    break;
+                default:
+                    rsp[rspCount] = "";
+                    break;
+            }
+            rspCount++;
+        }
+        return rsp;
+    }
+
+    @Override
+    public Object setValue(String variable, Object value) {
+        switch (variable) {
+            case "id":
+                try{
+                    this.setId(Long.parseLong((String)value));
+                }
+                catch(Exception e){
+                
+                }
+                break;
+            case "endereco":
+                this.setEndereco((String) value);
+                break;
+            case "status":
+               
+                break;
+            case "receptorNome":
+                try{
+                   this.setReceptorNome((String) value);
+                }
+                catch(Exception e){
+                    System.err.println("ERRO DE CONVERSÃO NO CAMPO \"Produto > preço\"");
+                }
+                break;
+            default:
+                break;
+        }
+        return this;
     }
 }

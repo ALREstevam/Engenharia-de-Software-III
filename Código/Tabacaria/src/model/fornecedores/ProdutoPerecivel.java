@@ -1,6 +1,5 @@
 package model.fornecedores;
 
-import dao.ClassNamable;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -10,12 +9,14 @@ import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import view.comboboxModel.Descriptible;
+import view.tableModel.Arrayable;
 
 @Entity
 /**
  * ProdutoPerecivel é um tipo de produto com data de validade e modo de conservação
  */
-public class ProdutoPerecivel extends Produto implements Serializable, ClassNamable {
+public class ProdutoPerecivel extends Produto implements Serializable, Arrayable, Descriptible {
 
     @Column
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -108,9 +109,78 @@ public class ProdutoPerecivel extends Produto implements Serializable, ClassNama
         return utils.DateUtils.asLocalDate(this.dataValidade).isAfter(LocalDate.now());
     }
 
-    @Override
     public String getClassName() {
         return "ProdutoPerecivel";
     }
+       @Override
+    public String describe() {
+        return this.getId() + sep + this.getNome() + sep + this.getDescricao() + sep + this.getPreco() + sep + this.modoConservacao + sep + this.dataProducao + sep + this.dataValidade;
+    }
 
+  
+        
+
+    @Override
+    public Object[] attributesToArray(String[] order) {
+        Object[] rsp = new Object[7];
+        int rspCount = 0;
+        for (String s : order) {
+            switch (s) {
+                case "id":
+                    rsp[rspCount] = this.getId();
+                    break;
+                case "nome":
+                    rsp[rspCount] = this.getNome();
+                    break;
+                case "descricao":
+                    rsp[rspCount] = this.getDescricao();
+                    break;
+                case "preco":
+                    rsp[rspCount] = this.getPreco();
+                    break;
+                case "dataValidade" :
+                    rsp[rspCount] = this.getDataValidade();
+                case "dataProducao" :
+                    rsp[rspCount] = this.getDataProducao();
+                case "modoConservacao" :
+                    rsp[rspCount] = this.getModoConservacao();
+                default:
+                    rsp[rspCount] = "";
+                    break;
+            }
+            rspCount++;
+        }
+        return rsp;
+    }
+
+    @Override
+    public Object setValue(String variable, Object value) {
+        switch (variable) {
+            case "id":
+                try{
+                    this.setId(Long.parseLong((String)value));
+                }
+                catch(Exception e){
+                
+                }
+                break;
+            case "nome":
+                this.setNome((String) value);
+                break;
+            case "descricao":
+                this.setDescricao((String) value);   
+                break;
+            case "preco":
+                try{
+                    this.setPreco(Double.parseDouble((String)value));
+                }
+                catch(Exception e){
+                    System.err.println("ERRO DE CONVERSÃO NO CAMPO \"Produto > preço\"");
+                }
+                break;
+            default:
+                break;
+        }
+        return this;
+    }
 }
