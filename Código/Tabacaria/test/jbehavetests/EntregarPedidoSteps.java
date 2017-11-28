@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package jbehavetests;
 
-/**
- *
- * @author huann
- */
+package jbehavetests;
 
 import model.loja.Entregador;
 import static org.jbehave.Ensure.ensureThat;
@@ -28,12 +19,10 @@ public class EntregarPedidoSteps extends Steps {
         Entregador.nome = y;
         Entregador.cpf = z;
     }
-    
     @When (&quot;Executar o método entregarPedido&quot)
     public void executarFuncao () {
         results = entregador.entregarPedido();
     }
-    
     @Then (&quot;Deve ser \&quot;$retorno\&quot;&quot;)
     public void checarResultado(String retorno) {
         ensureThat(results.toString().equals(retorno));
