@@ -38,18 +38,20 @@ public class GeneralDao<E extends Serializable & Descriptible & Arrayable> imple
 
     public GeneralDao() {
         this.tableNames = new HashMap<>();
-        this.tableNames.put(FornecedorDao.class,        "fornecedor"        );
-        this.tableNames.put(Funcionario.class,          "funcionario"       );
-        this.tableNames.put(Gerente.class,              "funcionario"       );
-        this.tableNames.put(Caixa.class,                "funcionario"       );
-        this.tableNames.put(Entregador.class,           "funcionario"       );
+        this.tableNames.put(Fornecedor.class,           "Fornecedor"        );
+        this.tableNames.put(Funcionario.class,          "Funcionario"       );
+        this.tableNames.put(Gerente.class,              "Funcionario"       );
+        this.tableNames.put(Caixa.class,                "Funcionario"       );
+        this.tableNames.put(Entregador.class,           "Funcionario"       );
         this.tableNames.put(NotaFiscal.class,           "notafiscal"        );
         this.tableNames.put(NotaFiscalCompra.class,     "notafiscal"        );
         this.tableNames.put(NotaFiscalVenda.class,      "notafiscal"        );
         this.tableNames.put(Produto.class,              "Produto"           );
         this.tableNames.put(ProdutoPerecivel.class,     "Produto"           );
-        this.tableNames.put(ProdutoLoja.class,          "produtoloja"       );
-        this.tableNames.put(Venda.class,                "venda"             );
+        this.tableNames.put(ProdutoLoja.class,          "ProdutoLoja"       );
+        this.tableNames.put(Venda.class,                "Venda"             );
+        this.tableNames.put(ItemCarrinho.class,         "ItemCarrinho"      );
+        this.tableNames.put(Pedido.class,               "Pedido"            );
     }   
     
     /**
@@ -169,11 +171,21 @@ public class GeneralDao<E extends Serializable & Descriptible & Arrayable> imple
     public List<E> getAll(String from, String as){
         SessionFactory sf = HibernateUtil.getSessionFactory();
         Session sess = sf.openSession();
-        String querytxt = (as.equals("")) ? "FROM " + from : "FROM " + from + " AS " + as;
-        System.err.println("[EXECUTANDO QUERY: `"+querytxt+"`]");
-        Query select = sess.createQuery(querytxt);
-        List<E> rsp = select.list();
-        return rsp;
+        try{    
+            String querytxt = (as.equals("")) ? "FROM " + from : "FROM " + from + " AS " + as;
+            System.err.println("[EXECUTANDO QUERY: `"+querytxt+"`]");
+            Query select = sess.createQuery(querytxt);
+            List<E> rsp = select.list();
+            return rsp;
+        }catch(Exception e){
+            System.err.println("[ERRO AO EXECUTAR QUERY]");
+            e.printStackTrace();
+        }
+        finally{
+            sess.flush();
+            sess.close();
+        }
+        return null;
     }
     
     /**
@@ -192,6 +204,11 @@ public class GeneralDao<E extends Serializable & Descriptible & Arrayable> imple
             System.err.println("\t**[CONSULTA EFETUADA COM SUCESSO]");
             return rsp;
         }catch(HibernateException e){
+            e.printStackTrace();
+        }
+        finally{
+            sess.flush();
+            sess.close();
         }
         return null;
     }
