@@ -17,16 +17,15 @@ public class Entregador extends Funcionario implements Serializable {
     public String getClassName() {
         return "Entregador";
     }
-    
-    /**
-     * Construtor da classe
-     * @param id
-     * @param nome
-     * @param cpf 
-     */
-    public Entregador(int id, String nome, String cpf) {
-        super(funcType.ENTREGADOR ,id, nome, cpf);
+
+    public Entregador(int id, funcType func, String nome, String cpf) {
+        super(id, func, nome, cpf);
     }
+
+    public Entregador() {
+    }
+    
+    
 
     /**
      * Entregador marcando pedido como entregue

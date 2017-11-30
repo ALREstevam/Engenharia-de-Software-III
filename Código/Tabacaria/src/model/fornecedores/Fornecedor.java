@@ -23,6 +23,7 @@ public class Fornecedor implements Serializable, ClassNamable, Arrayable, Descri
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,15 +36,15 @@ public class Fornecedor implements Serializable, ClassNamable, Arrayable, Descri
     private String contato;
 
     @Column
-    private int cnpj;
+    private String cnpj;
 
-    @ElementCollection
+    /*@ElementCollection
     @CollectionTable(
             name = "produtos",
             joinColumns = @JoinColumn(name = "p_id")
     )
     @Column(name = "f_id")
-    private List<Produto> produtos;
+    private List<Produto> produtos;*/
 
     /**
      * Construtor para o fornecedor
@@ -53,13 +54,17 @@ public class Fornecedor implements Serializable, ClassNamable, Arrayable, Descri
      * @param contato
      * @param cnpj
      */
-    public Fornecedor(int id, String nome, String contato, int cnpj) {
+    public Fornecedor(int id, String nome, String contato, String cnpj) {
         this.id = id;
         this.nome = nome;
         this.contato = contato;
         this.cnpj = cnpj;
-        produtos = new ArrayList<>();
     }
+
+    public Fornecedor() {
+    }
+    
+    
 
     /**
      * Setar o id do fornecedor
@@ -111,7 +116,7 @@ public class Fornecedor implements Serializable, ClassNamable, Arrayable, Descri
      *
      * @return
      */
-    public int getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
@@ -120,75 +125,8 @@ public class Fornecedor implements Serializable, ClassNamable, Arrayable, Descri
      *
      * @param cnpj
      */
-    public void setCnpj(int cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
-    }
-
-    /**
-     * Obter a lista de produtos fornecidos
-     *
-     * @return
-     */
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    /**
-     * Fornecedor começou a vender um novo tipo de produto
-     */
-    public boolean novoProduto(int id, String nome, String descricao, float preco) {
-        Produto e = new Produto(id, nome, descricao, preco);
-        return produtos.add(e);
-    }
-
-    /**
-     * Fornecedor alterando um produto já cadastrado
-     */
-    public boolean alterarProduto(long id, float preco) {
-
-        for (Produto e : produtos) {
-            if (e.getId() == id) {
-                produtos.remove(e);
-                e.setPreco(preco);
-                produtos.add(e);
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Fornecedor alterando um produto já cadastrado
-     */
-    public boolean alterarProduto(long id, String descricao) {
-        for (Produto e : produtos) {
-            if (e.getId() == id) {
-                /*produtos.get(e.getId()).setNome(descricao);
-                produtos.get(cnpj)*/
-                produtos.remove(e);
-                e.setDescricao(descricao);
-                produtos.add(e);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Fornecedor parou de vender o produto
-     *
-     * @param nome
-     */
-    public boolean pararVenderProduto(long id) {
-        Produto p;
-        for (Produto e : produtos) {
-            if (e.getId() == id) {
-                p = e;
-                return produtos.remove(e);
-            }
-        }
-        return false;
     }
 
     @Override
@@ -203,22 +141,69 @@ public class Fornecedor implements Serializable, ClassNamable, Arrayable, Descri
 
     @Override
     public Object[] attributesToArray(String[] order) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Object[] rsp = new Object[4];
+        int rspCount = 0;
+        for (String s : order) {
+            switch (s) {
+                case "id":
+                    rsp[rspCount] = this.getId();
+                    break;
+                case "nome":
+                    rsp[rspCount] = this.getNome();
+                    break;
+                case "contato":
+                    rsp[rspCount] = this.getContato();
+                    break;
+                case "cnpj":
+                    rsp[rspCount] = this.getCnpj();
+                    break;
+                default:
+                    rsp[rspCount] = "";
+                    break;
+            }
+            rspCount++;
+        }
+        return rsp;
     }
 
     @Override
     public Object setValue(String variable, Object value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch (variable) {
+            case "id":
+              break;
+            case "nome":
+                this.setNome((String) value);
+                break;
+            case "contato":
+                this.setContato((String) value);   
+                break;
+            case "cnpj":
+                this.setCnpj((String)value);
+                break;
+            default:
+                break;
+        }
+        return this;
     }
+    
 
     @Override
     public String describe() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.id + sep + this.nome + sep + this.contato + sep + this.cnpj;
     }
 
     @Override
     public long getIdFromDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String description = this.describe();
+        String arr[] = description.split(sep);
+        
+        Long parsedId = null;
+        try{
+            parsedId = Long.parseLong(arr[0]);
+        }catch(Exception e){
+            System.err.println("ERRO DE CONVERSÃO EM: Fornecedor > id");
+        }
+        return parsedId;
     }
 
 }

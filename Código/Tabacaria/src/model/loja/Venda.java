@@ -1,5 +1,6 @@
 package model.loja;
 
+import dao.ClassNamable;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CollectionTable;
@@ -17,7 +18,7 @@ import view.tableModel.Arrayable;
 /**
  * Classe Venda
  */
-public class Venda implements Serializable, Arrayable, Descriptible {
+public class Venda implements Serializable, Arrayable, Descriptible, ClassNamable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -36,14 +37,25 @@ public class Venda implements Serializable, Arrayable, Descriptible {
         @ElementCollection
         @JoinColumn(name="PART_ID")
      */
+    
+    
+  
+    /*
     @ElementCollection
     @CollectionTable(
             name = "produtos",
             joinColumns = @JoinColumn(name = "p_id")
     )
-    @Column(name = "a_id")
-    private List<ProdutoLoja> produtos;
-
+    @Column(name = "f_id")
+    private List<Produto> produtos;
+    
+    */
+    
+    @ElementCollection
+	@CollectionTable(name="carrinho", joinColumns=@JoinColumn(name="id"))
+	@Column(name="prod")
+    private List<ItemCarrinho> produtos;
+    
     @Column
     private double valorTotal;
 
@@ -54,11 +66,14 @@ public class Venda implements Serializable, Arrayable, Descriptible {
      * @param produtos
      * @param valorTotal
      */
-    public Venda(int id, List<ProdutoLoja> produtos, double valorTotal) {
+    public Venda(int id, List<ItemCarrinho> produtos) {
 
         this.id = id;
         this.produtos = produtos;
-        this.valorTotal = valorTotal;
+        this.valorTotal = this.recalcularValorTotal();
+    }
+
+    public Venda() {
     }
 
     /**
@@ -84,7 +99,7 @@ public class Venda implements Serializable, Arrayable, Descriptible {
      *
      * @return
      */
-    public List<ProdutoLoja> getProdutos() {
+    public List<ItemCarrinho> getProdutos() {
         return produtos;
     }
 
@@ -93,7 +108,7 @@ public class Venda implements Serializable, Arrayable, Descriptible {
      *
      * @param produtos
      */
-    public void setProdutos(List<ProdutoLoja> produtos) {
+    public void setProdutos(List<ItemCarrinho> produtos) {
         this.produtos = produtos;
     }
 
@@ -111,8 +126,8 @@ public class Venda implements Serializable, Arrayable, Descriptible {
      */
     public double recalcularValorTotal() {
         this.valorTotal = 0;
-        for (ProdutoLoja elem : this.produtos) {
-            this.valorTotal += elem.getPrecoVenda();
+        for (ItemCarrinho elem : this.produtos) {
+            this.valorTotal += elem.getQuantidade() * elem.getProduto().getPrecoVenda();
         }
         return this.valorTotal;
     }
@@ -124,10 +139,9 @@ public class Venda implements Serializable, Arrayable, Descriptible {
     /**
      * Adiciona um produto aos vendidos
      */
-    public boolean adicionarProduto(ProdutoLoja prod) {
-
+    public boolean adicionarProduto(ItemCarrinho prod) {
         if (this.produtos.add(prod)) {
-            this.valorTotal += prod.getPrecoVenda();
+            this.valorTotal += prod.getQuantidade() * prod.getProduto().getPrecoVenda();
             return true;
         }
         return false;
@@ -144,6 +158,7 @@ public class Venda implements Serializable, Arrayable, Descriptible {
         return false;
     }
 
+    @Override
     public String getClassName() {
         return "Venda";
     }
@@ -167,7 +182,7 @@ public class Venda implements Serializable, Arrayable, Descriptible {
         try {
             parsedId = Long.parseLong(arr[0]);
         } catch (Exception e) {
-            System.err.println("ERRO DE CONVERSÃO EM: Produto > id");
+            System.err.println("ERRO DE CONVERSÃO EM: Venda > id");
         }
         return parsedId;
     }
@@ -210,4 +225,12 @@ public class Venda implements Serializable, Arrayable, Descriptible {
         }
         return this;
     }
+
+    @Override
+    public String toString() {
+        return this.describe();
+    }
+    
+    
+    
 }

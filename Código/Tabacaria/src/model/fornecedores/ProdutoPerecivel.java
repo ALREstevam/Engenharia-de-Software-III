@@ -161,14 +161,6 @@ public class ProdutoPerecivel extends Produto implements Serializable, Arrayable
     @Override
     public Object setValue(String variable, Object value) {
         switch (variable) {
-            case "id":
-                try{
-                    this.setId(Long.parseLong((String)value));
-                }
-                catch(Exception e){
-                
-                }
-                break;
             case "nome":
                 this.setNome((String) value);
                 break;

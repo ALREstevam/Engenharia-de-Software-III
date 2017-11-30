@@ -42,8 +42,8 @@ public class Pedido extends Venda implements Serializable, Arrayable, Descriptib
      * @param produtos
      * @param valorTotal 
      */
-    public Pedido(String receptorNome, String endereco, int id, List<ProdutoLoja> produtos, double valorTotal) {
-        super(id, produtos, valorTotal);
+    public Pedido(String receptorNome, String endereco, int id, List<ItemCarrinho> produtos) {
+        super(id, produtos);
         this.receptorNome = receptorNome;
         this.endereco = endereco;
         this.status = Status.naoEntregue;
@@ -55,9 +55,14 @@ public class Pedido extends Venda implements Serializable, Arrayable, Descriptib
      * @param produtos
      * @param valorTotal 
      */
-    public Pedido(int id, List<ProdutoLoja> produtos, int valorTotal) {
-        super(id, produtos, valorTotal);
+    public Pedido(int id, List<ItemCarrinho> produtos) {
+        super(id, produtos);
     }
+
+    public Pedido() {
+    }
+    
+    
 
     /**
      * Obter o nome do receptor do pedido

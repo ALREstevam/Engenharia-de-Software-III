@@ -5,6 +5,7 @@
  */
 package utils.parse;
 
+import java.text.DecimalFormat;
 import java.util.concurrent.Callable;
 
 /**
@@ -104,6 +105,12 @@ public class NumberParser {
         }
         throw new NumberFormatException("Empty String after clean.");
     }
+    
+    public static String DoubleToDecimalString(Double value){
+        DecimalFormat df = new DecimalFormat("#.00");
+        return df.format(value);
+    }
+    
     
     public static boolean isParseable(String str){
         try{

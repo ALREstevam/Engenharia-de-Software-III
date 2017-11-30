@@ -15,7 +15,7 @@ import view.tableModel.Arrayable;
 /**
  * Funcionário define os dados e operações fundamentais que todo funcionário terá 
  */
-public abstract class Funcionario implements Serializable, Arrayable,Descriptible {
+public  class Funcionario implements Serializable, Arrayable,Descriptible {
 
    
     public String getClassName() {
@@ -30,29 +30,33 @@ public abstract class Funcionario implements Serializable, Arrayable,Descriptibl
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-
+    @Column
+    private String func;
     @Column
     private String nome;
 
     @Column
     private String cpf;
     
-    @Column
-    private funcType func;
+   
 
     /**
      * Construtor para a classe
      * @param id
+     * @param func
      * @param nome
      * @param cpf 
      */
-    public Funcionario(funcType func, int id, String nome, String cpf) {
-        this.func = func;
+    public Funcionario (int id, funcType func, String nome, String cpf) {
+        System.out.println(func);
         this.id = id;
+        this.func = func.toString();
         this.nome = nome;
         this.cpf = cpf;
     }
-
+    public Funcionario(){
+        
+    }
     /**
      * Obter id do funcionário
      * @return 
@@ -100,6 +104,10 @@ public abstract class Funcionario implements Serializable, Arrayable,Descriptibl
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+    
+    public String getFunc(){
+        return this.func;
+    }
 
     @Override
     public String describe() {
@@ -128,12 +136,16 @@ public abstract class Funcionario implements Serializable, Arrayable,Descriptibl
 
     @Override
     public Object[] attributesToArray(String[] order) {
-        Object[] rsp = new Object[4];
+        Object[] rsp = new Object[5];
         int rspCount = 0;
         for (String s : order) {
+            
             switch (s) {
                 case "id":
-                   
+                   rsp[rspCount] = this.getId();
+                    break;
+                case  "cargo"  :
+                    rsp[rspCount] = this.getFunc();
                     break;
                 case "nome":
                     rsp[rspCount] = this.getNome();
@@ -158,6 +170,7 @@ public abstract class Funcionario implements Serializable, Arrayable,Descriptibl
               break;
             case "nome":
                 this.setNome((String) value);
+            
                 break;
             case "cpf":
                 this.setCpf((String) value);   

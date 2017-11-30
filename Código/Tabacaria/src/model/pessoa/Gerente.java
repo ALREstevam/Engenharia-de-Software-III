@@ -21,6 +21,13 @@ public class Gerente extends Funcionario implements Serializable {
     public String getClassName() {
         return "Gerente";
     }
+
+    public Gerente(int id, funcType func, String nome, String cpf) {
+        super(id, func, nome, cpf);
+    }
+
+    public Gerente() {
+    }
     
     /**
      * Construtor da classe
@@ -28,9 +35,7 @@ public class Gerente extends Funcionario implements Serializable {
      * @param nome
      * @param cpf 
      */
-    public Gerente(int id, String nome, String cpf) {
-        super(funcType.GERENTE, id, nome, cpf);
-    }
+  
 
     /**
      * O Gerente pode requisitar um relatório de compras

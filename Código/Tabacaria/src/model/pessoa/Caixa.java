@@ -22,10 +22,15 @@ public class Caixa extends Funcionario implements Serializable {
     public String getClassName() {
         return "Caixa";
     }
-    
-    public Caixa(int id, String nome, String cpf) {
-        super(funcType.GERENTE, id, nome, cpf);
+
+    public Caixa(int id, funcType func, String nome, String cpf) {
+        super(id, func, nome, cpf);
     }
+
+    public Caixa() {
+    }
+    
+   
     
     /**
      * Após uma venda ser feita um caixa deve emitir uma nota fiscal de venda
@@ -79,42 +84,4 @@ public class Caixa extends Funcionario implements Serializable {
         NotaFiscalCompra notaFiscal = new NotaFiscalCompra(comentarioCompra, id, prestadorNome, prestadorEndereco, prestadorCnpj, tomadorNome, tomadorEndereco, tomadorCnpj, prestadorOutrosDados, tomadorOutrosDados, servicosLista, valorNota, deducoes, desconto, base, aliquota, iss, credito, outros);
         return notaFiscal;
     }
-
-   /**
-    * Um caixa pode realizar uma nova venda
-    * @param id
-    * @param valorTotal
-    * @return 
-    */
-    public Venda realizarVenda(int id, double valorTotal) {
-        List produtos = new ArrayList<ProdutoLoja>();
-        Venda venda = new Venda(id, produtos, valorTotal);
-        return venda;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Pedido obterDadosEntrega(int id, String receptorNome, List<ProdutoLoja> produtos, String endereco, float valorTotal) {
-        Pedido pedido = new Pedido(receptorNome, endereco, id, produtos, valorTotal);
-        return pedido;
-    }
-
-    /**
-     * O caixa pode controlar a adição de produtos a uma venda
-     * @return 
-     */
-    boolean adicionarProduto(Venda vend, ProdutoLoja prod) {
-        return vend.adicionarProduto(prod);
-    }
-
-    /**
-     * O caixa pode controlar a remoção de produtos de uma venda
-     * @return
-     */
-    boolean removerProduto(Venda vend, ProdutoLoja prod) {
-        return vend.removerProduto(prod);
-    }
-
 }

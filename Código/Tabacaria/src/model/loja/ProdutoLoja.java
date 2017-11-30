@@ -48,6 +48,11 @@ public class ProdutoLoja implements Serializable, Arrayable,Descriptible {
         this.precoVenda = precoVenda;
     }
 
+    public ProdutoLoja() {
+    }
+    
+    
+
     /**
      * Obter o id do produto da loja
      * @return 
@@ -154,10 +159,10 @@ public class ProdutoLoja implements Serializable, Arrayable,Descriptible {
                 case "nome":
                     rsp[rspCount] = this.getProduto().getNome();
                     break;
-                case "quantidadeEstoque":
+                case "qtd_estoque":
                     rsp[rspCount] = this.getQuantidadeEstoque();
                     break;
-                case "precoVenda":
+                case "preco_venda":
                     rsp[rspCount] = this.getPrecoVenda();
                     break;
                 default:
@@ -175,11 +180,19 @@ public class ProdutoLoja implements Serializable, Arrayable,Descriptible {
             case "id":
                
                 break;
-            case "precoVenda":
-                this.setPrecoVenda((double) value);
+            case "preco_venda":
+                try{
+                    this.setPrecoVenda(utils.parse.NumberParser.getDoubleFrom((String)value));
+                }catch(Exception e){
+                    System.err.println("ERRO AO CONVERTER UM VALOR");
+                }
                 break;
-            case "quantidadeEstoque":
-                this.setQuantidadeEstoque((int) value);   
+            case "qtd_estoque":
+                try{
+                    this.setQuantidadeEstoque(utils.parse.NumberParser.getIntegerFrom((String)value));
+                }catch(Exception e){
+                    System.err.println("ERRO AO CONVERTER UM VALOR");
+                }
                 break;
             
             default:
